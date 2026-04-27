@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+    <class>MainWindow</class>
+    <widget class="QMainWindow" name="MainWindow">
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>1024</width>
+                <height>768</height>
+            </rect>
+        </property>
+        <property name="windowTitle">
+            <string>Sistema de Gestión Logística</string>
+        </property>
+        <widget class="QWidget" name="centralwidget">
+            <layout class="QVBoxLayout" name="verticalLayout">
+                <item>
+                    <widget class="QTabWidget" name="tabMenu">
+                        <property name="currentIndex">
+                            <number>4</number>
+                        </property>
+                        <widget class="QWidget" name="tabCarga">
+                            <attribute name="title"><string>1. Carga de Archivos</string></attribute>
+                            <widget class="QLabel" name="lblInstruccionesCarga">
+                                <property name="geometry"><rect><x>300</x><y>50</y><width>400</width><height>30</height></rect></property>
+                                <property name="font"><font><pointsize>12</pointsize><bold>true</bold></font></property>
+                                <property name="text"><string>Paso 1: Cargar la infraestructura (Sucursales)</string></property>
+                                <property name="alignment"><set>Qt::AlignCenter</set></property>
+                            </widget>
+                            <widget class="QPushButton" name="btnCargarSucursales">
+                                <property name="geometry"><rect><x>400</x><y>100</y><width>200</width><height>40</height></rect></property>
+                                <property name="text"><string>📄 1. Cargar Sucursales CSV</string></property>
+                            </widget>
+
+                            <widget class="QPushButton" name="btnCargarConexiones">
+                                <property name="geometry"><rect><x>400</x><y>170</y><width>200</width><height>40</height></rect></property>
+                                <property name="text"><string>🔗 2. Cargar Conexiones CSV</string></property>
+                            </widget>
+
+                            <widget class="QPushButton" name="btnCargarProductos">
+                                <property name="geometry"><rect><x>400</x><y>240</y><width>200</width><height>40</height></rect></property>
+                                <property name="text"><string>📦 3. Cargar Productos CSV</string></property>
+                            </widget>
+                        </widget>
+
+                        <widget class="QWidget" name="tabGestion">
+                            <attribute name="title">
+                                <string>2. Gestión y Rendimiento</string>
+                            </attribute>
+                            <widget class="QGroupBox" name="groupBox">
+                                <property name="geometry">
+                                    <rect>
+                                        <x>20</x>
+                                        <y>20</y>
+                                        <width>350</width>
+                                        <height>400</height>
+                                    </rect>
+                                </property>
+                                <property name="title">
+                                    <string>Agregar Producto Manual</string>
+                                </property>
+                                <widget class="QLineEdit" name="txtManualID">
+                                    <property name="geometry">
+                                        <rect>
+                                            <x>20</x>
+                                            <y>40</y>
+                                            <width>300</width>
+                                            <height>30</height>
+                                        </rect>
+                                    </property>
+                                    <property name="placeholderText">
+                                        <string>ID Sucursal</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLineEdit" name="txtManualNombre">
+                                    <property name="geometry">
+                                        <rect>
+                                            <x>20</x>
+                                            <y>80</y>
+                                            <width>300</width>
+                                            <height>30</height>
+                                        </rect>
+                                    </property>
+                                    <property name="placeholderText">
+                                        <string>Nombre del Producto</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLineEdit" name="txtManualCodigo">
+                                    <property name="geometry">
+                                        <rect>
+                                            <x>20</x>
+                                            <y>120</y>
+                                            <width>300</width>
+                                            <height>30</height>
+                                        </rect>
+                                    </property>
+                                    <property name="placeholderText">
+                                        <string>Código de Barras (10 dígitos)</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLineEdit" name="txtManualCategoria">
+                                    <property name="geometry">
+                                        <rect>
+                                            <x>20</x>
+                                            <y>160</y>
+                                            <width>300</width>
+                                            <height>30</height>
+                                        </rect>
+                                    </property>
+                                    <property name="placeholderText">
+                                        <string>Categoría</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLineEdit" name="txtManualFecha">
+                                    <property name="geometry">
+                                        <rect>
+                                            <x>20</x>
+                                            <y>200</y>
+                                            <width>300</width>
+                                            <height>30</height>
+                                        </rect>
+                                    </property>
+                                    <property name="placeholderText">
+                                        <string>Fecha (YYYY-MM-DD)</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLineEdit" name="txtManualMarca">
+                                    <property name="geometry">
+                                        <rect>
+                                            <x>20</x>
+                                            <y>240</y>
+                                            <width>300</width>
+                                            <height>30</height>
+                                        </rect>
+                                    </property>
+                                    <property name="placeholderText">
+                                        <string>Marca</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLineEdit" name="txtManualPrecio">
+                                    <property name="geometry">
+                                        <rect>
+                                            <x>20</x>
+                                            <y>280</y>
+                                            <width>300</width>
+                                            <height>30</height>
+                                        </rect>
+                                    </property>
+                                    <property name="placeholderText">
+                                        <string>Precio</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLineEdit" name="txtManualStock">
+                                    <property name="geometry">
+                                        <rect>
+                                            <x>20</x>
+                                            <y>320</y>
+                                            <width>300</width>
+                                            <height>30</height>
+                                        </rect>
+                                    </property>
+                                    <property name="placeholderText">
+                                        <string>Stock</string>
+                                    </property>
+                                </widget>
+                                <widget class="QPushButton" name="btnAgregarManual">
+                                    <property name="geometry">
+                                        <rect>
+                                            <x>20</x>
+                                            <y>360</y>
+                                            <width>300</width>
+                                            <height>30</height>
+                                        </rect>
+                                    </property>
+                                    <property name="text">
+                                        <string>Guardar y Medir Tiempo</string>
+                                    </property>
+                                </widget>
+                            </widget>
+                            <widget class="QGroupBox" name="groupBox_2">
+                                <property name="geometry">
+                                    <rect>
+                                        <x>400</x>
+                                        <y>20</y>
+                                        <width>350</width>
+                                        <height>150</height>
+                                    </rect>
+                                </property>
+                                <property name="title">
+                                    <string>Búsqueda y Tiempos</string>
+                                </property>
+                                <widget class="QLineEdit" name="txtCodigoBarras">
+                                    <property name="geometry">
+                                        <rect>
+                                            <x>20</x>
+                                            <y>40</y>
+                                            <width>200</width>
+                                            <height>30</height>
+                                        </rect>
+                                    </property>
+                                    <property name="placeholderText">
+                                        <string>Código a buscar...</string>
+                                    </property>
+                                </widget>
+                                <widget class="QPushButton" name="btnBuscar">
+                                    <property name="geometry">
+                                        <rect>
+                                            <x>230</x>
+                                            <y>40</y>
+                                            <width>100</width>
+                                            <height>30</height>
+                                        </rect>
+                                    </property>
+                                    <property name="text">
+                                        <string>Buscar</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLabel" name="lblResultado">
+                                    <property name="geometry">
+                                        <rect>
+                                            <x>20</x>
+                                            <y>80</y>
+                                            <width>310</width>
+                                            <height>50</height>
+                                        </rect>
+                                    </property>
+                                    <property name="text">
+                                        <string>Resultado:</string>
+                                    </property>
+                                    <property name="wordWrap">
+                                        <bool>true</bool>
+                                    </property>
+                                </widget>
+                            </widget>
+                            <widget class="QGroupBox" name="groupBox_3">
+                                <property name="geometry">
+                                    <rect>
+                                        <x>400</x>
+                                        <y>190</y>
+                                        <width>350</width>
+                                        <height>150</height>
+                                    </rect>
+                                </property>
+                                <property name="title">
+                                    <string>Eliminar Producto (Borrado en Cascada)</string>
+                                </property>
+                                <widget class="QLineEdit" name="txtEliminarCodigo">
+                                    <property name="geometry">
+                                        <rect>
+                                            <x>20</x>
+                                            <y>40</y>
+                                            <width>200</width>
+                                            <height>30</height>
+                                        </rect>
+                                    </property>
+                                    <property name="placeholderText">
+                                        <string>Código a eliminar...</string>
+                                    </property>
+                                </widget>
+                                <widget class="QPushButton" name="btnEliminar">
+                                    <property name="geometry">
+                                        <rect>
+                                            <x>230</x>
+                                            <y>40</y>
+                                            <width>100</width>
+                                            <height>30</height>
+                                        </rect>
+                                    </property>
+                                    <property name="text">
+                                        <string>Eliminar</string>
+                                    </property>
+                                </widget>
+                                <widget class="QLabel" name="lblResultadoEliminar">
+                                    <property name="geometry">
+                                        <rect>
+                                            <x>20</x>
+                                            <y>80</y>
+                                            <width>310</width>
+                                            <height>50</height>
+                                        </rect>
+                                    </property>
+                                    <property name="text">
+                                        <string>Tiempo: 0 µs</string>
+                                    </property>
+                                    <property name="wordWrap">
+                                        <bool>true</bool>
+                                    </property>
+                                </widget>
+                            </widget>
+                        </widget>
+                        <widget class="QWidget" name="tabVisor">
+                            <attribute name="title">
+                                <string>3. Visor de Sucursales</string>
+                            </attribute>
+                            <widget class="QLineEdit" name="txtIdSucursalVer">
+                                <property name="geometry">
+                                    <rect>
+                                        <x>20</x>
+                                        <y>20</y>
+                                        <width>200</width>
+                                        <height>30</height>
+                                    </rect>
+                                </property>
+                                <property name="placeholderText">
+                                    <string>ID de Sucursal...</string>
+                                </property>
+                            </widget>
+                            <widget class="QPushButton" name="btnVerPorSucursal">
+                                <property name="geometry">
+                                    <rect>
+                                        <x>230</x>
+                                        <y>20</y>
+                                        <width>150</width>
+                                        <height>30</height>
+                                    </rect>
+                                </property>
+                                <property name="text">
+                                    <string>Cargar Inventario</string>
+                                </property>
+                            </widget>
+                            <widget class="QListWidget" name="listaProductos">
+                                <property name="geometry">
+                                    <rect>
+                                        <x>20</x>
+                                        <y>60</y>
+                                        <width>950</width>
+                                        <height>600</height>
+                                    </rect>
+                                </property>
+                            </widget>
+                        </widget>
+                        <widget class="QWidget" name="tabSimulador">
+                            <attribute name="title">
+                                <string>4. Simulación de Despacho</string>
+                            </attribute>
+                            <widget class="QLabel" name="lblProximamente">
+                                <property name="geometry">
+                                    <rect>
+                                        <x>300</x>
+                                        <y>200</y>
+                                        <width>200</width>
+                                        <height>50</height>
+                                    </rect>
+                                </property>
+                                <property name="text">
+                                    <string>Panel de Dijkstra en construcción...</string>
+                                </property>
+                            </widget>
+                        </widget>
+                        <widget class="QWidget" name="tabReportes">
+                            <attribute name="title">
+                                <string>5. Diagramas y Reportes</string>
+                            </attribute>
+                            <widget class="QComboBox" name="cbEstructura">
+                                <property name="geometry">
+                                    <rect>
+                                        <x>20</x>
+                                        <y>20</y>
+                                        <width>200</width>
+                                        <height>30</height>
+                                    </rect>
+                                </property>
+                                <item>
+                                    <property name="text">
+                                        <string>Tabla Hash</string>
+                                    </property>
+                                </item>
+                                <item>
+                                    <property name="text">
+                                        <string>Árbol AVL</string>
+                                    </property>
+                                </item>
+                                <item>
+                                    <property name="text">
+                                        <string>Árbol B</string>
+                                    </property>
+                                </item>
+                                <item>
+                                    <property name="text">
+                                        <string>Árbol B+</string>
+                                    </property>
+                                </item>
+                            </widget>
+                            <widget class="QLineEdit" name="txtReporteSucursalId">
+                                <property name="geometry">
+                                    <rect>
+                                        <x>230</x>
+                                        <y>20</y>
+                                        <width>150</width>
+                                        <height>30</height>
+                                    </rect>
+                                </property>
+                                <property name="placeholderText">
+                                    <string>ID Sucursal</string>
+                                </property>
+                            </widget>
+                            <widget class="QPushButton" name="btnGenerarReporte">
+                                <property name="geometry">
+                                    <rect>
+                                        <x>390</x>
+                                        <y>20</y>
+                                        <width>150</width>
+                                        <height>30</height>
+                                    </rect>
+                                </property>
+                                <property name="text">
+                                    <string>Generar Diagrama</string>
+                                </property>
+                            </widget>
+                            <widget class="QScrollArea" name="scrollArea">
+                                <property name="geometry">
+                                    <rect>
+                                        <x>20</x>
+                                        <y>60</y>
+                                        <width>950</width>
+                                        <height>600</height>
+                                    </rect>
+                                </property>
+                                <property name="widgetResizable">
+                                    <bool>true</bool>
+                                </property>
+                                <widget class="QWidget" name="scrollAreaWidgetContents">
+                                    <property name="geometry">
+                                        <rect>
+                                            <x>0</x>
+                                            <y>0</y>
+                                            <width>948</width>
+                                            <height>598</height>
+                                        </rect>
+                                    </property>
+                                    <layout class="QVBoxLayout" name="verticalLayout_2">
+                                        <item>
+                                            <widget class="QLabel" name="lblImagenReporte">
+                                                <property name="text">
+                                                    <string>El diagrama aparecerá aquí...</string>
+                                                </property>
+                                                <property name="alignment">
+                                                    <set>Qt::AlignCenter</set>
+                                                </property>
+                                            </widget>
+                                        </item>
+                                    </layout>
+                                </widget>
+                            </widget>
+                        </widget>
+                    </widget>
+                </item>
+            </layout>
+        </widget>
+        <widget class="QMenuBar" name="menubar">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>1024</width>
+                    <height>21</height>
+                </rect>
+            </property>
+        </widget>
+        <widget class="QStatusBar" name="statusbar"/>
+    </widget>
+    <resources/>
+    <connections/>
+</ui>

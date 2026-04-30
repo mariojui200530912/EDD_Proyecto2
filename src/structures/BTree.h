@@ -37,7 +37,7 @@ class BTreeNode
     void pedirPrestadoSiguiente(int idx);
     void fusionar(int idx);
 
-    void buscarRangoRecursivo(const std::string& fechaInicio, const std::string& fechaFin);
+    void buscarRangoRecursivo(const std::string& fechaInicio, const std::string& fechaFin, LinkedList& resultados);
 };
 
 struct BTreeSplit
@@ -61,7 +61,7 @@ class BTree
     ~BTree();
     void insertar(const Product& producto);
     bool eliminarProducto(const Product& k);
-    void buscarPorRangoFechas(const std::string& fechaInicio, const std::string& fechaFin);
+    void buscarPorRangoFechas(const std::string& fechaInicio, const std::string& fechaFin, LinkedList& resultados);
     void generarReporte(const std::string& nombreArchivo);
 
 };

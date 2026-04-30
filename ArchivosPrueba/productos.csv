@@ -1,0 +1,8 @@
+nombre,barcode,categoria,fecha_vencimiento,marca,precio,stock
+Coca Cola 3L,1234567890,Bebidas,2026-12-01,Coca Cola,18.50,100
+Pepsi 2L,0987654321,Bebidas,2026-11-15,PepsiCo,15.00,50
+Doritos Fiesta,1122334455,Snacks,2026-08-20,Frito Lay,25.00,30
+Laptop Dell,9988776655,Tecnologia,2030-01-01,Dell,4500.00,5
+Agua Pura,5544332211,Bebidas,2027-01-10,Salvavidas,10.00,200
+Galletas Chiky,7776665554,Snacks,2026-09-30,Pozuelo,12.00,80
+Smartphone,1020304050,Tecnologia,2028-06-15,Samsung,3200.00,10

@@ -2,6 +2,7 @@
 #define PROYECTO2_AVLTREE_H
 
 #include "../models/Product.h"
+#include "LinkedList.h"
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -30,7 +31,7 @@ private:
     AVLNode* buscarRecursivo(AVLNode* node, const std::string& nombre);
     AVLNode* nodoMinimo(AVLNode* node);
     AVLNode* eliminarRecursivo(AVLNode* node, const std::string& nombre, bool& eliminado);
-    void listarInOrder(AVLNode* node);
+    void listarInOrder(AVLNode* node, LinkedList& resultados);
     void destruirArbol(AVLNode* node);
     void generarReporteRecursivo(AVLNode* node, std::ofstream& nombreArchivo);
 
@@ -41,7 +42,7 @@ public:
     void insertar(const Product& producto);
     Product* buscar(const std::string& nombre);
     bool eliminar(const std::string& nombre);
-    void listarAlfabeticamente();
+    void listarAlfabeticamente(LinkedList& resultados);
     void generarReporte(const std::string& nombreArchivo);
 };
 

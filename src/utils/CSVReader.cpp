@@ -163,7 +163,19 @@ void CSVReader::cargarConexiones(const std::string& rutaArchivo, Graph& graph) {
 
 // -- Carga de Productos (Index y Rollback) ---
 
-void CSVReader::cargarProductos(const std::string& rutaArchivo, Graph& redNacional) {
+void CSVReader::cargarProductos(const std::string& rutaArchivo, Graph& redNacional, int idSucursalDestino) {
+    // Validar la sucursal ANTES de procesar el archivo
+    VertexNode* nodoSucursal = redNacional.buscarVertice(idSucursalDestino);
+
+    if (nodoSucursal == nullptr) {
+        logError("Carga abortada: La sucursal destino " + std::to_string(idSucursalDestino) + " no existe en el mapa.");
+        std::cout << "Error: Sucursal destino no encontrada.\n";
+        return;
+    }
+
+    // Extraemos la referencia a la sucursal
+    Sucursal& miSucursal = nodoSucursal->sucursal;
+
     std::ifstream archivo(rutaArchivo);
     if (!archivo.is_open()) {
         logError("ERROR CRÍTICO: No se pudo abrir productos: " + rutaArchivo);
@@ -174,7 +186,7 @@ void CSVReader::cargarProductos(const std::string& rutaArchivo, Graph& redNacion
     bool primeraLinea = true;
     int numeroLinea = 0;
 
-    const int MAX_CAMPOS = 8;
+    const int MAX_CAMPOS = 7;
     std::string campos[MAX_CAMPOS];
 
     while (std::getline(archivo, linea)) {
@@ -201,45 +213,33 @@ void CSVReader::cargarProductos(const std::string& rutaArchivo, Graph& redNacion
             continue;
         }
 
-        if (campos[2].length() != 10) {
-            logError("Producto Linea " + std::to_string(numeroLinea) + " barcode inválido (debe tener 10 caracteres): " + campos[2]);
+        if (campos[1].length() != 10) {
+            logError("Producto Linea " + std::to_string(numeroLinea) + " barcode inválido (debe tener 10 caracteres): " + campos[1]);
             continue;
         }
 
-        if (!DataValidator::esFechaValida(campos[4])) {
-            logError("Producto Linea " + std::to_string(numeroLinea) + " fecha inválida (formato esperado YYYY-MM-DD): " + campos[4]);
+        if (!DataValidator::esFechaValida(campos[3])) {
+            logError("Producto Linea " + std::to_string(numeroLinea) + " fecha inválida (formato esperado YYYY-MM-DD): " + campos[3]);
             continue;
         }
 
-        if (!DataValidator::esNumeroValido(campos[0], false) ||
-            !DataValidator::esNumeroValido(campos[6], true) ||
-            !DataValidator::esNumeroValido(campos[7], false)) {
+        if (!DataValidator::esNumeroValido(campos[5], true) ||
+            !DataValidator::esNumeroValido(campos[6], false)) {
             logError("Producto Linea " + std::to_string(numeroLinea) + " contiene texto en campos numéricos.");
             continue;
         }
 
         try {
             Product nuevoProducto;
-            nuevoProducto.sucursal_id = std::stoi(campos[0]);
-            nuevoProducto.name = campos[1];
-            nuevoProducto.barcode = campos[2];
-            nuevoProducto.category = campos[3];
-            nuevoProducto.expiry_date = campos[4];
-            nuevoProducto.brand = campos[5];
-            nuevoProducto.price = std::stod(campos[6]);
-            nuevoProducto.stock = std::stoi(campos[7]);
+            nuevoProducto.name = campos[0];
+            nuevoProducto.barcode = campos[1];
+            nuevoProducto.category = campos[2];
+            nuevoProducto.expiry_date = campos[3];
+            nuevoProducto.brand = campos[4];
+            nuevoProducto.price = std::stod(campos[5]);
+            nuevoProducto.stock = std::stoi(campos[6]);
 
-            VertexNode* nodoSucursal = redNacional.buscarVertice(nuevoProducto.sucursal_id);
-
-            if (nodoSucursal == nullptr) {
-                logError("Producto omitido: La sucursal " + std::to_string(nuevoProducto.sucursal_id) + " no existe en el mapa.");
-                continue;
-            }
-
-            // 2. Extraemos la referencia a la sucursal
-            Sucursal& miSucursal = nodoSucursal->sucursal;
-
-            // 3. Inserción Atomizada en el inventario LOCAL
+            // Inserción Atomizada en el inventario LOCAL
             if (!miSucursal.inventarioHash.insertar(nuevoProducto)) {
                 logError("Producto omitido por duplicado: " + nuevoProducto.barcode);
                 continue;
@@ -249,6 +249,7 @@ void CSVReader::cargarProductos(const std::string& rutaArchivo, Graph& redNacion
                 miSucursal.inventarioAVL.insertar(nuevoProducto);
                 miSucursal.inventarioB.insertar(nuevoProducto);
                 miSucursal.inventarioBPlus.insertar(nuevoProducto);
+                miSucursal.inventarioLista.insertarFinal(nuevoProducto);
 
                 // Lo guardamos en la pila local para Ctrl+Z
                 miSucursal.pilaRollback.apilar(nuevoProducto);
@@ -259,6 +260,7 @@ void CSVReader::cargarProductos(const std::string& rutaArchivo, Graph& redNacion
                 miSucursal.inventarioAVL.eliminar(nuevoProducto.name);
                 miSucursal.inventarioB.eliminarProducto(nuevoProducto);
                 miSucursal.inventarioBPlus.eliminarProducto(nuevoProducto);
+                miSucursal.inventarioLista.eliminarPorCodigo(nuevoProducto.barcode);
             }
 
         } catch (const std::exception& e) {

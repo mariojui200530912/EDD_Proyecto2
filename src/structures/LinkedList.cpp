@@ -160,6 +160,24 @@ int LinkedList::obtenerTamano() const
     return size;
 }
 
+void LinkedList::ordenarPorNombreBurbuja() {
+    if (head == nullptr || head->next == nullptr) return;
+    bool intercambiado;
+    do {
+        intercambiado = false;
+        ListNode* actual = head;
+        while (actual->next != nullptr) {
+            if (actual->data.name > actual->next->data.name) {
+                Product temp = actual->data;
+                actual->data = actual->next->data;
+                actual->next->data = temp;
+                intercambiado = true;
+            }
+            actual = actual->next;
+        }
+    } while (intercambiado);
+}
+
 void LinkedList::imprimirLista() const
 {
     ListNode* current = head;

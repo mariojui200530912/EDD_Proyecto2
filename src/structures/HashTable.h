@@ -9,18 +9,23 @@
 class HashTable
 {
 private:
-    static const int TABLE_SIZE = 2003;
-    LinkedList table[TABLE_SIZE];
-    int hashFunction(const std::string& barcode);
+    int capacidad;
+    int numElementos;
+    LinkedList** tabla;
+
+    bool esPrimo(int n);
+    int siguientePrimo(int n);
+    void rehash();
 
 public:
-    HashTable();
-    ~HashTable() = default;
+    HashTable(int tamano = 97);
+    ~HashTable();
+    int funcionHash(const std::string& barcode);
     bool insertar(const Product& producto);
     Product* buscar(const std::string& barcode);
     bool eliminar(const std::string& barcode);
-    int getCapacidad() const { return TABLE_SIZE; }
-    LinkedList* getListaEnPosicion(int index) { return &table[index]; }
+    int getCapacidad() const { return capacidad; }
+    LinkedList* getListaEnPosicion(int index) { return tabla[index]; }
     void imprimirDistribucion();
     void generarReporte(const std::string& nombreArchivo);
 };

@@ -48,6 +48,14 @@ int Stack::obtenerTamano() const {
     return size;
 }
 
+void Stack::obtenerContenido(LinkedList& listaDestino) {
+    StackNode* actual = topNode;
+    while (actual != nullptr) {
+        listaDestino.insertarFinal(actual->data);
+        actual = actual->next;
+    }
+}
+
 void Stack::vaciar() {
     StackNode* current = topNode;
     while (current != nullptr) {

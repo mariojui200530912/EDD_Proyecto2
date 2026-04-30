@@ -37,23 +37,24 @@ BTreeNode* BTree::buscarNodo(BTreeNode* node, const std::string& date) {
     return buscarNodo(node->children[i], date);
 }
 
-void BTreeNode::buscarRangoRecursivo(const std::string& fechaInicio, const std::string& fechaFin) {
+void BTreeNode::buscarRangoRecursivo(const std::string& fechaInicio, const std::string& fechaFin, LinkedList& resultados) {
     int i = 0;
     for (i = 0; i < n; i++) {
-        // Busca a la izquierda
         if (!leaf && keys[i].date >= fechaInicio) {
-            children[i]->buscarRangoRecursivo(fechaInicio, fechaFin);
+            children[i]->buscarRangoRecursivo(fechaInicio, fechaFin, resultados);
         }
 
-        // Si se encuentra mostramos
+        // Si la fecha está en el rango, copiamos todos los productos de esa fecha a la lista de resultados
         if (keys[i].date >= fechaInicio && keys[i].date <= fechaFin) {
-            std::cout << "\n[Vencimiento: " << keys[i].date << "]\n";
-            keys[i].list->imprimirLista();
+            ListNode* actual = keys[i].list->getInicio();
+            while (actual != nullptr) {
+                resultados.insertarFinal(actual->data);
+                actual = actual->next;
+            }
         }
     }
-
     if (!leaf && i > 0 && keys[i-1].date <= fechaFin) {
-        children[i]->buscarRangoRecursivo(fechaInicio, fechaFin);
+        children[i]->buscarRangoRecursivo(fechaInicio, fechaFin, resultados);
     }
 }
 
@@ -195,12 +196,9 @@ bool BTree::eliminarProducto(const Product& k) {
     return false;
 }
 
-void BTree::buscarPorRangoFechas(const std::string& fechaInicio, const std::string& fechaFin) {
-    std::cout << "\n--- Productos por vencer (" << fechaInicio << " al " << fechaFin << ") ---\n";
+void BTree::buscarPorRangoFechas(const std::string& fechaInicio, const std::string& fechaFin, LinkedList& resultados) {
     if (root != nullptr) {
-        root->buscarRangoRecursivo(fechaInicio, fechaFin);
-    } else {
-        std::cout << "El catálogo está vacío.\n";
+        root->buscarRangoRecursivo(fechaInicio, fechaFin, resultados);
     }
 }
 

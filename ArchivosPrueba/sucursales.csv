@@ -1,0 +1,6 @@
+id,nombre,ubicacion,t_ingreso,t_traspaso,t_despacho
+1,Central Capital,Ciudad de Guatemala,2,3,2
+2,Norte,Coban,3,4,3
+3,Sur,Escuintla,2,2,2
+4,Occidente,Quetzaltenango,3,5,3
+5,Oriente,Zacapa,2,3,2

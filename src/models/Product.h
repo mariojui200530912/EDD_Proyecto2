@@ -4,7 +4,6 @@
 #include <string>
 
 struct Product {
-    int sucursal_id;
     std::string name;
     std::string barcode;
     std::string category;
@@ -12,6 +11,10 @@ struct Product {
     std::string brand;
     double price;
     int stock;
+
+    std::string estado;
+
+    Product() : price(0.0), stock(0), estado("Disponible") {}
 };
 
 

@@ -24,15 +24,33 @@ private slots:
     void on_btnCargarSucursales_clicked();
     void on_btnCargarConexiones_clicked();
     void on_btnCargarProductos_clicked();
-    void on_btnBuscar_clicked();
+    void on_btnCrearSucursal_clicked();
+    void on_btnModificarSucursal_clicked();
+    void on_btnEliminarSucursal_clicked();
+    void on_btnCrearConexion_clicked();
     void on_btnAgregarManual_clicked();
     void on_btnVerPorSucursal_clicked();
     void on_btnEliminar_clicked();
+
+    void on_btnBuscarAVL_clicked();
+    void on_btnBuscarHash_clicked();
+    void on_btnBuscarBPlus_clicked();
+    void on_btnBuscarB_clicked();
+    void on_btnListarAVL_clicked();
+    void on_btnCompararTiempos_clicked();
+    void on_btnCompararOrdenamiento_clicked();
+    void on_btnVerHistorial_clicked();
+
+    void on_btnIniciarDespacho_clicked();
+
     void on_btnGenerarReporte_clicked();
+
+    void on_btnDeshacer_clicked();
 
 private:
     Ui::MainWindow *ui;
     Graph redNacional;
+    VertexNode* obtenerSucursalContexto();
 };
 
 #endif //PROYECTO2_MAINWINDOW_H

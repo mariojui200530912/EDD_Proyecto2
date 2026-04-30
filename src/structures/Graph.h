@@ -5,6 +5,8 @@
 #include "../models/Connection.h"
 #include "Queue.h"
 #include <iostream>
+#include <fstream>
+#include <limits>
 #include <string>
 
 // Lista enlazada de aristas (conexiones)
@@ -33,10 +35,11 @@ class Graph
 {
 private:
     static const int MAX_SUCURSALES = 100; // Arreglo simple de tamaño fijo
-    VertexNode vertices[MAX_SUCURSALES];
+    VertexNode* vertices;
     int numVertices;
 
     int obtenerIndice(int sucursal_id);
+    void eliminarConexionesHacia(int id_destino);
     void imprimirRutaDijkstra(int idxOrigen, int idxDestino, int previos[], double distancias[], bool porTiemmpo);
 
 public:
@@ -46,9 +49,12 @@ public:
     void insertarSucursal(const Sucursal& sucursal);
     void insertarConexion(const Connection& conexion, bool bidireccional = false);
     VertexNode* buscarVertice(int sucursal_id);
-    void dijkstra(int idOrigen, int idDestino, bool optimizarPorTiempo);
+    bool modificarSucursal(int id, const std::string& nombre, const std::string& ubicacion, int t_ingreso, int t_traspaso, int t_despacho);
+    bool eliminarSucursal(int id);
+    bool obtenerRutaDijkstra(int idOrigen, int idDestino, bool optimizarTiempo, int rutaSalida[], int& tamanoRuta);
     bool estaVacio() const { return numVertices == 0; }
-    void imprimirRed();
+    void generarReporteSimulacion(const std::string& nombreArchivo, int nodoActivo, int ruta[], int tamRuta);
+    void generarReporteGrafo(const std::string& nombreArchivo);
 };
 
 

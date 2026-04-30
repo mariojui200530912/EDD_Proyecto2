@@ -18,7 +18,7 @@
 class CSVReader {
 public:
     static void cargarSucursales(const std::string& rutaArchivo, Graph& graph);
-    static void cargarProductos(const std::string& rutaArchivo, Graph& redNacional);
+    static void cargarProductos(const std::string& rutaArchivo, Graph& redNacional, int idSucursalDestino);
     static void cargarConexiones(const std::string& rutaArchivo, Graph& graph);
 
 private:

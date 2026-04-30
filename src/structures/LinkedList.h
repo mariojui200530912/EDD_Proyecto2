@@ -30,6 +30,7 @@ public:
     bool estaVacia() const;
     ListNode* getInicio() const { return head; }
     int obtenerTamano() const;
+    void ordenarPorNombreBurbuja();
     void imprimirLista() const;
 };
 

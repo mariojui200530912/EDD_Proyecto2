@@ -2,6 +2,7 @@
 #define PROYECTO2_STACK_H
 
 #include "../models/Product.h"
+#include "LinkedList.h"
 #include <iostream>
 
 struct StackNode {
@@ -27,6 +28,7 @@ public:
     Product* obtenerTope(); // Peek
     bool estaVacia() const;
     int obtenerTamano() const;
+    void obtenerContenido(LinkedList& listaDestino);
     void vaciar();
 };
 

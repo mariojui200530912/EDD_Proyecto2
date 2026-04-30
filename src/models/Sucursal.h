@@ -20,6 +20,7 @@ struct Sucursal {
     AVLTree inventarioAVL;
     BTree inventarioB;
     BPlusTree inventarioBPlus;
+    LinkedList inventarioLista;
 
     // Pila devolucion
     Stack pilaRollback;

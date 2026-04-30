@@ -1,45 +1,134 @@
 #include "HashTable.h"
 
-HashTable::HashTable() {
+HashTable::HashTable(int tamano) {
+    capacidad = tamano;
+    numElementos = 0;
+    tabla = new LinkedList*[capacidad];
+    for (int i = 0; i < capacidad; i++) {
+        tabla[i] = new LinkedList();
+    }
 }
 
-int HashTable::hashFunction(const std::string& barcode) {
-    long long hashVal = 0;
+HashTable::~HashTable() {
+    for (int i = 0; i < capacidad; i++) {
+        delete tabla[i];
+    }
+    delete[] tabla;
+}
+
+// Funcion HASH
+int HashTable::funcionHash(const std::string& barcode) {
+    unsigned long long valorHash = 0;
+    const int primoBase = 31;
+
     for (char c : barcode) {
-        hashVal = (hashVal * 31 + c) % TABLE_SIZE;
+        valorHash = (valorHash * primoBase) + c;
     }
-    return hashVal;
+    return valorHash % capacidad;
 }
 
-bool HashTable::insertar(const Product& producto) {
-    int index = hashFunction(producto.barcode);
-
-    if (table[index].buscarPorCodigo(producto.barcode) != nullptr)
-    {
-        return false;
+// para el rehashing
+bool HashTable::esPrimo(int n) {
+    if (n <= 1) return false;
+    if (n <= 3) return true;
+    if (n % 2 == 0 || n % 3 == 0) return false;
+    for (int i = 5; i * i <= n; i = i + 6) {
+        if (n % i == 0 || n % (i + 2) == 0) return false;
     }
-    table[index].insertarInicio(producto);
     return true;
 }
 
-Product* HashTable::buscar(const std::string& barcode)
-{
-    int index = hashFunction(barcode);
-    return table[index].buscarPorCodigo(barcode);
+int HashTable::siguientePrimo(int n) {
+    if (n <= 1) return 2;
+    int primo = n;
+    bool encontrado = false;
+    while (!encontrado) {
+        primo++;
+        if (esPrimo(primo)) encontrado = true;
+    }
+    return primo;
 }
 
-bool HashTable::eliminar(const std::string& barcode)
-{
-    int index = hashFunction(barcode);
-    return table[index].eliminarPorCodigo(barcode);
+void HashTable::rehash() {
+    int viejaCapacidad = capacidad;
+    LinkedList** tablaVieja = tabla;
+
+    // Calculamos la nueva capacidad (El siguiente primo después del doble)
+    capacidad = siguientePrimo(viejaCapacidad * 2);
+
+    // Creamos la nueva tabla
+    tabla = new LinkedList*[capacidad];
+    for (int i = 0; i < capacidad; i++) {
+        tabla[i] = new LinkedList();
+    }
+
+    // Reiniciamos el contador
+    numElementos = 0;
+
+    // Mudamos los productos
+    for (int i = 0; i < viejaCapacidad; i++) {
+        ListNode* actual = tablaVieja[i]->getInicio();
+        while (actual != nullptr) {
+            insertar(actual->data);
+            actual = actual->next;
+        }
+        delete tablaVieja[i];
+    }
+
+    delete[] tablaVieja; // Destruimos el arreglo viejo
+    std::cout << "Rehash ejecutado. Nueva capacidad de la tabla: " << capacidad << "\n";
+}
+
+bool HashTable::insertar(const Product& p) {
+    // Validar el Factor de Carga ANTES de insertar
+    float factorDeCarga = (float)numElementos / capacidad;
+    if (factorDeCarga >= 0.8f) {
+        rehash();
+    }
+
+    int indice = funcionHash(p.barcode);
+
+    // Evitar duplicados
+    ListNode* actual = tabla[indice]->getInicio();
+    while (actual != nullptr) {
+        if (actual->data.barcode == p.barcode) return false;
+        actual = actual->next;
+    }
+
+    // Insertar
+    tabla[indice]->insertarFinal(p);
+    numElementos++; // Incrementamos el control
+    return true;
+}
+
+Product* HashTable::buscar(const std::string& barcode) {
+    int indice = funcionHash(barcode);
+    ListNode* actual = tabla[indice]->getInicio();
+
+    while (actual != nullptr) {
+        if (actual->data.barcode == barcode) {
+            return &(actual->data);
+        }
+        actual = actual->next;
+    }
+    return nullptr;
+}
+
+bool HashTable::eliminar(const std::string& barcode) {
+    int indice = funcionHash(barcode);
+    bool eliminado = tabla[indice]->eliminarPorCodigo(barcode);
+    if (eliminado) {
+        numElementos--; // Descontamos del control
+    }
+    return eliminado;
 }
 
 void HashTable::imprimirDistribucion() {
     int totalProductos = 0;
     int celdasOcupadas = 0;
 
-    for (int i = 0; i < TABLE_SIZE; ++i) {
-        int tamanoLista = table[i].obtenerTamano();
+    for (int i = 0; i < capacidad; ++i) {
+        int tamanoLista = tabla[i]->obtenerTamano();
         if (tamanoLista > 0) {
             celdasOcupadas++;
             totalProductos += tamanoLista;
@@ -48,7 +137,7 @@ void HashTable::imprimirDistribucion() {
 
     std::cout << "--- Estadisticas de Tabla Hash Refactorizada ---\n";
     std::cout << "Productos totales: " << totalProductos << "\n";
-    std::cout << "Factor de carga: " << (float)totalProductos / TABLE_SIZE << "\n";
+    std::cout << "Factor de carga: " << (float)totalProductos / capacidad << "\n";
     std::cout << "Celdas con colisiones: " << (totalProductos - celdasOcupadas) << "\n";
 }
 
@@ -62,8 +151,8 @@ void HashTable::generarReporte(const std::string& nombreArchivo) {
     int totalProductos = 0;
     int celdasOcupadas = 0;
 
-    for (int i = 0; i < TABLE_SIZE; ++i) {
-        int tamanoLista = table[i].obtenerTamano();
+    for (int i = 0; i < capacidad; ++i) {
+        int tamanoLista = tabla[i]->obtenerTamano();
         if (tamanoLista > 0) {
             celdasOcupadas++;
             totalProductos += tamanoLista;
@@ -71,24 +160,24 @@ void HashTable::generarReporte(const std::string& nombreArchivo) {
     }
 
     int colisiones = totalProductos - celdasOcupadas;
-    float factorCarga = (float)totalProductos / TABLE_SIZE;
+    float factorCarga = (float)totalProductos / capacidad;
 
     archivo << "digraph HashTable {\n";
     archivo << "  rankdir=LR;\n"; // De izquierda a derecha
     archivo << "  node [shape=record, fontname=\"Arial\"];\n\n";
 
     archivo << "  stats [shape=Mrecord, fillcolor=\"#E3F2FD\", style=filled, label=\"ESTADÍSTICAS TABLA HASH\\n";
-    archivo << "Capacidad Total: " << TABLE_SIZE << "\\n";
+    archivo << "Capacidad Total: " << capacidad << "\\n";
     archivo << "Productos Almacenados: " << totalProductos << "\\n";
     archivo << "Colisiones Totales: " << colisiones << "\\n";
     archivo << "Factor de Carga: " << factorCarga << "\"];\n\n";
 
-    for (int i = 0; i < TABLE_SIZE; ++i) {
-        if (table[i].obtenerTamano() > 0) {
+    for (int i = 0; i < capacidad; ++i) {
+        if (tabla[i]->obtenerTamano() > 0) {
 
             archivo << "  bucket_" << i << " [shape=box, style=filled, fillcolor=\"#FFCDD2\", label=\"Índice " << i << "\"];\n";
 
-            ListNode* actual = table[i].getInicio();
+            ListNode* actual = tabla[i]->getInicio();
             int idxNodo = 0;
 
             while (actual != nullptr) {

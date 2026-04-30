@@ -119,17 +119,16 @@ Product* AVLTree::buscar(const std::string& nombre) {
     return nullptr;
 }
 
-void AVLTree::listarInOrder(AVLNode* node) {
+void AVLTree::listarInOrder(AVLNode* node, LinkedList& resultados) {
     if (node != nullptr) {
-        listarInOrder(node->left);
-        std::cout << "- " << node->data.name << " (Stock: " << node->data.stock << ")\n";
-        listarInOrder(node->right);
+        listarInOrder(node->left, resultados);
+        resultados.insertarFinal(node->data);
+        listarInOrder(node->right, resultados);
     }
 }
 
-void AVLTree::listarAlfabeticamente() {
-    std::cout << "\n--- Catálogo Alfabético (Generado por AVL) ---\n";
-    listarInOrder(root);
+void AVLTree::listarAlfabeticamente(LinkedList& resultados) {
+    listarInOrder(root, resultados);
 }
 
 AVLNode* AVLTree::nodoMinimo(AVLNode* node) {

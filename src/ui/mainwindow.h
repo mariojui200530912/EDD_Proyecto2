@@ -28,6 +28,8 @@ private slots:
     void on_btnModificarSucursal_clicked();
     void on_btnEliminarSucursal_clicked();
     void on_btnCrearConexion_clicked();
+    void on_btnModificarConexion_clicked();
+    void on_btnEliminarConexion_clicked();
     void on_btnAgregarManual_clicked();
     void on_btnVerPorSucursal_clicked();
     void on_btnEliminar_clicked();
@@ -43,6 +45,8 @@ private slots:
 
     void on_btnIniciarDespacho_clicked();
 
+    void on_btnZoomIn_clicked();
+    void on_btnZoomOut_clicked();
     void on_btnGenerarReporte_clicked();
 
     void on_btnDeshacer_clicked();
@@ -51,6 +55,13 @@ private:
     Ui::MainWindow *ui;
     Graph redNacional;
     VertexNode* obtenerSucursalContexto();
+    QPixmap pixmapOriginal; // Para no perder calidad al re-escalar
+    double escalaActual = 1.0;
+    void refrescarVistaZoom();
+
+protected:
+    // Para habilitar el zoom con la rueda del ratón
+    bool eventFilter(QObject *obj, QEvent *event) override;
 };
 
 #endif //PROYECTO2_MAINWINDOW_H

@@ -54,6 +54,7 @@ class BTree
     int d;
     BTreeSplit insertarRecursivo(BTreeNode* node, const Product& producto);
     BTreeNode* buscarNodo(BTreeNode* node, const std::string& date);
+    void listarPorFechaRecursivo(BTreeNode* node, LinkedList& resultados);
     void dividirNodo(BTreeNode* node, BTreeSplit& splitResult);
 
     public:
@@ -62,6 +63,7 @@ class BTree
     void insertar(const Product& producto);
     bool eliminarProducto(const Product& k);
     void buscarPorRangoFechas(const std::string& fechaInicio, const std::string& fechaFin, LinkedList& resultados);
+    void listarPorFecha(LinkedList& resultados);
     void generarReporte(const std::string& nombreArchivo);
 
 };

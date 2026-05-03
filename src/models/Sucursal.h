@@ -25,7 +25,7 @@ struct Sucursal {
     // Pila devolucion
     Stack pilaRollback;
 
-    Sucursal() : inventarioB(3), inventarioBPlus(3) {}
+    Sucursal() : inventarioB(2), inventarioBPlus(2) {}
 };
 
 

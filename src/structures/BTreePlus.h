@@ -59,6 +59,7 @@ public:
     void insertar(const Product& k);
     bool eliminarProducto(const Product& k);
     LinkedList* buscarCategoria(const std::string& categoria);
+    void obtenerTodaLaLista(LinkedList& resultados);
     void generarReporte(const std::string& nombreArchivo);
 };
 

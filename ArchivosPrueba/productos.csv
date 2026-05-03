@@ -1,8 +1,26 @@
-nombre,barcode,categoria,fecha_vencimiento,marca,precio,stock
-Coca Cola 3L,1234567890,Bebidas,2026-12-01,Coca Cola,18.50,100
-Pepsi 2L,0987654321,Bebidas,2026-11-15,PepsiCo,15.00,50
-Doritos Fiesta,1122334455,Snacks,2026-08-20,Frito Lay,25.00,30
-Laptop Dell,9988776655,Tecnologia,2030-01-01,Dell,4500.00,5
-Agua Pura,5544332211,Bebidas,2027-01-10,Salvavidas,10.00,200
-Galletas Chiky,7776665554,Snacks,2026-09-30,Pozuelo,12.00,80
-Smartphone,1020304050,Tecnologia,2028-06-15,Samsung,3200.00,10
+Nombre,Barcode,Categoría,FechaVencimiento,Marca,Precio,Stock
+Leche Entera 1L,7410000001,Lácteos,2026-06-15,Lala,2.50,50
+Yogur Fresa 1kg,7410000002,Lácteos,2026-05-20,Danone,3.80,30
+Queso Panela 400g,7410000003,Lácteos,2026-05-12,Nochebuena,5.20,20
+Mantequilla Salada,7410000004,Lácteos,2026-12-01,Gloria,1.90,45
+Crema Ácida 200ml,7410000005,Lácteos,2026-05-05,Alpura,1.50,60
+Pan Blanco Grande,7420000001,Panadería,2026-05-10,Bimbo,3.10,40
+Galletas de Chocolate,7420000002,Panadería,2027-01-15,Gamesa,1.20,100
+Pan Integral,7420000003,Panadería,2026-05-08,Bimbo,3.50,25
+Donas de Azúcar,7420000004,Panadería,2026-05-04,Krispy,4.00,15
+Tostadas de Maíz,7420000005,Panadería,2026-09-20,Misión,2.80,80
+Detergente Líquido,7430000001,Limpieza,2028-10-10,Ariel,12.50,20
+Jabón de Trastes,7430000002,Limpieza,2028-05-01,Axion,2.30,55
+Limpiador Multiusos,7430000003,Limpieza,2027-03-15,Fabuloso,1.80,70
+Cloro Blanqueador,7430000004,Limpieza,2027-06-20,Cloralex,1.10,90
+Desinfectante Spray,7430000005,Limpieza,2028-01-01,Lysol,5.50,35
+Arroz Blanco 1kg,7440000001,Abarrotes,2027-12-31,VerdeValle,2.10,120
+Frijol Negro 1kg,7440000002,Abarrotes,2027-11-20,VerdeValle,3.40,110
+Aceite Vegetal 1L,7440000003,Abarrotes,2027-05-15,Capullo,4.90,40
+Pasta de Tomate,7440000004,Abarrotes,2026-10-05,Hunt's,0.90,200
+Azúcar Estándar 1kg,7440000005,Abarrotes,2028-01-01,Zulka,1.75,150
+Atún en Agua,7440000006,Abarrotes,2029-02-14,Dolores,1.40,300
+Refresco Cola 2.5L,7450000001,Bebidas,2026-11-11,CocaCola,3.20,60
+Agua Mineral 600ml,7450000002,Bebidas,2027-04-20,Peñafiel,0.85,500
+Jugo de Naranja 1L,7450000003,Bebidas,2026-07-30,DelValle,2.20,45
+Cerveza Lata 355ml,7450000004,Bebidas,2026-12-31,Corona,1.50,240

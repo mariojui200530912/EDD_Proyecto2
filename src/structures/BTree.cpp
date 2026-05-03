@@ -68,6 +68,38 @@ BTree::~BTree() {
     delete root;
 }
 
+void BTree::listarPorFechaRecursivo(BTreeNode* node, LinkedList& resultados) {
+    if (node == nullptr) return;
+
+    int i;
+    for (i = 0; i < node->n; i++) {
+        // Primero visitamos al hijo izquierdo de la llave actual
+        if (!node->leaf) {
+            listarPorFechaRecursivo(node->children[i], resultados);
+        }
+
+        // Luego agregamos los productos asociados a la fecha actual
+        if (node->keys[i].list != nullptr && !node->keys[i].list->estaVacia()) {
+            ListNode* actual = node->keys[i].list->getInicio();
+            while (actual != nullptr) {
+                resultados.insertarFinal(actual->data); // Aquí sí insertamos el 'Product'
+                actual = actual->next;
+            }
+        }
+    }
+
+    // Finalmente visitamos el ultimo hijo
+    if (!node->leaf) {
+        listarPorFechaRecursivo(node->children[i], resultados);
+    }
+}
+
+void BTree::listarPorFecha(LinkedList& resultados) {
+    if (root != nullptr) {
+        listarPorFechaRecursivo(root, resultados);
+    }
+}
+
 void BTree::insertar(const Product& k) {
     if (root == nullptr) {
         root = new BTreeNode(d, true);
@@ -187,6 +219,8 @@ bool BTree::eliminarProducto(const Product& k) {
                     } else {
                         root = root->children[0];
                     }
+                    tmp->leaf = true; // Evita que borre a sus hijos en cascada
+                    tmp->n = 0;       // Evita que borre las listas enlazadas
                     delete tmp;
                 }
             }
@@ -357,6 +391,8 @@ void BTreeNode::fusionar(int idx) {
     hijo->n += hermano->n + 1;
     n--;
 
+    hermano->leaf = true;
+    hermano->n = 0;
     delete hermano;
 }
 
@@ -376,53 +412,64 @@ void BTree::generarReporte(const std::string& nombreArchivo) {
     }
 
     archivo << "digraph BTree {\n";
-    archivo << "  node [shape=record, fontname=\"Arial\", style=filled, fillcolor=\"#FFF9C4\"];\n"; // Amarillo pastel
+    archivo << "  rankdir=TB;\n"; // Top to Bottom
+    archivo << "  node [shape=record, fontname=\"Arial\", style=filled, fillcolor=\"#FFF9C4\"];\n"; // Amarillo
     archivo << "  edge [color=\"#FBC02D\"];\n\n";
 
     if (root == nullptr) {
-        archivo << "  vacio [label=\"Árbol B Vacío\"];\n";
-        archivo << "}\n";
+        archivo << "  vacio [label=\"Árbol B Vacío\"];\n}\n";
         archivo.close();
         return;
     }
 
-    // Inicializamos Cola manual (Punteros de frente y final)
     ColaNodosB* frente = new ColaNodosB(root);
     ColaNodosB* final = frente;
 
-    // Recorrido BFS (Nivel por Nivel)
     while (frente != nullptr) {
-        // Extraemos el nodo del frente (Desencolar)
         BTreeNode* actual = frente->nodoArbol;
 
         ColaNodosB* temp = frente;
         frente = frente->siguiente;
-        if (frente == nullptr) {
-            final = nullptr;
-        }
-        delete temp; // Liberamos la memoria del nodo de la cola
+        if (frente == nullptr) final = nullptr;
+        delete temp;
 
-        // Dibujar el nodo actual con sus divisiones
         archivo << "  node" << actual << " [label=\"";
+
         for (int i = 0; i < actual->n; i++) {
-            archivo << "<c" << i << "> | " << actual->keys[i].date << " | ";
+            // Puerto del hijo izquierdo
+            archivo << "<c" << i << "> | ";
+
+            archivo << "{ Fecha: " << actual->keys[i].date << " | ";
+
+            // Iteramos sobre la lista enlazada para extraer los nombres de los productos
+            if (actual->keys[i].list != nullptr && !actual->keys[i].list->estaVacia()) {
+                ListNode* ptr = actual->keys[i].list->getInicio();
+                while (ptr != nullptr) {
+                    std::string nombreLimpio = ptr->data.name;
+                    for (size_t k = 0; k < nombreLimpio.length(); k++) {
+                        if (nombreLimpio[k] == '"' || nombreLimpio[k] == '{' || nombreLimpio[k] == '}' || nombreLimpio[k] == '|' || nombreLimpio[k] == '<' || nombreLimpio[k] == '>')
+                            nombreLimpio[k] = '_';
+                    }
+                    archivo << "- " << nombreLimpio << "\\n"; // Salto de línea por producto
+                    ptr = ptr->next;
+                }
+            } else {
+                archivo << "(Vacío)";
+            }
+            archivo << " } | ";
         }
+        // Puerto del hijo derecho final
         archivo << "<c" << actual->n << ">\"];\n";
 
-        // Conectar hijos y encolarlos
+        // Conectar hijos
         if (!actual->leaf) {
             for (int i = 0; i <= actual->n; i++) {
                 if (actual->children[i] != nullptr) {
-
                     archivo << "  node" << actual << ":c" << i << " -> node" << actual->children[i] << ";\n";
 
                     ColaNodosB* nuevoNodoCola = new ColaNodosB(actual->children[i]);
-                    if (final == nullptr) {
-                        frente = final = nuevoNodoCola;
-                    } else {
-                        final->siguiente = nuevoNodoCola;
-                        final = nuevoNodoCola;
-                    }
+                    if (final == nullptr) frente = final = nuevoNodoCola;
+                    else { final->siguiente = nuevoNodoCola; final = nuevoNodoCola; }
                 }
             }
         }
@@ -430,5 +477,4 @@ void BTree::generarReporte(const std::string& nombreArchivo) {
 
     archivo << "}\n";
     archivo.close();
-    std::cout << "Reporte Árbol B generado exitosamente en: " << nombreArchivo << "\n";
 }

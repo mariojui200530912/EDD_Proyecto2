@@ -15,11 +15,19 @@
 #include "../structures/Stack.h"
 #include "../structures/Graph.h"
 
+struct ReporteCarga
+{
+    int totalLeidos = 0;
+    int ingresados = 0;
+    int errores = 0;
+    std::string detalleErrores = "";
+};
+
 class CSVReader {
 public:
-    static void cargarSucursales(const std::string& rutaArchivo, Graph& graph);
-    static void cargarProductos(const std::string& rutaArchivo, Graph& redNacional, int idSucursalDestino);
-    static void cargarConexiones(const std::string& rutaArchivo, Graph& graph);
+    static ReporteCarga cargarSucursales(const std::string& rutaArchivo, Graph& graph);
+    static ReporteCarga cargarProductos(const std::string& rutaArchivo, Graph& redNacional, int idSucursalDestino);
+    static ReporteCarga cargarConexiones(const std::string& rutaArchivo, Graph& graph);
 
 private:
     static void logError(const std::string& mensaje);

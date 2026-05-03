@@ -1,0 +1,1001 @@
+﻿nombre,barcode,categoria,fecha_vencimiento,marca,precio,stock
+Leche Nochebuena,7501000001,Lácteos,2026-04-07,Nochebuena,92.18,133
+Frijol Capullo,7501000002,Abarrotes,2027-06-22,Capullo,49.88,147
+Shampoo Oral-B,7501000003,Higiene,2027-10-17,Oral-B,115.36,253
+Jabón Dove,7501000004,Higiene,2028-03-21,Dove,10.41,92
+Galletas Sabritas,7501000005,Snacks,2028-07-18,Sabritas,101.93,114
+Cacahuates Oreo,7501000006,Snacks,2027-02-12,Oreo,59.64,231
+Refresco Bonafont,7501000007,Bebidas,2027-02-03,Bonafont,39.07,271
+Papas Oreo,7501000008,Snacks,2028-08-25,Oreo,41.92,99
+Shampoo Colgate,7501000009,Higiene,2028-01-30,Colgate,92.03,45
+Cloro Ariel,7501000010,Limpieza,2028-10-08,Ariel,60.06,296
+Suavizante Downy,7501000011,Limpieza,2028-10-21,Downy,35.57,261
+Jugo Del Valle,7501000012,Bebidas,2027-12-20,Del Valle,84.12,105
+Papel Higiénico Dove,7501000013,Higiene,2026-04-06,Dove,58.83,88
+Jabón Regio,7501000014,Higiene,2027-10-03,Regio,58.69,132
+Refresco Del Valle,7501000015,Bebidas,2027-10-03,Del Valle,70.56,267
+Arroz Zulka,7501000016,Abarrotes,2027-09-10,Zulka,113.92,148
+Papel Higiénico Regio,7501000017,Higiene,2026-04-02,Regio,96.55,194
+Detergente Cloralex,7501000018,Limpieza,2027-04-08,Cloralex,25.79,209
+Palomitas Gamesa,7501000019,Snacks,2027-08-08,Gamesa,26.15,132
+Jugo Bonafont,7501000020,Bebidas,2028-05-22,Bonafont,19.72,190
+Té Frío Coca-Cola,7501000021,Bebidas,2026-04-22,Coca-Cola,111.34,105
+Papel Higiénico Regio,7501000022,Higiene,2028-01-20,Regio,62.92,281
+Cacahuates Ruffles,7501000023,Snacks,2027-06-10,Ruffles,81.71,202
+Limpiador Cloralex,7501000024,Limpieza,2027-01-30,Cloralex,24.53,31
+Té Frío Ciel,7501000025,Bebidas,2028-09-12,Ciel,81.49,231
+Limpiador Fabuloso,7501000026,Limpieza,2027-12-03,Fabuloso,34.8,199
+Pasta Dental Dove,7501000027,Higiene,2026-10-01,Dove,60.01,269
+Té Frío Ciel,7501000028,Bebidas,2027-04-07,Ciel,20.69,112
+Frijol Capullo,7501000029,Abarrotes,2027-05-01,Capullo,58.06,64
+Limpiador Fabuloso,7501000030,Limpieza,2026-07-15,Fabuloso,29.36,43
+Arroz La Costeña,7501000031,Abarrotes,2026-01-28,La Costeña,28.42,210
+Yogurt Alpura,7501000032,Lácteos,2026-10-20,Alpura,34.78,149
+Jabón Oral-B,7501000033,Higiene,2028-11-15,Oral-B,97.32,107
+Cloro Downy,7501000034,Limpieza,2028-05-27,Downy,35.81,233
+Pasta Dental Colgate,7501000035,Higiene,2028-04-19,Colgate,77.24,49
+Papel Higiénico Regio,7501000036,Higiene,2027-06-20,Regio,55.54,168
+Yogurt Alpura,7501000037,Lácteos,2028-05-20,Alpura,107.02,157
+Frijol Sos,7501000038,Abarrotes,2028-02-28,Sos,46.7,135
+Arroz La Costeña,7501000039,Abarrotes,2027-04-24,La Costeña,39.68,41
+Palomitas Sabritas,7501000040,Snacks,2028-04-20,Sabritas,111.62,37
+Agua Mineral Coca-Cola,7501000041,Bebidas,2028-11-20,Coca-Cola,95.2,148
+Leche Nochebuena,7501000042,Lácteos,2027-07-02,Nochebuena,109.5,40
+Shampoo Dove,7501000043,Higiene,2026-10-03,Dove,108.89,47
+Yogurt Lala,7501000044,Lácteos,2027-01-31,Lala,102.68,189
+Limpiador Cloralex,7501000045,Limpieza,2027-02-08,Cloralex,99.09,25
+Té Frío Ciel,7501000046,Bebidas,2027-10-17,Ciel,43.73,184
+Cacahuates Oreo,7501000047,Snacks,2027-01-30,Oreo,117.52,49
+Papel Higiénico Oral-B,7501000048,Higiene,2026-02-25,Oral-B,45.44,46
+Té Frío Del Valle,7501000049,Bebidas,2027-04-14,Del Valle,114.49,36
+Cacahuates Gamesa,7501000050,Snacks,2026-09-09,Gamesa,77.15,257
+Frijol La Costeña,7501000051,Abarrotes,2028-08-05,La Costeña,33.13,119
+Yogurt Alpura,7501000052,Lácteos,2027-04-28,Alpura,46,24
+Leche Nochebuena,7501000053,Lácteos,2027-07-24,Nochebuena,62.59,225
+Frijol Sos,7501000054,Abarrotes,2027-08-21,Sos,102.35,32
+Arroz La Costeña,7501000055,Abarrotes,2028-04-04,La Costeña,92.79,207
+Té Frío Coca-Cola,7501000056,Bebidas,2026-06-18,Coca-Cola,96.46,242
+Cacahuates Oreo,7501000057,Snacks,2027-01-03,Oreo,112.15,34
+Agua Mineral Del Valle,7501000058,Bebidas,2027-03-26,Del Valle,62.58,22
+Papas Gamesa,7501000059,Snacks,2027-08-04,Gamesa,37.62,67
+Jugo Bonafont,7501000060,Bebidas,2026-04-09,Bonafont,23.35,28
+Aceite Zulka,7501000061,Abarrotes,2027-10-20,Zulka,37.67,58
+Leche Alpura,7501000062,Lácteos,2028-04-06,Alpura,77.69,204
+Jugo Pepsi,7501000063,Bebidas,2027-08-29,Pepsi,103.7,219
+Papas Sabritas,7501000064,Snacks,2028-08-16,Sabritas,79.53,112
+Pasta Dental Dove,7501000065,Higiene,2027-06-04,Dove,106.03,243
+Té Frío Ciel,7501000066,Bebidas,2028-07-03,Ciel,74.41,215
+Arroz La Costeña,7501000067,Abarrotes,2026-10-16,La Costeña,76.24,254
+Queso Yoplait,7501000068,Lácteos,2026-07-28,Yoplait,72.57,29
+Papas Gamesa,7501000069,Snacks,2028-11-15,Gamesa,78.74,37
+Queso Alpura,7501000070,Lácteos,2028-06-28,Alpura,45.96,297
+Cacahuates Ruffles,7501000071,Snacks,2028-07-11,Ruffles,62.09,297
+Cloro Fabuloso,7501000072,Limpieza,2027-12-14,Fabuloso,44.38,23
+Té Frío Ciel,7501000073,Bebidas,2028-09-03,Ciel,45.38,65
+Suavizante Cloralex,7501000074,Limpieza,2026-06-09,Cloralex,111.72,143
+Té Frío Coca-Cola,7501000075,Bebidas,2026-12-26,Coca-Cola,45.03,31
+Jugo Coca-Cola,7501000076,Bebidas,2026-02-11,Coca-Cola,110.43,70
+Cloro Downy,7501000077,Limpieza,2027-05-18,Downy,48.71,200
+Té Frío Bonafont,7501000078,Bebidas,2026-02-10,Bonafont,59.29,98
+Limpiador Ariel,7501000079,Limpieza,2026-07-08,Ariel,117.93,108
+Galletas Ruffles,7501000080,Snacks,2026-12-13,Ruffles,91.59,29
+Papel Higiénico Oral-B,7501000081,Higiene,2027-10-25,Oral-B,113.17,185
+Leche Yoplait,7501000082,Lácteos,2027-08-12,Yoplait,78.96,16
+Papel Higiénico Dove,7501000083,Higiene,2027-07-28,Dove,12.57,274
+Agua Mineral Ciel,7501000084,Bebidas,2026-04-18,Ciel,52.03,152
+Refresco Coca-Cola,7501000085,Bebidas,2028-04-16,Coca-Cola,77.35,140
+Aceite La Costeña,7501000086,Abarrotes,2027-08-14,La Costeña,18.84,163
+Jabón Regio,7501000087,Higiene,2027-11-10,Regio,54.33,153
+Jabón Colgate,7501000088,Higiene,2026-01-24,Colgate,65.11,265
+Azúcar Zulka,7501000089,Abarrotes,2028-04-17,Zulka,10.51,246
+Limpiador Cloralex,7501000090,Limpieza,2027-09-28,Cloralex,109.09,255
+Papel Higiénico Oral-B,7501000091,Higiene,2028-01-10,Oral-B,99.41,230
+Azúcar Sos,7501000092,Abarrotes,2027-12-01,Sos,26.4,164
+Queso Alpura,7501000093,Lácteos,2026-04-02,Alpura,60.76,12
+Frijol Capullo,7501000094,Abarrotes,2026-09-20,Capullo,84.33,287
+Cacahuates Gamesa,7501000095,Snacks,2026-10-16,Gamesa,41.78,130
+Pasta Dental Colgate,7501000096,Higiene,2028-01-30,Colgate,71.17,136
+Papas Ruffles,7501000097,Snacks,2027-05-28,Ruffles,14.53,297
+Queso Alpura,7501000098,Lácteos,2028-03-28,Alpura,38.88,73
+Detergente Cloralex,7501000099,Limpieza,2028-05-08,Cloralex,110.16,287
+Jabón Colgate,7501000100,Higiene,2028-05-03,Colgate,102.23,152
+Mantequilla Nochebuena,7501000101,Lácteos,2026-07-26,Nochebuena,116.59,112
+Pasta Dental Regio,7501000102,Higiene,2026-09-15,Regio,14.55,258
+Jugo Bonafont,7501000103,Bebidas,2027-09-18,Bonafont,115.28,153
+Suavizante Cloralex,7501000104,Limpieza,2027-01-20,Cloralex,79.09,179
+Jugo Pepsi,7501000105,Bebidas,2026-12-04,Pepsi,72.48,164
+Limpiador Cloralex,7501000106,Limpieza,2027-05-22,Cloralex,20.66,46
+Galletas Sabritas,7501000107,Snacks,2027-05-30,Sabritas,69.27,248
+Papas Oreo,7501000108,Snacks,2026-11-11,Oreo,72.53,243
+Leche Alpura,7501000109,Lácteos,2028-06-21,Alpura,50.11,289
+Jugo Del Valle,7501000110,Bebidas,2026-06-20,Del Valle,30.22,241
+Aceite Capullo,7501000111,Abarrotes,2028-05-05,Capullo,118.38,19
+Pasta Dental Colgate,7501000112,Higiene,2028-11-29,Colgate,47.68,284
+Arroz Sos,7501000113,Abarrotes,2027-10-19,Sos,45.56,261
+Mantequilla Nochebuena,7501000114,Lácteos,2027-03-13,Nochebuena,48.97,267
+Jugo Pepsi,7501000115,Bebidas,2026-12-25,Pepsi,21.65,49
+Limpiador Downy,7501000116,Limpieza,2028-02-12,Downy,32.08,21
+Té Frío Coca-Cola,7501000117,Bebidas,2026-01-14,Coca-Cola,86.42,288
+Papas Gamesa,7501000118,Snacks,2027-05-30,Gamesa,73.69,215
+Frijol Capullo,7501000119,Abarrotes,2027-12-11,Capullo,37.55,84
+Aceite Zulka,7501000120,Abarrotes,2028-05-02,Zulka,62.01,29
+Galletas Sabritas,7501000121,Snacks,2027-08-29,Sabritas,14.43,134
+Jugo Pepsi,7501000122,Bebidas,2027-11-11,Pepsi,23.9,176
+Pasta Dental Regio,7501000123,Higiene,2028-02-20,Regio,35.28,37
+Aceite Zulka,7501000124,Abarrotes,2026-02-15,Zulka,85.19,257
+Yogurt Lala,7501000125,Lácteos,2027-02-11,Lala,21.16,58
+Queso Alpura,7501000126,Lácteos,2026-08-03,Alpura,114.76,284
+Leche Nochebuena,7501000127,Lácteos,2026-01-11,Nochebuena,52.59,116
+Arroz Sos,7501000128,Abarrotes,2028-11-14,Sos,34.09,227
+Azúcar La Costeña,7501000129,Abarrotes,2028-05-12,La Costeña,101.59,197
+Suavizante Ariel,7501000130,Limpieza,2026-01-12,Ariel,69.92,160
+Pasta Dental Oral-B,7501000131,Higiene,2026-11-19,Oral-B,98.29,145
+Galletas Sabritas,7501000132,Snacks,2028-04-03,Sabritas,21.76,184
+Jugo Coca-Cola,7501000133,Bebidas,2028-07-23,Coca-Cola,18.06,242
+Papas Sabritas,7501000134,Snacks,2028-12-27,Sabritas,13.39,200
+Queso Nochebuena,7501000135,Lácteos,2028-07-24,Nochebuena,51.41,33
+Jugo Pepsi,7501000136,Bebidas,2028-06-30,Pepsi,110.28,235
+Palomitas Gamesa,7501000137,Snacks,2026-05-25,Gamesa,60.41,210
+Agua Mineral Pepsi,7501000138,Bebidas,2027-08-31,Pepsi,111.73,10
+Jugo Bonafont,7501000139,Bebidas,2028-10-05,Bonafont,115.37,37
+Té Frío Del Valle,7501000140,Bebidas,2027-03-26,Del Valle,57,53
+Refresco Del Valle,7501000141,Bebidas,2026-03-03,Del Valle,70.12,33
+Detergente Ariel,7501000142,Limpieza,2026-10-29,Ariel,39.96,54
+Leche Yoplait,7501000143,Lácteos,2028-03-28,Yoplait,10.66,83
+Queso Yoplait,7501000144,Lácteos,2026-08-26,Yoplait,103.8,128
+Refresco Ciel,7501000145,Bebidas,2026-10-06,Ciel,29.1,215
+Yogurt Nochebuena,7501000146,Lácteos,2028-03-12,Nochebuena,70.22,42
+Jabón Colgate,7501000147,Higiene,2026-05-03,Colgate,13.03,295
+Agua Mineral Bonafont,7501000148,Bebidas,2026-05-09,Bonafont,19.12,214
+Queso Lala,7501000149,Lácteos,2028-10-25,Lala,55.93,223
+Frijol Zulka,7501000150,Abarrotes,2026-12-19,Zulka,108.02,275
+Refresco Del Valle,7501000151,Bebidas,2027-11-24,Del Valle,23.01,76
+Té Frío Ciel,7501000152,Bebidas,2026-10-04,Ciel,59.58,39
+Galletas Sabritas,7501000153,Snacks,2026-07-15,Sabritas,91.38,220
+Papel Higiénico Oral-B,7501000154,Higiene,2026-07-11,Oral-B,21.38,16
+Papas Sabritas,7501000155,Snacks,2027-03-07,Sabritas,65.63,243
+Mantequilla Lala,7501000156,Lácteos,2026-10-24,Lala,44.36,275
+Frijol Sos,7501000157,Abarrotes,2027-09-03,Sos,78.24,73
+Mantequilla Lala,7501000158,Lácteos,2028-12-22,Lala,44.95,92
+Pasta Dental Colgate,7501000159,Higiene,2027-03-08,Colgate,85.54,82
+Suavizante Cloralex,7501000160,Limpieza,2026-11-10,Cloralex,29.34,88
+Jabón Dove,7501000161,Higiene,2027-09-29,Dove,113.82,108
+Detergente Cloralex,7501000162,Limpieza,2026-12-24,Cloralex,110.02,171
+Palomitas Oreo,7501000163,Snacks,2028-12-22,Oreo,111.95,153
+Cacahuates Ruffles,7501000164,Snacks,2028-07-29,Ruffles,101.33,15
+Jabón Regio,7501000165,Higiene,2028-09-10,Regio,112.87,152
+Pasta Dental Dove,7501000166,Higiene,2027-06-04,Dove,62.11,42
+Galletas Gamesa,7501000167,Snacks,2026-12-19,Gamesa,11.59,250
+Mantequilla Nochebuena,7501000168,Lácteos,2027-02-04,Nochebuena,83.01,173
+Jugo Coca-Cola,7501000169,Bebidas,2028-01-03,Coca-Cola,82.41,297
+Limpiador Downy,7501000170,Limpieza,2026-01-22,Downy,63.92,32
+Cacahuates Oreo,7501000171,Snacks,2027-11-09,Oreo,96.88,11
+Refresco Coca-Cola,7501000172,Bebidas,2027-02-07,Coca-Cola,112.63,196
+Shampoo Dove,7501000173,Higiene,2026-01-10,Dove,87.5,228
+Té Frío Del Valle,7501000174,Bebidas,2026-07-05,Del Valle,68.15,172
+Galletas Sabritas,7501000175,Snacks,2027-12-31,Sabritas,12,51
+Yogurt Yoplait,7501000176,Lácteos,2027-08-13,Yoplait,36.81,293
+Palomitas Oreo,7501000177,Snacks,2026-01-02,Oreo,78.28,245
+Refresco Coca-Cola,7501000178,Bebidas,2028-05-17,Coca-Cola,107.65,103
+Pasta Dental Regio,7501000179,Higiene,2028-03-14,Regio,107.64,71
+Papas Gamesa,7501000180,Snacks,2027-06-01,Gamesa,32.74,54
+Limpiador Cloralex,7501000181,Limpieza,2028-11-16,Cloralex,100.57,161
+Refresco Bonafont,7501000182,Bebidas,2026-02-04,Bonafont,32.68,67
+Yogurt Alpura,7501000183,Lácteos,2028-10-05,Alpura,74.38,270
+Detergente Downy,7501000184,Limpieza,2026-12-12,Downy,33.99,33
+Cacahuates Ruffles,7501000185,Snacks,2027-11-07,Ruffles,75.23,149
+Pasta Dental Colgate,7501000186,Higiene,2026-07-16,Colgate,15.47,191
+Yogurt Lala,7501000187,Lácteos,2027-12-05,Lala,100.85,195
+Mantequilla Nochebuena,7501000188,Lácteos,2027-11-19,Nochebuena,39.89,165
+Refresco Bonafont,7501000189,Bebidas,2026-08-13,Bonafont,99.03,105
+Pasta Dental Oral-B,7501000190,Higiene,2027-08-22,Oral-B,113.13,222
+Leche Lala,7501000191,Lácteos,2027-10-01,Lala,97.39,127
+Jabón Regio,7501000192,Higiene,2028-04-13,Regio,17.63,254
+Limpiador Downy,7501000193,Limpieza,2026-09-04,Downy,36.1,143
+Shampoo Regio,7501000194,Higiene,2026-11-04,Regio,89.73,21
+Leche Yoplait,7501000195,Lácteos,2028-08-02,Yoplait,18.48,240
+Queso Lala,7501000196,Lácteos,2026-09-20,Lala,78.39,237
+Cloro Fabuloso,7501000197,Limpieza,2028-02-16,Fabuloso,58.27,183
+Mantequilla Yoplait,7501000198,Lácteos,2027-10-25,Yoplait,48.35,240
+Agua Mineral Pepsi,7501000199,Bebidas,2027-11-22,Pepsi,53.41,38
+Galletas Oreo,7501000200,Snacks,2027-03-15,Oreo,94.03,83
+Galletas Oreo,7501000201,Snacks,2027-12-13,Oreo,116.57,17
+Cacahuates Ruffles,7501000202,Snacks,2028-05-20,Ruffles,115.17,38
+Frijol La Costeña,7501000203,Abarrotes,2028-09-16,La Costeña,97.33,148
+Leche Lala,7501000204,Lácteos,2027-09-26,Lala,10.52,64
+Galletas Ruffles,7501000205,Snacks,2028-02-20,Ruffles,77.02,98
+Refresco Bonafont,7501000206,Bebidas,2026-11-29,Bonafont,103.92,108
+Arroz Capullo,7501000207,Abarrotes,2028-02-18,Capullo,52.19,64
+Mantequilla Nochebuena,7501000208,Lácteos,2028-11-22,Nochebuena,114.38,15
+Shampoo Regio,7501000209,Higiene,2026-07-23,Regio,49.17,38
+Papel Higiénico Dove,7501000210,Higiene,2028-03-11,Dove,98.2,297
+Aceite Sos,7501000211,Abarrotes,2028-09-09,Sos,20.34,91
+Queso Yoplait,7501000212,Lácteos,2028-08-26,Yoplait,96.55,284
+Shampoo Dove,7501000213,Higiene,2027-05-24,Dove,92.14,274
+Cloro Downy,7501000214,Limpieza,2026-01-13,Downy,119.41,191
+Papas Oreo,7501000215,Snacks,2028-07-29,Oreo,14.53,143
+Té Frío Coca-Cola,7501000216,Bebidas,2027-06-12,Coca-Cola,66.05,98
+Cacahuates Ruffles,7501000217,Snacks,2027-10-24,Ruffles,76.73,67
+Frijol La Costeña,7501000218,Abarrotes,2027-04-20,La Costeña,46.26,146
+Pasta Dental Dove,7501000219,Higiene,2027-02-02,Dove,11.77,251
+Pasta Dental Regio,7501000220,Higiene,2028-04-15,Regio,10.87,185
+Té Frío Pepsi,7501000221,Bebidas,2028-06-08,Pepsi,75.07,80
+Frijol Zulka,7501000222,Abarrotes,2027-04-29,Zulka,66.91,141
+Pasta Dental Dove,7501000223,Higiene,2027-10-30,Dove,108.59,56
+Aceite Capullo,7501000224,Abarrotes,2027-09-24,Capullo,49.63,275
+Papel Higiénico Regio,7501000225,Higiene,2026-05-26,Regio,102.09,244
+Limpiador Cloralex,7501000226,Limpieza,2027-07-24,Cloralex,17.77,26
+Agua Mineral Pepsi,7501000227,Bebidas,2027-03-23,Pepsi,29.83,209
+Mantequilla Alpura,7501000228,Lácteos,2028-01-10,Alpura,49.41,66
+Shampoo Regio,7501000229,Higiene,2026-03-10,Regio,97.88,33
+Galletas Oreo,7501000230,Snacks,2028-12-07,Oreo,33.1,112
+Queso Lala,7501000231,Lácteos,2027-11-27,Lala,99.42,115
+Mantequilla Lala,7501000232,Lácteos,2028-05-02,Lala,98.26,119
+Jabón Dove,7501000233,Higiene,2028-11-17,Dove,56.77,71
+Aceite Capullo,7501000234,Abarrotes,2027-07-18,Capullo,53.17,52
+Mantequilla Lala,7501000235,Lácteos,2026-05-28,Lala,108.23,151
+Queso Yoplait,7501000236,Lácteos,2026-02-18,Yoplait,36.17,293
+Té Frío Bonafont,7501000237,Bebidas,2028-02-07,Bonafont,20.71,59
+Leche Yoplait,7501000238,Lácteos,2028-06-24,Yoplait,114.69,70
+Leche Alpura,7501000239,Lácteos,2028-07-09,Alpura,69.03,111
+Frijol Capullo,7501000240,Abarrotes,2027-07-24,Capullo,62.13,58
+Azúcar Capullo,7501000241,Abarrotes,2028-11-07,Capullo,104.27,171
+Refresco Del Valle,7501000242,Bebidas,2028-02-17,Del Valle,118.08,281
+Galletas Oreo,7501000243,Snacks,2028-03-31,Oreo,63.37,273
+Limpiador Downy,7501000244,Limpieza,2026-11-24,Downy,26.82,292
+Jabón Dove,7501000245,Higiene,2026-08-14,Dove,46.45,82
+Mantequilla Yoplait,7501000246,Lácteos,2027-11-19,Yoplait,97.16,279
+Suavizante Downy,7501000247,Limpieza,2026-01-15,Downy,90.23,148
+Cloro Cloralex,7501000248,Limpieza,2028-12-14,Cloralex,76.3,281
+Azúcar Sos,7501000249,Abarrotes,2026-03-25,Sos,14.01,137
+Galletas Oreo,7501000250,Snacks,2026-10-26,Oreo,19.46,282
+Mantequilla Nochebuena,7501000251,Lácteos,2028-04-23,Nochebuena,113.95,82
+Azúcar Capullo,7501000252,Abarrotes,2026-08-21,Capullo,13.96,68
+Detergente Fabuloso,7501000253,Limpieza,2027-12-07,Fabuloso,55.91,74
+Frijol La Costeña,7501000254,Abarrotes,2026-02-11,La Costeña,101.21,135
+Azúcar Sos,7501000255,Abarrotes,2026-04-11,Sos,32.39,83
+Jugo Del Valle,7501000256,Bebidas,2027-10-23,Del Valle,87.75,104
+Agua Mineral Coca-Cola,7501000257,Bebidas,2027-09-24,Coca-Cola,106.27,284
+Arroz La Costeña,7501000258,Abarrotes,2026-03-02,La Costeña,54.7,198
+Cloro Ariel,7501000259,Limpieza,2027-06-23,Ariel,26.25,180
+Jugo Pepsi,7501000260,Bebidas,2027-05-31,Pepsi,42.48,224
+Jabón Oral-B,7501000261,Higiene,2028-06-01,Oral-B,99.99,246
+Jugo Ciel,7501000262,Bebidas,2026-01-25,Ciel,99.35,57
+Papel Higiénico Oral-B,7501000263,Higiene,2028-02-21,Oral-B,103.27,10
+Mantequilla Yoplait,7501000264,Lácteos,2027-07-03,Yoplait,75.76,253
+Cacahuates Gamesa,7501000265,Snacks,2028-09-23,Gamesa,38.1,117
+Agua Mineral Ciel,7501000266,Bebidas,2026-11-05,Ciel,105.66,27
+Cacahuates Ruffles,7501000267,Snacks,2027-06-16,Ruffles,51.31,115
+Queso Nochebuena,7501000268,Lácteos,2026-06-05,Nochebuena,34.14,263
+Queso Alpura,7501000269,Lácteos,2027-10-11,Alpura,46.2,253
+Té Frío Coca-Cola,7501000270,Bebidas,2027-12-14,Coca-Cola,14.46,209
+Jugo Pepsi,7501000271,Bebidas,2028-04-09,Pepsi,113.78,61
+Queso Alpura,7501000272,Lácteos,2026-09-26,Alpura,69.8,20
+Frijol La Costeña,7501000273,Abarrotes,2027-04-06,La Costeña,116.33,41
+Jugo Coca-Cola,7501000274,Bebidas,2028-09-12,Coca-Cola,25.24,282
+Agua Mineral Ciel,7501000275,Bebidas,2028-03-03,Ciel,37.17,245
+Cloro Cloralex,7501000276,Limpieza,2027-02-09,Cloralex,97.85,201
+Jugo Ciel,7501000277,Bebidas,2028-12-29,Ciel,56.89,267
+Frijol Zulka,7501000278,Abarrotes,2026-11-22,Zulka,51.19,66
+Palomitas Gamesa,7501000279,Snacks,2027-08-25,Gamesa,88.53,155
+Queso Yoplait,7501000280,Lácteos,2027-01-05,Yoplait,95.36,127
+Cloro Cloralex,7501000281,Limpieza,2027-09-13,Cloralex,65.46,79
+Agua Mineral Coca-Cola,7501000282,Bebidas,2026-10-27,Coca-Cola,50.84,21
+Agua Mineral Coca-Cola,7501000283,Bebidas,2028-10-07,Coca-Cola,73.79,157
+Cacahuates Gamesa,7501000284,Snacks,2026-06-12,Gamesa,30.53,296
+Papas Ruffles,7501000285,Snacks,2028-02-12,Ruffles,48.14,140
+Papel Higiénico Colgate,7501000286,Higiene,2028-08-12,Colgate,24.87,72
+Mantequilla Alpura,7501000287,Lácteos,2028-09-13,Alpura,17.64,143
+Leche Nochebuena,7501000288,Lácteos,2026-06-27,Nochebuena,62.04,53
+Azúcar Capullo,7501000289,Abarrotes,2026-08-27,Capullo,95.85,178
+Yogurt Alpura,7501000290,Lácteos,2028-01-20,Alpura,51.41,154
+Galletas Ruffles,7501000291,Snacks,2027-03-01,Ruffles,75.52,120
+Refresco Del Valle,7501000292,Bebidas,2027-04-28,Del Valle,106.8,29
+Mantequilla Yoplait,7501000293,Lácteos,2027-11-13,Yoplait,37.6,65
+Cacahuates Gamesa,7501000294,Snacks,2026-10-21,Gamesa,23.87,187
+Agua Mineral Coca-Cola,7501000295,Bebidas,2027-03-01,Coca-Cola,49.87,115
+Queso Alpura,7501000296,Lácteos,2028-02-27,Alpura,18.52,230
+Jabón Oral-B,7501000297,Higiene,2026-07-14,Oral-B,21.17,260
+Shampoo Oral-B,7501000298,Higiene,2027-09-22,Oral-B,71.71,17
+Cacahuates Ruffles,7501000299,Snacks,2028-08-10,Ruffles,90.93,101
+Aceite La Costeña,7501000300,Abarrotes,2028-03-17,La Costeña,35.26,214
+Arroz La Costeña,7501000301,Abarrotes,2028-05-04,La Costeña,91.44,71
+Galletas Gamesa,7501000302,Snacks,2026-05-20,Gamesa,60.67,131
+Papas Oreo,7501000303,Snacks,2028-03-21,Oreo,118.47,24
+Shampoo Colgate,7501000304,Higiene,2027-04-08,Colgate,87.94,252
+Agua Mineral Del Valle,7501000305,Bebidas,2027-11-01,Del Valle,60.72,281
+Cloro Downy,7501000306,Limpieza,2028-01-03,Downy,104.15,253
+Shampoo Dove,7501000307,Higiene,2027-12-30,Dove,12.41,228
+Jugo Pepsi,7501000308,Bebidas,2028-08-04,Pepsi,85.2,276
+Shampoo Regio,7501000309,Higiene,2028-06-09,Regio,21.23,141
+Limpiador Cloralex,7501000310,Limpieza,2028-03-10,Cloralex,24.75,81
+Queso Nochebuena,7501000311,Lácteos,2026-08-05,Nochebuena,59.39,276
+Yogurt Yoplait,7501000312,Lácteos,2026-07-02,Yoplait,117.46,132
+Jabón Dove,7501000313,Higiene,2026-08-15,Dove,92.35,82
+Galletas Sabritas,7501000314,Snacks,2028-11-04,Sabritas,118.63,216
+Agua Mineral Coca-Cola,7501000315,Bebidas,2026-03-10,Coca-Cola,118.4,152
+Aceite La Costeña,7501000316,Abarrotes,2026-11-26,La Costeña,14.99,180
+Refresco Coca-Cola,7501000317,Bebidas,2027-03-29,Coca-Cola,57.99,268
+Suavizante Cloralex,7501000318,Limpieza,2028-12-10,Cloralex,22.91,295
+Pasta Dental Regio,7501000319,Higiene,2027-08-11,Regio,102.69,31
+Suavizante Ariel,7501000320,Limpieza,2027-05-07,Ariel,66.5,216
+Leche Yoplait,7501000321,Lácteos,2026-12-12,Yoplait,100.61,117
+Té Frío Pepsi,7501000322,Bebidas,2026-06-04,Pepsi,24.01,64
+Aceite Sos,7501000323,Abarrotes,2027-07-17,Sos,81.02,141
+Cloro Fabuloso,7501000324,Limpieza,2028-03-17,Fabuloso,79.5,195
+Limpiador Ariel,7501000325,Limpieza,2028-01-30,Ariel,46.61,260
+Papas Gamesa,7501000326,Snacks,2027-07-11,Gamesa,19.49,19
+Galletas Ruffles,7501000327,Snacks,2028-01-19,Ruffles,106.11,272
+Limpiador Downy,7501000328,Limpieza,2028-09-28,Downy,69.13,59
+Palomitas Ruffles,7501000329,Snacks,2028-07-09,Ruffles,38.73,215
+Té Frío Bonafont,7501000330,Bebidas,2028-08-29,Bonafont,50.92,98
+Shampoo Dove,7501000331,Higiene,2026-10-01,Dove,46.05,260
+Limpiador Fabuloso,7501000332,Limpieza,2028-06-24,Fabuloso,30.42,48
+Shampoo Colgate,7501000333,Higiene,2028-01-23,Colgate,62.69,112
+Palomitas Ruffles,7501000334,Snacks,2026-01-26,Ruffles,28.07,187
+Jabón Dove,7501000335,Higiene,2026-09-30,Dove,86.34,204
+Arroz Sos,7501000336,Abarrotes,2028-10-03,Sos,102.42,70
+Arroz Sos,7501000337,Abarrotes,2028-11-10,Sos,30.42,252
+Cacahuates Gamesa,7501000338,Snacks,2028-01-25,Gamesa,16.49,211
+Jugo Del Valle,7501000339,Bebidas,2027-09-07,Del Valle,72.69,191
+Frijol La Costeña,7501000340,Abarrotes,2028-01-25,La Costeña,112.64,42
+Palomitas Sabritas,7501000341,Snacks,2028-05-05,Sabritas,90.63,253
+Palomitas Oreo,7501000342,Snacks,2027-09-11,Oreo,89.32,81
+Suavizante Fabuloso,7501000343,Limpieza,2028-11-28,Fabuloso,51.74,20
+Limpiador Cloralex,7501000344,Limpieza,2028-10-26,Cloralex,12.72,15
+Cloro Fabuloso,7501000345,Limpieza,2028-10-02,Fabuloso,48.28,75
+Papas Gamesa,7501000346,Snacks,2027-04-27,Gamesa,118.85,54
+Palomitas Gamesa,7501000347,Snacks,2028-07-04,Gamesa,59.19,122
+Detergente Cloralex,7501000348,Limpieza,2027-01-31,Cloralex,112.53,136
+Leche Lala,7501000349,Lácteos,2028-05-01,Lala,117.92,124
+Refresco Pepsi,7501000350,Bebidas,2028-07-14,Pepsi,64.58,70
+Suavizante Cloralex,7501000351,Limpieza,2026-01-11,Cloralex,16.03,125
+Galletas Ruffles,7501000352,Snacks,2026-02-23,Ruffles,85.38,267
+Cloro Fabuloso,7501000353,Limpieza,2028-09-20,Fabuloso,20.9,276
+Cloro Fabuloso,7501000354,Limpieza,2028-02-14,Fabuloso,96.71,235
+Aceite Sos,7501000355,Abarrotes,2027-02-26,Sos,76.67,187
+Aceite Sos,7501000356,Abarrotes,2027-09-27,Sos,18.29,37
+Agua Mineral Bonafont,7501000357,Bebidas,2027-03-28,Bonafont,60.27,139
+Té Frío Pepsi,7501000358,Bebidas,2026-03-12,Pepsi,43.9,45
+Mantequilla Alpura,7501000359,Lácteos,2028-06-17,Alpura,35.11,286
+Jugo Ciel,7501000360,Bebidas,2026-10-09,Ciel,61.97,237
+Papas Gamesa,7501000361,Snacks,2027-05-26,Gamesa,34.35,137
+Agua Mineral Del Valle,7501000362,Bebidas,2028-05-02,Del Valle,118.02,198
+Pasta Dental Oral-B,7501000363,Higiene,2026-09-24,Oral-B,64.44,49
+Refresco Coca-Cola,7501000364,Bebidas,2028-09-18,Coca-Cola,20.19,64
+Papas Sabritas,7501000365,Snacks,2028-06-24,Sabritas,11.3,227
+Jugo Ciel,7501000366,Bebidas,2026-07-05,Ciel,73.23,241
+Queso Lala,7501000367,Lácteos,2028-01-24,Lala,91.99,47
+Agua Mineral Pepsi,7501000368,Bebidas,2026-08-04,Pepsi,92.94,177
+Galletas Ruffles,7501000369,Snacks,2028-03-11,Ruffles,25.4,25
+Azúcar Capullo,7501000370,Abarrotes,2026-07-01,Capullo,89.04,92
+Yogurt Lala,7501000371,Lácteos,2028-04-07,Lala,85.4,225
+Pasta Dental Colgate,7501000372,Higiene,2027-05-05,Colgate,118.12,227
+Agua Mineral Bonafont,7501000373,Bebidas,2027-10-22,Bonafont,14.07,198
+Cloro Downy,7501000374,Limpieza,2028-01-10,Downy,118.57,138
+Palomitas Gamesa,7501000375,Snacks,2028-07-21,Gamesa,62.44,37
+Cacahuates Ruffles,7501000376,Snacks,2028-10-21,Ruffles,111.92,137
+Jabón Dove,7501000377,Higiene,2028-04-17,Dove,70.19,249
+Limpiador Ariel,7501000378,Limpieza,2026-09-22,Ariel,29.42,152
+Té Frío Coca-Cola,7501000379,Bebidas,2027-11-14,Coca-Cola,107.6,125
+Refresco Pepsi,7501000380,Bebidas,2028-09-20,Pepsi,74.12,202
+Leche Yoplait,7501000381,Lácteos,2026-11-12,Yoplait,27.68,25
+Galletas Gamesa,7501000382,Snacks,2026-11-13,Gamesa,110.08,264
+Queso Yoplait,7501000383,Lácteos,2026-02-20,Yoplait,82.34,68
+Azúcar Capullo,7501000384,Abarrotes,2026-05-13,Capullo,60.78,34
+Jugo Del Valle,7501000385,Bebidas,2028-03-21,Del Valle,87.12,61
+Limpiador Fabuloso,7501000386,Limpieza,2028-09-02,Fabuloso,81.76,276
+Suavizante Downy,7501000387,Limpieza,2027-01-13,Downy,85.93,259
+Leche Alpura,7501000388,Lácteos,2027-09-13,Alpura,97.57,94
+Arroz Capullo,7501000389,Abarrotes,2028-07-09,Capullo,92.16,149
+Mantequilla Lala,7501000390,Lácteos,2028-05-17,Lala,44.1,11
+Papel Higiénico Regio,7501000391,Higiene,2028-04-11,Regio,55.57,195
+Frijol Capullo,7501000392,Abarrotes,2027-09-17,Capullo,89.78,11
+Agua Mineral Bonafont,7501000393,Bebidas,2026-05-14,Bonafont,114.11,203
+Arroz Capullo,7501000394,Abarrotes,2027-03-29,Capullo,52.23,121
+Cloro Cloralex,7501000395,Limpieza,2026-01-25,Cloralex,101.47,242
+Jugo Ciel,7501000396,Bebidas,2028-06-23,Ciel,11.06,84
+Azúcar Zulka,7501000397,Abarrotes,2028-08-16,Zulka,97.35,297
+Galletas Sabritas,7501000398,Snacks,2028-08-29,Sabritas,48.75,101
+Refresco Bonafont,7501000399,Bebidas,2026-06-05,Bonafont,31.54,298
+Té Frío Ciel,7501000400,Bebidas,2026-12-03,Ciel,19.5,69
+Pasta Dental Regio,7501000401,Higiene,2028-08-20,Regio,52.63,299
+Detergente Ariel,7501000402,Limpieza,2028-02-27,Ariel,59.59,41
+Shampoo Regio,7501000403,Higiene,2026-07-30,Regio,106.17,141
+Pasta Dental Oral-B,7501000404,Higiene,2027-04-23,Oral-B,46.34,173
+Frijol Zulka,7501000405,Abarrotes,2027-05-24,Zulka,74.07,162
+Refresco Bonafont,7501000406,Bebidas,2028-01-16,Bonafont,73.32,21
+Jugo Pepsi,7501000407,Bebidas,2026-06-21,Pepsi,82.21,83
+Detergente Downy,7501000408,Limpieza,2026-03-14,Downy,47.92,115
+Jugo Coca-Cola,7501000409,Bebidas,2027-05-29,Coca-Cola,92.8,189
+Té Frío Del Valle,7501000410,Bebidas,2026-11-06,Del Valle,76.4,274
+Detergente Ariel,7501000411,Limpieza,2027-09-10,Ariel,60.03,191
+Yogurt Nochebuena,7501000412,Lácteos,2028-03-03,Nochebuena,32.34,281
+Jabón Colgate,7501000413,Higiene,2027-12-12,Colgate,37.65,113
+Agua Mineral Bonafont,7501000414,Bebidas,2026-12-07,Bonafont,43.82,289
+Cloro Cloralex,7501000415,Limpieza,2026-07-29,Cloralex,80.64,260
+Refresco Ciel,7501000416,Bebidas,2027-07-16,Ciel,66.41,102
+Queso Lala,7501000417,Lácteos,2028-12-09,Lala,42.89,126
+Aceite La Costeña,7501000418,Abarrotes,2027-09-03,La Costeña,86.89,91
+Suavizante Ariel,7501000419,Limpieza,2027-12-30,Ariel,87.62,158
+Aceite La Costeña,7501000420,Abarrotes,2028-02-02,La Costeña,61.45,258
+Limpiador Downy,7501000421,Limpieza,2026-07-25,Downy,13.64,27
+Leche Nochebuena,7501000422,Lácteos,2028-08-06,Nochebuena,51.02,48
+Detergente Fabuloso,7501000423,Limpieza,2026-07-22,Fabuloso,44.66,265
+Arroz Sos,7501000424,Abarrotes,2026-04-12,Sos,11.82,64
+Aceite Sos,7501000425,Abarrotes,2028-01-16,Sos,48.55,21
+Jugo Pepsi,7501000426,Bebidas,2028-09-06,Pepsi,12.43,280
+Queso Nochebuena,7501000427,Lácteos,2027-01-28,Nochebuena,115.03,106
+Azúcar Zulka,7501000428,Abarrotes,2026-07-01,Zulka,56.82,251
+Limpiador Cloralex,7501000429,Limpieza,2027-08-13,Cloralex,83.98,282
+Mantequilla Nochebuena,7501000430,Lácteos,2027-02-25,Nochebuena,57.14,96
+Cacahuates Oreo,7501000431,Snacks,2027-11-10,Oreo,78.78,210
+Agua Mineral Del Valle,7501000432,Bebidas,2027-10-11,Del Valle,28.02,80
+Jabón Dove,7501000433,Higiene,2026-10-24,Dove,117.77,194
+Galletas Ruffles,7501000434,Snacks,2026-03-29,Ruffles,119.92,62
+Mantequilla Nochebuena,7501000435,Lácteos,2028-03-04,Nochebuena,29.77,125
+Leche Alpura,7501000436,Lácteos,2028-11-24,Alpura,26.71,174
+Jugo Pepsi,7501000437,Bebidas,2026-08-08,Pepsi,111.07,86
+Mantequilla Alpura,7501000438,Lácteos,2026-10-23,Alpura,80.95,107
+Suavizante Fabuloso,7501000439,Limpieza,2028-03-01,Fabuloso,36.09,203
+Jugo Pepsi,7501000440,Bebidas,2026-02-16,Pepsi,59.33,91
+Aceite Sos,7501000441,Abarrotes,2026-03-28,Sos,43.5,274
+Papel Higiénico Regio,7501000442,Higiene,2026-02-26,Regio,76.52,182
+Papel Higiénico Oral-B,7501000443,Higiene,2026-03-09,Oral-B,28.45,186
+Té Frío Coca-Cola,7501000444,Bebidas,2028-06-05,Coca-Cola,115.22,153
+Queso Yoplait,7501000445,Lácteos,2028-12-07,Yoplait,97.38,16
+Leche Yoplait,7501000446,Lácteos,2026-05-15,Yoplait,64.48,77
+Té Frío Bonafont,7501000447,Bebidas,2027-10-08,Bonafont,76.64,217
+Suavizante Fabuloso,7501000448,Limpieza,2028-02-07,Fabuloso,98.27,246
+Limpiador Ariel,7501000449,Limpieza,2028-02-29,Ariel,51.65,31
+Arroz Sos,7501000450,Abarrotes,2027-03-09,Sos,69.8,118
+Cloro Ariel,7501000451,Limpieza,2026-02-02,Ariel,112.42,268
+Leche Nochebuena,7501000452,Lácteos,2027-12-23,Nochebuena,46.41,133
+Yogurt Alpura,7501000453,Lácteos,2026-07-29,Alpura,78.13,145
+Limpiador Downy,7501000454,Limpieza,2028-09-16,Downy,50.13,261
+Limpiador Downy,7501000455,Limpieza,2028-05-08,Downy,45.86,25
+Galletas Oreo,7501000456,Snacks,2028-05-22,Oreo,115.14,184
+Suavizante Fabuloso,7501000457,Limpieza,2027-07-19,Fabuloso,57.67,229
+Frijol Capullo,7501000458,Abarrotes,2027-02-09,Capullo,83.18,265
+Palomitas Oreo,7501000459,Snacks,2028-03-13,Oreo,83.21,219
+Papel Higiénico Colgate,7501000460,Higiene,2027-10-25,Colgate,11.85,124
+Pasta Dental Regio,7501000461,Higiene,2027-04-06,Regio,27.83,164
+Jabón Dove,7501000462,Higiene,2028-02-01,Dove,22,198
+Agua Mineral Pepsi,7501000463,Bebidas,2027-03-18,Pepsi,13.34,277
+Té Frío Ciel,7501000464,Bebidas,2026-05-13,Ciel,84.89,281
+Palomitas Oreo,7501000465,Snacks,2028-09-14,Oreo,28.82,244
+Limpiador Cloralex,7501000466,Limpieza,2026-02-04,Cloralex,53,30
+Queso Alpura,7501000467,Lácteos,2027-07-02,Alpura,22.24,193
+Agua Mineral Coca-Cola,7501000468,Bebidas,2026-08-19,Coca-Cola,65.74,157
+Pasta Dental Dove,7501000469,Higiene,2028-01-12,Dove,34.3,264
+Cacahuates Oreo,7501000470,Snacks,2027-10-31,Oreo,100.23,296
+Agua Mineral Bonafont,7501000471,Bebidas,2028-11-17,Bonafont,97.41,184
+Cloro Ariel,7501000472,Limpieza,2028-02-24,Ariel,75.46,229
+Papel Higiénico Colgate,7501000473,Higiene,2028-02-26,Colgate,59.65,111
+Queso Nochebuena,7501000474,Lácteos,2028-08-23,Nochebuena,30.84,148
+Té Frío Ciel,7501000475,Bebidas,2027-02-08,Ciel,91.08,59
+Mantequilla Alpura,7501000476,Lácteos,2028-03-27,Alpura,33.27,178
+Detergente Fabuloso,7501000477,Limpieza,2027-08-28,Fabuloso,33.59,183
+Aceite Sos,7501000478,Abarrotes,2026-08-03,Sos,39.62,241
+Leche Alpura,7501000479,Lácteos,2027-11-14,Alpura,22.7,190
+Palomitas Ruffles,7501000480,Snacks,2028-08-20,Ruffles,24.8,86
+Mantequilla Lala,7501000481,Lácteos,2026-06-26,Lala,12.95,212
+Azúcar Capullo,7501000482,Abarrotes,2028-01-18,Capullo,70.17,275
+Papel Higiénico Regio,7501000483,Higiene,2026-10-16,Regio,115.57,14
+Detergente Cloralex,7501000484,Limpieza,2027-05-08,Cloralex,103.93,155
+Papel Higiénico Oral-B,7501000485,Higiene,2027-06-09,Oral-B,96.56,256
+Yogurt Yoplait,7501000486,Lácteos,2028-01-19,Yoplait,79.53,296
+Frijol Sos,7501000487,Abarrotes,2028-05-23,Sos,84.66,123
+Limpiador Ariel,7501000488,Limpieza,2026-10-27,Ariel,59.95,19
+Arroz Sos,7501000489,Abarrotes,2028-02-25,Sos,102.71,279
+Leche Nochebuena,7501000490,Lácteos,2028-10-28,Nochebuena,41.22,30
+Frijol La Costeña,7501000491,Abarrotes,2028-02-01,La Costeña,111.21,57
+Arroz Zulka,7501000492,Abarrotes,2028-03-18,Zulka,106.78,71
+Jugo Coca-Cola,7501000493,Bebidas,2027-05-23,Coca-Cola,116.25,177
+Agua Mineral Ciel,7501000494,Bebidas,2027-11-04,Ciel,72.49,192
+Suavizante Fabuloso,7501000495,Limpieza,2028-11-24,Fabuloso,35.7,114
+Papas Gamesa,7501000496,Snacks,2028-09-18,Gamesa,100.79,61
+Té Frío Bonafont,7501000497,Bebidas,2027-12-30,Bonafont,31.33,56
+Agua Mineral Pepsi,7501000498,Bebidas,2027-11-14,Pepsi,114.97,237
+Agua Mineral Ciel,7501000499,Bebidas,2026-01-17,Ciel,55.73,62
+Queso Lala,7501000500,Lácteos,2027-11-28,Lala,69.97,34
+Yogurt Alpura,7501000501,Lácteos,2028-09-11,Alpura,99.15,290
+Frijol Zulka,7501000502,Abarrotes,2026-05-15,Zulka,114.45,284
+Yogurt Nochebuena,7501000503,Lácteos,2026-10-17,Nochebuena,46.59,10
+Frijol La Costeña,7501000504,Abarrotes,2026-01-04,La Costeña,101.98,241
+Aceite Capullo,7501000505,Abarrotes,2027-10-24,Capullo,47.64,234
+Pasta Dental Colgate,7501000506,Higiene,2026-03-08,Colgate,103.53,246
+Té Frío Bonafont,7501000507,Bebidas,2026-01-10,Bonafont,71.52,22
+Mantequilla Alpura,7501000508,Lácteos,2028-05-07,Alpura,74.85,283
+Agua Mineral Ciel,7501000509,Bebidas,2026-11-02,Ciel,108.25,256
+Jugo Ciel,7501000510,Bebidas,2027-11-06,Ciel,22.72,15
+Mantequilla Alpura,7501000511,Lácteos,2027-05-16,Alpura,93.93,83
+Refresco Del Valle,7501000512,Bebidas,2028-03-10,Del Valle,71.75,40
+Jabón Colgate,7501000513,Higiene,2027-08-13,Colgate,92.07,113
+Jabón Oral-B,7501000514,Higiene,2028-03-06,Oral-B,88.16,158
+Agua Mineral Coca-Cola,7501000515,Bebidas,2027-06-11,Coca-Cola,103.34,229
+Cacahuates Gamesa,7501000516,Snacks,2026-10-12,Gamesa,86.8,212
+Arroz Sos,7501000517,Abarrotes,2026-02-14,Sos,99.57,134
+Suavizante Downy,7501000518,Limpieza,2026-01-03,Downy,39.51,59
+Cloro Downy,7501000519,Limpieza,2027-01-09,Downy,41.82,173
+Aceite Sos,7501000520,Abarrotes,2027-03-16,Sos,100.6,60
+Galletas Ruffles,7501000521,Snacks,2026-12-16,Ruffles,37.74,43
+Shampoo Oral-B,7501000522,Higiene,2027-01-07,Oral-B,103.41,244
+Azúcar Sos,7501000523,Abarrotes,2028-05-08,Sos,107.14,127
+Aceite Sos,7501000524,Abarrotes,2027-09-29,Sos,97.81,109
+Detergente Cloralex,7501000525,Limpieza,2028-09-07,Cloralex,95.71,96
+Cloro Downy,7501000526,Limpieza,2028-06-02,Downy,114.18,232
+Yogurt Nochebuena,7501000527,Lácteos,2027-02-01,Nochebuena,20.74,128
+Leche Yoplait,7501000528,Lácteos,2027-03-07,Yoplait,26.82,101
+Té Frío Ciel,7501000529,Bebidas,2028-07-05,Ciel,80.89,125
+Galletas Ruffles,7501000530,Snacks,2026-02-13,Ruffles,27.2,107
+Pasta Dental Dove,7501000531,Higiene,2028-04-30,Dove,102.42,26
+Frijol Capullo,7501000532,Abarrotes,2028-09-23,Capullo,71.78,119
+Cacahuates Gamesa,7501000533,Snacks,2026-02-13,Gamesa,82.07,300
+Suavizante Cloralex,7501000534,Limpieza,2027-05-12,Cloralex,17.99,125
+Aceite Capullo,7501000535,Abarrotes,2027-10-27,Capullo,110.72,251
+Detergente Ariel,7501000536,Limpieza,2028-04-22,Ariel,18.69,47
+Detergente Ariel,7501000537,Limpieza,2028-02-03,Ariel,86.67,280
+Mantequilla Lala,7501000538,Lácteos,2026-07-12,Lala,44.84,264
+Refresco Pepsi,7501000539,Bebidas,2027-06-10,Pepsi,49.07,274
+Azúcar Capullo,7501000540,Abarrotes,2027-11-12,Capullo,109.02,266
+Detergente Ariel,7501000541,Limpieza,2028-09-24,Ariel,23.65,110
+Detergente Ariel,7501000542,Limpieza,2026-01-15,Ariel,58.6,128
+Yogurt Nochebuena,7501000543,Lácteos,2027-02-08,Nochebuena,79.24,75
+Papel Higiénico Oral-B,7501000544,Higiene,2027-08-18,Oral-B,35.28,123
+Queso Nochebuena,7501000545,Lácteos,2028-04-26,Nochebuena,119.43,74
+Frijol Sos,7501000546,Abarrotes,2028-12-24,Sos,96.54,145
+Queso Lala,7501000547,Lácteos,2027-08-01,Lala,112.03,270
+Pasta Dental Oral-B,7501000548,Higiene,2026-04-12,Oral-B,77.54,186
+Palomitas Ruffles,7501000549,Snacks,2026-01-29,Ruffles,88.1,296
+Limpiador Fabuloso,7501000550,Limpieza,2026-11-18,Fabuloso,117.51,17
+Arroz Capullo,7501000551,Abarrotes,2028-03-01,Capullo,80.43,276
+Shampoo Oral-B,7501000552,Higiene,2026-03-03,Oral-B,104.99,198
+Arroz Sos,7501000553,Abarrotes,2026-03-15,Sos,117.38,26
+Galletas Ruffles,7501000554,Snacks,2027-07-12,Ruffles,12.06,112
+Aceite Capullo,7501000555,Abarrotes,2027-05-24,Capullo,70.85,288
+Mantequilla Nochebuena,7501000556,Lácteos,2028-05-03,Nochebuena,53.26,241
+Detergente Cloralex,7501000557,Limpieza,2028-11-04,Cloralex,115.86,39
+Yogurt Alpura,7501000558,Lácteos,2028-09-13,Alpura,108.89,171
+Azúcar Zulka,7501000559,Abarrotes,2028-09-25,Zulka,39.24,104
+Yogurt Yoplait,7501000560,Lácteos,2026-08-12,Yoplait,112.82,256
+Azúcar Zulka,7501000561,Abarrotes,2028-05-07,Zulka,104.44,192
+Papel Higiénico Colgate,7501000562,Higiene,2027-08-11,Colgate,90.57,265
+Suavizante Fabuloso,7501000563,Limpieza,2028-05-02,Fabuloso,71.74,72
+Shampoo Oral-B,7501000564,Higiene,2026-10-31,Oral-B,18.93,36
+Suavizante Ariel,7501000565,Limpieza,2027-11-25,Ariel,22.82,236
+Té Frío Bonafont,7501000566,Bebidas,2028-09-10,Bonafont,99.39,188
+Shampoo Oral-B,7501000567,Higiene,2028-12-22,Oral-B,84.07,227
+Azúcar Sos,7501000568,Abarrotes,2027-06-14,Sos,32.2,222
+Mantequilla Yoplait,7501000569,Lácteos,2028-05-12,Yoplait,87.38,293
+Papas Sabritas,7501000570,Snacks,2028-12-13,Sabritas,38.24,199
+Pasta Dental Oral-B,7501000571,Higiene,2026-06-13,Oral-B,73.92,99
+Jugo Bonafont,7501000572,Bebidas,2027-12-03,Bonafont,11.33,13
+Queso Lala,7501000573,Lácteos,2026-10-25,Lala,81.49,170
+Yogurt Nochebuena,7501000574,Lácteos,2027-09-27,Nochebuena,17.46,267
+Frijol Zulka,7501000575,Abarrotes,2026-07-04,Zulka,100.67,92
+Galletas Ruffles,7501000576,Snacks,2028-03-21,Ruffles,71.81,277
+Aceite La Costeña,7501000577,Abarrotes,2028-12-15,La Costeña,71.77,158
+Cacahuates Ruffles,7501000578,Snacks,2026-08-11,Ruffles,23.21,248
+Cacahuates Sabritas,7501000579,Snacks,2027-12-14,Sabritas,41.62,15
+Queso Nochebuena,7501000580,Lácteos,2026-01-27,Nochebuena,18.61,146
+Shampoo Dove,7501000581,Higiene,2026-05-16,Dove,63.89,39
+Palomitas Gamesa,7501000582,Snacks,2027-11-24,Gamesa,84.76,39
+Leche Nochebuena,7501000583,Lácteos,2026-04-24,Nochebuena,107.61,287
+Té Frío Ciel,7501000584,Bebidas,2026-06-07,Ciel,70.71,272
+Azúcar La Costeña,7501000585,Abarrotes,2026-10-20,La Costeña,75.04,194
+Palomitas Sabritas,7501000586,Snacks,2026-07-11,Sabritas,117.3,99
+Papas Oreo,7501000587,Snacks,2026-09-21,Oreo,30.15,47
+Arroz Capullo,7501000588,Abarrotes,2028-04-01,Capullo,62.22,103
+Agua Mineral Pepsi,7501000589,Bebidas,2027-08-23,Pepsi,62.6,94
+Té Frío Bonafont,7501000590,Bebidas,2026-11-07,Bonafont,68.36,293
+Frijol Sos,7501000591,Abarrotes,2026-07-19,Sos,85.43,220
+Palomitas Ruffles,7501000592,Snacks,2027-06-09,Ruffles,67.91,62
+Queso Yoplait,7501000593,Lácteos,2027-02-27,Yoplait,90.38,46
+Arroz Sos,7501000594,Abarrotes,2028-12-19,Sos,89.3,136
+Frijol Sos,7501000595,Abarrotes,2026-02-25,Sos,114.95,194
+Detergente Downy,7501000596,Limpieza,2027-06-06,Downy,25.27,207
+Papel Higiénico Oral-B,7501000597,Higiene,2026-09-27,Oral-B,67.85,192
+Queso Lala,7501000598,Lácteos,2027-08-18,Lala,97.18,146
+Azúcar Capullo,7501000599,Abarrotes,2028-08-30,Capullo,58.24,45
+Té Frío Bonafont,7501000600,Bebidas,2027-04-15,Bonafont,79.35,270
+Jabón Colgate,7501000601,Higiene,2027-07-15,Colgate,51.21,229
+Queso Lala,7501000602,Lácteos,2027-11-08,Lala,82.45,247
+Cloro Cloralex,7501000603,Limpieza,2027-09-15,Cloralex,71.58,38
+Papel Higiénico Dove,7501000604,Higiene,2027-08-09,Dove,10.76,240
+Leche Lala,7501000605,Lácteos,2028-11-07,Lala,58.43,217
+Agua Mineral Ciel,7501000606,Bebidas,2027-06-28,Ciel,115.44,248
+Frijol Capullo,7501000607,Abarrotes,2027-11-17,Capullo,44.37,218
+Mantequilla Alpura,7501000608,Lácteos,2026-02-14,Alpura,25.22,167
+Azúcar Sos,7501000609,Abarrotes,2028-11-13,Sos,54.47,104
+Frijol Capullo,7501000610,Abarrotes,2027-07-30,Capullo,99.99,190
+Refresco Coca-Cola,7501000611,Bebidas,2027-10-19,Coca-Cola,111.81,44
+Aceite La Costeña,7501000612,Abarrotes,2027-03-29,La Costeña,101.57,243
+Refresco Ciel,7501000613,Bebidas,2026-05-21,Ciel,58.03,290
+Yogurt Alpura,7501000614,Lácteos,2027-09-24,Alpura,111.29,220
+Arroz Sos,7501000615,Abarrotes,2028-09-21,Sos,53.33,250
+Yogurt Nochebuena,7501000616,Lácteos,2026-02-12,Nochebuena,19.18,36
+Mantequilla Alpura,7501000617,Lácteos,2028-03-23,Alpura,90.68,95
+Aceite La Costeña,7501000618,Abarrotes,2028-05-29,La Costeña,45.83,93
+Leche Alpura,7501000619,Lácteos,2028-10-10,Alpura,87.27,121
+Mantequilla Nochebuena,7501000620,Lácteos,2027-01-15,Nochebuena,98.18,138
+Limpiador Downy,7501000621,Limpieza,2026-01-16,Downy,55.93,16
+Cacahuates Gamesa,7501000622,Snacks,2028-09-08,Gamesa,88.64,87
+Refresco Pepsi,7501000623,Bebidas,2028-09-17,Pepsi,59.41,33
+Jabón Colgate,7501000624,Higiene,2028-10-05,Colgate,97.8,270
+Leche Nochebuena,7501000625,Lácteos,2028-08-21,Nochebuena,62.13,70
+Frijol Capullo,7501000626,Abarrotes,2026-09-15,Capullo,89.94,44
+Mantequilla Yoplait,7501000627,Lácteos,2026-07-14,Yoplait,32.86,114
+Galletas Sabritas,7501000628,Snacks,2028-08-01,Sabritas,39.8,35
+Azúcar Capullo,7501000629,Abarrotes,2026-05-01,Capullo,88.7,297
+Azúcar Zulka,7501000630,Abarrotes,2027-01-19,Zulka,23.79,158
+Shampoo Regio,7501000631,Higiene,2027-04-01,Regio,29.14,131
+Cloro Ariel,7501000632,Limpieza,2027-02-19,Ariel,84.23,296
+Arroz Capullo,7501000633,Abarrotes,2028-01-21,Capullo,83,79
+Limpiador Fabuloso,7501000634,Limpieza,2028-08-25,Fabuloso,86.92,291
+Yogurt Alpura,7501000635,Lácteos,2027-02-23,Alpura,29.92,74
+Yogurt Alpura,7501000636,Lácteos,2027-08-19,Alpura,108.16,128
+Aceite Sos,7501000637,Abarrotes,2027-05-13,Sos,58.2,42
+Detergente Ariel,7501000638,Limpieza,2026-01-24,Ariel,117.25,190
+Detergente Ariel,7501000639,Limpieza,2028-06-05,Ariel,58.01,40
+Azúcar Zulka,7501000640,Abarrotes,2026-02-07,Zulka,31.08,203
+Papel Higiénico Dove,7501000641,Higiene,2027-03-05,Dove,108.1,152
+Palomitas Gamesa,7501000642,Snacks,2027-05-04,Gamesa,65.16,180
+Suavizante Downy,7501000643,Limpieza,2027-01-02,Downy,69.92,233
+Cacahuates Ruffles,7501000644,Snacks,2026-07-22,Ruffles,116.29,72
+Jabón Regio,7501000645,Higiene,2028-08-04,Regio,12.98,174
+Suavizante Ariel,7501000646,Limpieza,2027-05-24,Ariel,15.33,17
+Jabón Colgate,7501000647,Higiene,2027-12-29,Colgate,24.82,275
+Agua Mineral Bonafont,7501000648,Bebidas,2027-03-21,Bonafont,59.89,261
+Té Frío Ciel,7501000649,Bebidas,2027-12-27,Ciel,14.05,99
+Leche Lala,7501000650,Lácteos,2028-08-18,Lala,34.32,97
+Palomitas Ruffles,7501000651,Snacks,2028-04-24,Ruffles,68.92,280
+Cloro Fabuloso,7501000652,Limpieza,2028-12-09,Fabuloso,112.5,29
+Papel Higiénico Colgate,7501000653,Higiene,2027-05-07,Colgate,78.32,26
+Papas Oreo,7501000654,Snacks,2026-11-10,Oreo,80.55,185
+Palomitas Sabritas,7501000655,Snacks,2027-11-14,Sabritas,106.55,111
+Jabón Oral-B,7501000656,Higiene,2027-11-22,Oral-B,72.7,273
+Pasta Dental Dove,7501000657,Higiene,2026-05-06,Dove,73.05,58
+Galletas Gamesa,7501000658,Snacks,2026-03-19,Gamesa,119.43,16
+Pasta Dental Regio,7501000659,Higiene,2027-07-26,Regio,91.26,12
+Papel Higiénico Colgate,7501000660,Higiene,2028-12-09,Colgate,50.54,189
+Papel Higiénico Regio,7501000661,Higiene,2026-09-26,Regio,39.85,100
+Cacahuates Gamesa,7501000662,Snacks,2028-05-12,Gamesa,82.48,38
+Limpiador Fabuloso,7501000663,Limpieza,2027-03-18,Fabuloso,77.74,215
+Papel Higiénico Regio,7501000664,Higiene,2028-04-19,Regio,70.7,161
+Shampoo Colgate,7501000665,Higiene,2028-11-05,Colgate,41.55,110
+Galletas Oreo,7501000666,Snacks,2027-12-10,Oreo,27.02,201
+Limpiador Cloralex,7501000667,Limpieza,2027-07-12,Cloralex,35.44,164
+Jabón Colgate,7501000668,Higiene,2027-01-09,Colgate,101.48,111
+Cloro Cloralex,7501000669,Limpieza,2028-12-04,Cloralex,63.56,276
+Shampoo Oral-B,7501000670,Higiene,2028-02-02,Oral-B,71.63,62
+Pasta Dental Regio,7501000671,Higiene,2027-09-10,Regio,22.65,69
+Frijol Sos,7501000672,Abarrotes,2027-03-30,Sos,16.9,83
+Frijol La Costeña,7501000673,Abarrotes,2026-03-26,La Costeña,83.04,38
+Mantequilla Nochebuena,7501000674,Lácteos,2026-05-14,Nochebuena,17.79,287
+Suavizante Fabuloso,7501000675,Limpieza,2027-06-27,Fabuloso,73.8,215
+Cloro Cloralex,7501000676,Limpieza,2027-07-29,Cloralex,74.04,72
+Suavizante Fabuloso,7501000677,Limpieza,2028-07-18,Fabuloso,24.6,132
+Cloro Fabuloso,7501000678,Limpieza,2026-01-30,Fabuloso,70.17,183
+Palomitas Gamesa,7501000679,Snacks,2027-11-10,Gamesa,71.03,71
+Mantequilla Alpura,7501000680,Lácteos,2027-09-07,Alpura,28.91,279
+Galletas Sabritas,7501000681,Snacks,2028-01-20,Sabritas,100.32,227
+Jugo Ciel,7501000682,Bebidas,2027-11-03,Ciel,46.44,235
+Papas Ruffles,7501000683,Snacks,2026-09-10,Ruffles,44.76,202
+Suavizante Fabuloso,7501000684,Limpieza,2028-07-21,Fabuloso,70.07,131
+Azúcar Capullo,7501000685,Abarrotes,2026-09-20,Capullo,14.73,300
+Azúcar La Costeña,7501000686,Abarrotes,2027-09-09,La Costeña,64.97,127
+Leche Yoplait,7501000687,Lácteos,2028-03-30,Yoplait,44,136
+Arroz La Costeña,7501000688,Abarrotes,2027-04-19,La Costeña,90.01,288
+Azúcar La Costeña,7501000689,Abarrotes,2027-09-09,La Costeña,114.58,17
+Aceite Zulka,7501000690,Abarrotes,2027-11-06,Zulka,14.67,107
+Mantequilla Alpura,7501000691,Lácteos,2028-01-16,Alpura,119.89,111
+Arroz La Costeña,7501000692,Abarrotes,2027-01-25,La Costeña,49.82,256
+Frijol Capullo,7501000693,Abarrotes,2027-08-24,Capullo,76.87,33
+Cacahuates Ruffles,7501000694,Snacks,2027-11-11,Ruffles,85.12,289
+Galletas Ruffles,7501000695,Snacks,2028-01-26,Ruffles,91.64,64
+Frijol Zulka,7501000696,Abarrotes,2026-10-21,Zulka,49.53,213
+Papas Oreo,7501000697,Snacks,2028-03-25,Oreo,70.69,113
+Queso Lala,7501000698,Lácteos,2028-02-09,Lala,13.56,289
+Arroz Sos,7501000699,Abarrotes,2027-12-12,Sos,61.85,122
+Yogurt Yoplait,7501000700,Lácteos,2028-04-01,Yoplait,94.88,66
+Pasta Dental Regio,7501000701,Higiene,2027-11-27,Regio,75.65,136
+Yogurt Nochebuena,7501000702,Lácteos,2027-04-08,Nochebuena,73.33,97
+Jabón Regio,7501000703,Higiene,2026-05-18,Regio,57.06,282
+Jugo Ciel,7501000704,Bebidas,2026-10-10,Ciel,17.17,279
+Mantequilla Nochebuena,7501000705,Lácteos,2027-11-03,Nochebuena,105.38,166
+Galletas Gamesa,7501000706,Snacks,2027-03-29,Gamesa,92.29,115
+Té Frío Pepsi,7501000707,Bebidas,2028-03-31,Pepsi,106.38,144
+Detergente Ariel,7501000708,Limpieza,2028-10-30,Ariel,38.84,165
+Detergente Downy,7501000709,Limpieza,2026-10-13,Downy,37.9,61
+Cloro Downy,7501000710,Limpieza,2028-12-18,Downy,51.89,114
+Papel Higiénico Dove,7501000711,Higiene,2026-01-28,Dove,58.51,175
+Arroz La Costeña,7501000712,Abarrotes,2027-06-15,La Costeña,49.42,191
+Arroz Sos,7501000713,Abarrotes,2027-05-25,Sos,75.95,38
+Queso Lala,7501000714,Lácteos,2026-10-26,Lala,94.61,177
+Mantequilla Alpura,7501000715,Lácteos,2026-08-03,Alpura,45.78,111
+Cloro Ariel,7501000716,Limpieza,2028-06-02,Ariel,43.88,106
+Agua Mineral Ciel,7501000717,Bebidas,2027-10-05,Ciel,19.6,178
+Agua Mineral Del Valle,7501000718,Bebidas,2028-06-01,Del Valle,62.5,286
+Azúcar La Costeña,7501000719,Abarrotes,2026-03-02,La Costeña,86.88,273
+Cloro Downy,7501000720,Limpieza,2027-10-06,Downy,109.1,205
+Refresco Pepsi,7501000721,Bebidas,2028-12-02,Pepsi,47.88,229
+Agua Mineral Bonafont,7501000722,Bebidas,2028-10-14,Bonafont,34.86,244
+Detergente Downy,7501000723,Limpieza,2026-07-21,Downy,29.15,199
+Refresco Ciel,7501000724,Bebidas,2026-08-26,Ciel,15.72,287
+Yogurt Nochebuena,7501000725,Lácteos,2028-11-17,Nochebuena,64.48,12
+Mantequilla Alpura,7501000726,Lácteos,2027-07-24,Alpura,52.02,228
+Arroz Capullo,7501000727,Abarrotes,2028-01-07,Capullo,80.32,269
+Arroz Zulka,7501000728,Abarrotes,2027-03-08,Zulka,61.3,170
+Azúcar Sos,7501000729,Abarrotes,2026-12-07,Sos,49.29,87
+Queso Yoplait,7501000730,Lácteos,2028-06-23,Yoplait,39.36,76
+Papel Higiénico Colgate,7501000731,Higiene,2027-04-01,Colgate,16.18,165
+Mantequilla Lala,7501000732,Lácteos,2026-06-09,Lala,52.92,59
+Jabón Colgate,7501000733,Higiene,2028-01-23,Colgate,37.14,26
+Jugo Pepsi,7501000734,Bebidas,2026-06-30,Pepsi,13.25,20
+Shampoo Dove,7501000735,Higiene,2028-09-12,Dove,75.23,143
+Limpiador Cloralex,7501000736,Limpieza,2027-05-25,Cloralex,61.94,234
+Suavizante Cloralex,7501000737,Limpieza,2028-05-26,Cloralex,13.8,138
+Galletas Gamesa,7501000738,Snacks,2026-01-09,Gamesa,37.75,114
+Cacahuates Ruffles,7501000739,Snacks,2028-12-03,Ruffles,67.89,109
+Palomitas Ruffles,7501000740,Snacks,2026-06-07,Ruffles,76,106
+Aceite Zulka,7501000741,Abarrotes,2026-04-22,Zulka,52.73,195
+Cacahuates Gamesa,7501000742,Snacks,2027-02-18,Gamesa,46.85,76
+Yogurt Lala,7501000743,Lácteos,2026-12-10,Lala,107.79,26
+Refresco Coca-Cola,7501000744,Bebidas,2028-06-01,Coca-Cola,68.39,195
+Té Frío Coca-Cola,7501000745,Bebidas,2028-07-14,Coca-Cola,59.3,263
+Mantequilla Nochebuena,7501000746,Lácteos,2028-04-04,Nochebuena,80.75,225
+Shampoo Regio,7501000747,Higiene,2027-01-15,Regio,84.21,272
+Cacahuates Oreo,7501000748,Snacks,2027-02-15,Oreo,98.02,268
+Papas Gamesa,7501000749,Snacks,2028-08-15,Gamesa,30.65,91
+Frijol Zulka,7501000750,Abarrotes,2026-04-20,Zulka,65.06,88
+Yogurt Alpura,7501000751,Lácteos,2027-10-27,Alpura,84.46,35
+Azúcar Sos,7501000752,Abarrotes,2027-05-24,Sos,31.66,116
+Galletas Ruffles,7501000753,Snacks,2026-03-16,Ruffles,13.78,97
+Leche Nochebuena,7501000754,Lácteos,2026-02-02,Nochebuena,103.49,91
+Palomitas Sabritas,7501000755,Snacks,2026-07-28,Sabritas,83.83,161
+Suavizante Fabuloso,7501000756,Limpieza,2027-01-21,Fabuloso,112.54,91
+Frijol Capullo,7501000757,Abarrotes,2027-10-22,Capullo,24.08,195
+Frijol La Costeña,7501000758,Abarrotes,2028-10-16,La Costeña,114.75,26
+Agua Mineral Ciel,7501000759,Bebidas,2028-11-03,Ciel,68.29,260
+Limpiador Cloralex,7501000760,Limpieza,2027-02-22,Cloralex,93.52,265
+Cacahuates Gamesa,7501000761,Snacks,2028-08-07,Gamesa,58.65,130
+Limpiador Downy,7501000762,Limpieza,2028-10-04,Downy,80.18,244
+Jugo Pepsi,7501000763,Bebidas,2027-09-11,Pepsi,86.43,228
+Queso Lala,7501000764,Lácteos,2027-11-25,Lala,56.6,185
+Galletas Oreo,7501000765,Snacks,2028-12-13,Oreo,96.26,143
+Cacahuates Oreo,7501000766,Snacks,2028-07-22,Oreo,114.53,109
+Papel Higiénico Colgate,7501000767,Higiene,2028-12-18,Colgate,97.26,222
+Arroz Sos,7501000768,Abarrotes,2028-12-06,Sos,68.76,121
+Frijol Zulka,7501000769,Abarrotes,2027-08-19,Zulka,72.66,223
+Suavizante Ariel,7501000770,Limpieza,2027-01-04,Ariel,70.41,138
+Frijol La Costeña,7501000771,Abarrotes,2028-01-28,La Costeña,75.29,166
+Mantequilla Yoplait,7501000772,Lácteos,2028-02-11,Yoplait,46.9,264
+Azúcar Sos,7501000773,Abarrotes,2028-08-21,Sos,107.04,220
+Té Frío Del Valle,7501000774,Bebidas,2026-09-06,Del Valle,23.48,201
+Palomitas Oreo,7501000775,Snacks,2027-09-19,Oreo,38.65,224
+Papas Ruffles,7501000776,Snacks,2027-10-12,Ruffles,87.65,79
+Shampoo Colgate,7501000777,Higiene,2027-04-24,Colgate,19.33,113
+Agua Mineral Coca-Cola,7501000778,Bebidas,2028-07-05,Coca-Cola,33.85,219
+Shampoo Dove,7501000779,Higiene,2028-02-12,Dove,106.13,69
+Leche Alpura,7501000780,Lácteos,2027-07-03,Alpura,30.92,152
+Azúcar La Costeña,7501000781,Abarrotes,2028-10-21,La Costeña,57,80
+Pasta Dental Dove,7501000782,Higiene,2027-07-22,Dove,110.93,77
+Palomitas Sabritas,7501000783,Snacks,2028-10-02,Sabritas,89.42,246
+Mantequilla Yoplait,7501000784,Lácteos,2026-06-01,Yoplait,98.07,276
+Galletas Sabritas,7501000785,Snacks,2028-10-19,Sabritas,102.13,149
+Yogurt Yoplait,7501000786,Lácteos,2028-08-03,Yoplait,87.88,128
+Shampoo Dove,7501000787,Higiene,2028-01-24,Dove,71.93,112
+Té Frío Bonafont,7501000788,Bebidas,2028-01-17,Bonafont,95.66,165
+Palomitas Gamesa,7501000789,Snacks,2027-09-03,Gamesa,92.96,161
+Cloro Cloralex,7501000790,Limpieza,2027-08-07,Cloralex,31.87,292
+Frijol Capullo,7501000791,Abarrotes,2028-01-31,Capullo,78.85,38
+Jabón Colgate,7501000792,Higiene,2027-05-09,Colgate,52.75,204
+Agua Mineral Del Valle,7501000793,Bebidas,2027-06-17,Del Valle,39.95,61
+Refresco Coca-Cola,7501000794,Bebidas,2027-05-01,Coca-Cola,104.33,171
+Refresco Del Valle,7501000795,Bebidas,2028-11-30,Del Valle,85.22,223
+Cloro Fabuloso,7501000796,Limpieza,2027-08-24,Fabuloso,83.23,55
+Azúcar Zulka,7501000797,Abarrotes,2026-11-28,Zulka,64.97,88
+Detergente Ariel,7501000798,Limpieza,2027-08-23,Ariel,104.97,151
+Cacahuates Gamesa,7501000799,Snacks,2027-08-04,Gamesa,114.18,72
+Papas Ruffles,7501000800,Snacks,2026-11-05,Ruffles,31.07,277
+Papel Higiénico Oral-B,7501000801,Higiene,2027-05-30,Oral-B,76.01,165
+Frijol La Costeña,7501000802,Abarrotes,2028-07-19,La Costeña,76.64,28
+Agua Mineral Ciel,7501000803,Bebidas,2026-11-12,Ciel,27.69,152
+Refresco Del Valle,7501000804,Bebidas,2026-07-07,Del Valle,71.9,194
+Cloro Ariel,7501000805,Limpieza,2028-08-05,Ariel,17.3,164
+Papas Gamesa,7501000806,Snacks,2027-08-07,Gamesa,39.73,225
+Palomitas Sabritas,7501000807,Snacks,2026-09-09,Sabritas,23.01,43
+Suavizante Cloralex,7501000808,Limpieza,2026-04-24,Cloralex,98.36,34
+Jabón Oral-B,7501000809,Higiene,2027-10-18,Oral-B,100.61,265
+Jabón Oral-B,7501000810,Higiene,2028-11-14,Oral-B,63.24,42
+Pasta Dental Colgate,7501000811,Higiene,2026-07-03,Colgate,69.34,155
+Té Frío Bonafont,7501000812,Bebidas,2028-07-26,Bonafont,54.68,255
+Leche Nochebuena,7501000813,Lácteos,2028-04-17,Nochebuena,90.47,64
+Palomitas Sabritas,7501000814,Snacks,2026-09-30,Sabritas,11.57,291
+Azúcar Zulka,7501000815,Abarrotes,2027-10-30,Zulka,36.04,199
+Detergente Fabuloso,7501000816,Limpieza,2028-06-12,Fabuloso,11.52,110
+Aceite Sos,7501000817,Abarrotes,2028-05-14,Sos,70.13,60
+Queso Alpura,7501000818,Lácteos,2028-03-12,Alpura,66.6,115
+Papas Ruffles,7501000819,Snacks,2028-01-02,Ruffles,56.5,95
+Pasta Dental Colgate,7501000820,Higiene,2026-06-07,Colgate,105.25,198
+Mantequilla Yoplait,7501000821,Lácteos,2026-04-09,Yoplait,16.52,22
+Frijol Zulka,7501000822,Abarrotes,2028-12-30,Zulka,108.83,260
+Jugo Bonafont,7501000823,Bebidas,2027-10-19,Bonafont,14.35,123
+Yogurt Nochebuena,7501000824,Lácteos,2027-04-07,Nochebuena,36.82,278
+Shampoo Colgate,7501000825,Higiene,2027-11-13,Colgate,65.45,290
+Queso Yoplait,7501000826,Lácteos,2027-01-28,Yoplait,29.21,208
+Jugo Del Valle,7501000827,Bebidas,2028-01-16,Del Valle,117.59,258
+Jabón Colgate,7501000828,Higiene,2026-05-15,Colgate,24.71,213
+Pasta Dental Dove,7501000829,Higiene,2027-08-26,Dove,119.72,11
+Detergente Fabuloso,7501000830,Limpieza,2027-02-17,Fabuloso,64.31,107
+Agua Mineral Ciel,7501000831,Bebidas,2027-07-08,Ciel,18.53,20
+Suavizante Downy,7501000832,Limpieza,2026-08-04,Downy,114.85,133
+Palomitas Ruffles,7501000833,Snacks,2027-09-21,Ruffles,118.01,160
+Limpiador Ariel,7501000834,Limpieza,2028-11-24,Ariel,55.8,134
+Refresco Bonafont,7501000835,Bebidas,2027-03-19,Bonafont,83.03,249
+Frijol Zulka,7501000836,Abarrotes,2028-07-27,Zulka,38.19,116
+Limpiador Fabuloso,7501000837,Limpieza,2027-05-17,Fabuloso,57.29,47
+Detergente Fabuloso,7501000838,Limpieza,2026-04-23,Fabuloso,44.55,132
+Detergente Downy,7501000839,Limpieza,2028-11-25,Downy,105.54,137
+Aceite Sos,7501000840,Abarrotes,2026-08-08,Sos,57.28,66
+Cacahuates Ruffles,7501000841,Snacks,2027-06-22,Ruffles,36.82,223
+Yogurt Alpura,7501000842,Lácteos,2028-03-23,Alpura,95,63
+Jabón Oral-B,7501000843,Higiene,2028-11-27,Oral-B,99.97,219
+Mantequilla Lala,7501000844,Lácteos,2026-07-31,Lala,103.08,190
+Mantequilla Lala,7501000845,Lácteos,2027-05-30,Lala,73.03,122
+Shampoo Dove,7501000846,Higiene,2027-11-25,Dove,75.18,194
+Detergente Fabuloso,7501000847,Limpieza,2028-07-07,Fabuloso,15.47,60
+Refresco Ciel,7501000848,Bebidas,2027-07-21,Ciel,59.26,146
+Queso Lala,7501000849,Lácteos,2026-10-06,Lala,62.69,141
+Shampoo Oral-B,7501000850,Higiene,2026-08-16,Oral-B,17.71,197
+Suavizante Cloralex,7501000851,Limpieza,2026-08-22,Cloralex,10.19,102
+Palomitas Oreo,7501000852,Snacks,2027-12-11,Oreo,11.79,148
+Pasta Dental Colgate,7501000853,Higiene,2028-06-14,Colgate,35.04,113
+Galletas Ruffles,7501000854,Snacks,2027-06-05,Ruffles,10.11,215
+Aceite Sos,7501000855,Abarrotes,2027-08-07,Sos,107.74,24
+Detergente Cloralex,7501000856,Limpieza,2027-08-11,Cloralex,90.19,297
+Yogurt Yoplait,7501000857,Lácteos,2027-12-28,Yoplait,62.57,266
+Frijol Zulka,7501000858,Abarrotes,2027-01-05,Zulka,55.9,124
+Refresco Pepsi,7501000859,Bebidas,2028-04-11,Pepsi,93.95,171
+Mantequilla Alpura,7501000860,Lácteos,2028-06-12,Alpura,117.83,184
+Cloro Cloralex,7501000861,Limpieza,2027-05-17,Cloralex,43.56,143
+Shampoo Dove,7501000862,Higiene,2028-05-28,Dove,79.37,187
+Pasta Dental Dove,7501000863,Higiene,2027-05-13,Dove,86.09,242
+Detergente Downy,7501000864,Limpieza,2026-10-14,Downy,11.76,77
+Shampoo Dove,7501000865,Higiene,2027-11-27,Dove,36.43,137
+Té Frío Ciel,7501000866,Bebidas,2027-01-03,Ciel,42.67,177
+Galletas Oreo,7501000867,Snacks,2028-03-29,Oreo,119.79,45
+Agua Mineral Pepsi,7501000868,Bebidas,2026-10-23,Pepsi,82.02,193
+Queso Yoplait,7501000869,Lácteos,2028-03-11,Yoplait,72.61,248
+Leche Alpura,7501000870,Lácteos,2028-01-19,Alpura,114.52,72
+Yogurt Alpura,7501000871,Lácteos,2028-09-02,Alpura,27.91,244
+Queso Alpura,7501000872,Lácteos,2026-10-19,Alpura,67.69,235
+Leche Nochebuena,7501000873,Lácteos,2028-08-05,Nochebuena,80.79,246
+Cloro Fabuloso,7501000874,Limpieza,2026-08-15,Fabuloso,93.06,124
+Papel Higiénico Regio,7501000875,Higiene,2028-06-13,Regio,106.24,88
+Galletas Gamesa,7501000876,Snacks,2028-06-18,Gamesa,22.8,71
+Queso Alpura,7501000877,Lácteos,2027-02-07,Alpura,24.62,133
+Leche Alpura,7501000878,Lácteos,2026-01-10,Alpura,66.53,17
+Refresco Del Valle,7501000879,Bebidas,2026-05-03,Del Valle,81.97,283
+Suavizante Ariel,7501000880,Limpieza,2028-08-30,Ariel,18.07,93
+Papel Higiénico Regio,7501000881,Higiene,2027-08-28,Regio,33.22,130
+Té Frío Del Valle,7501000882,Bebidas,2027-04-09,Del Valle,96.93,53
+Shampoo Colgate,7501000883,Higiene,2026-09-21,Colgate,107.94,164
+Arroz La Costeña,7501000884,Abarrotes,2028-09-10,La Costeña,109.44,117
+Galletas Gamesa,7501000885,Snacks,2027-07-05,Gamesa,98.98,24
+Palomitas Ruffles,7501000886,Snacks,2026-03-06,Ruffles,68.8,131
+Refresco Ciel,7501000887,Bebidas,2026-08-15,Ciel,72.8,263
+Shampoo Regio,7501000888,Higiene,2026-12-12,Regio,31.63,104
+Pasta Dental Regio,7501000889,Higiene,2026-12-05,Regio,86.1,272
+Palomitas Gamesa,7501000890,Snacks,2028-01-10,Gamesa,104.73,173
+Pasta Dental Colgate,7501000891,Higiene,2027-01-24,Colgate,83.86,52
+Papel Higiénico Colgate,7501000892,Higiene,2026-05-25,Colgate,109.91,35
+Mantequilla Alpura,7501000893,Lácteos,2028-03-21,Alpura,72.22,172
+Yogurt Alpura,7501000894,Lácteos,2028-10-16,Alpura,93.33,225
+Jugo Bonafont,7501000895,Bebidas,2027-10-20,Bonafont,64.37,43
+Cacahuates Gamesa,7501000896,Snacks,2026-08-13,Gamesa,101.32,64
+Palomitas Sabritas,7501000897,Snacks,2027-04-21,Sabritas,73.82,221
+Galletas Sabritas,7501000898,Snacks,2028-09-27,Sabritas,71.61,250
+Aceite Zulka,7501000899,Abarrotes,2027-12-26,Zulka,91.5,27
+Cloro Fabuloso,7501000900,Limpieza,2027-07-22,Fabuloso,104.3,262
+Frijol La Costeña,7501000901,Abarrotes,2027-10-07,La Costeña,66.47,269
+Queso Yoplait,7501000902,Lácteos,2027-08-30,Yoplait,93.46,219
+Jugo Pepsi,7501000903,Bebidas,2026-02-06,Pepsi,94.19,87
+Palomitas Gamesa,7501000904,Snacks,2026-12-15,Gamesa,119.8,292
+Cloro Downy,7501000905,Limpieza,2026-07-26,Downy,74.57,14
+Té Frío Pepsi,7501000906,Bebidas,2028-03-13,Pepsi,116.88,210
+Shampoo Dove,7501000907,Higiene,2028-09-09,Dove,116.68,116
+Queso Lala,7501000908,Lácteos,2027-11-20,Lala,109.4,48
+Cloro Ariel,7501000909,Limpieza,2028-08-10,Ariel,46.7,172
+Cacahuates Sabritas,7501000910,Snacks,2026-07-03,Sabritas,35.59,121
+Cloro Downy,7501000911,Limpieza,2027-05-31,Downy,74.81,272
+Limpiador Ariel,7501000912,Limpieza,2027-01-31,Ariel,51.03,175
+Refresco Bonafont,7501000913,Bebidas,2027-05-13,Bonafont,98,259
+Refresco Pepsi,7501000914,Bebidas,2027-01-25,Pepsi,20.98,221
+Té Frío Del Valle,7501000915,Bebidas,2027-05-16,Del Valle,30.47,169
+Papas Sabritas,7501000916,Snacks,2028-08-03,Sabritas,10,263
+Queso Nochebuena,7501000917,Lácteos,2026-08-21,Nochebuena,37.97,149
+Leche Nochebuena,7501000918,Lácteos,2028-05-25,Nochebuena,44,176
+Refresco Coca-Cola,7501000919,Bebidas,2028-01-26,Coca-Cola,81.63,114
+Jabón Oral-B,7501000920,Higiene,2028-05-19,Oral-B,116.42,130
+Mantequilla Nochebuena,7501000921,Lácteos,2026-03-30,Nochebuena,31.71,167
+Agua Mineral Coca-Cola,7501000922,Bebidas,2026-11-12,Coca-Cola,79.91,142
+Té Frío Pepsi,7501000923,Bebidas,2026-02-02,Pepsi,41.72,259
+Galletas Ruffles,7501000924,Snacks,2026-04-27,Ruffles,62.16,233
+Té Frío Del Valle,7501000925,Bebidas,2026-08-02,Del Valle,75.78,122
+Mantequilla Nochebuena,7501000926,Lácteos,2028-04-22,Nochebuena,117,200
+Frijol La Costeña,7501000927,Abarrotes,2028-11-15,La Costeña,26.72,281
+Té Frío Del Valle,7501000928,Bebidas,2026-08-25,Del Valle,22.18,30
+Jabón Regio,7501000929,Higiene,2028-07-31,Regio,109.03,128
+Detergente Cloralex,7501000930,Limpieza,2027-02-07,Cloralex,56.31,278
+Shampoo Dove,7501000931,Higiene,2028-06-19,Dove,33.31,264
+Leche Yoplait,7501000932,Lácteos,2026-01-12,Yoplait,40.8,73
+Yogurt Alpura,7501000933,Lácteos,2028-01-13,Alpura,66.68,248
+Frijol Sos,7501000934,Abarrotes,2028-09-01,Sos,118.44,228
+Pasta Dental Dove,7501000935,Higiene,2028-06-22,Dove,15.7,42
+Jugo Coca-Cola,7501000936,Bebidas,2026-09-02,Coca-Cola,49.18,248
+Detergente Fabuloso,7501000937,Limpieza,2027-07-08,Fabuloso,15.85,251
+Papas Ruffles,7501000938,Snacks,2027-12-24,Ruffles,96.14,126
+Limpiador Fabuloso,7501000939,Limpieza,2026-07-02,Fabuloso,43.53,180
+Frijol Sos,7501000940,Abarrotes,2028-04-23,Sos,100.89,136
+Refresco Bonafont,7501000941,Bebidas,2028-01-15,Bonafont,54.5,224
+Té Frío Coca-Cola,7501000942,Bebidas,2027-04-25,Coca-Cola,47.35,92
+Shampoo Colgate,7501000943,Higiene,2028-12-17,Colgate,83.66,189
+Cacahuates Gamesa,7501000944,Snacks,2026-06-24,Gamesa,89.07,88
+Jabón Oral-B,7501000945,Higiene,2027-11-21,Oral-B,13.95,115
+Suavizante Ariel,7501000946,Limpieza,2027-03-18,Ariel,85.31,21
+Refresco Del Valle,7501000947,Bebidas,2026-12-15,Del Valle,75.96,232
+Detergente Ariel,7501000948,Limpieza,2027-03-26,Ariel,65.09,154
+Té Frío Bonafont,7501000949,Bebidas,2028-08-31,Bonafont,38.44,283
+Pasta Dental Oral-B,7501000950,Higiene,2028-02-28,Oral-B,31.89,127
+Limpiador Downy,7501000951,Limpieza,2028-10-24,Downy,53.09,150
+Jugo Del Valle,7501000952,Bebidas,2027-04-27,Del Valle,18.65,234
+Frijol Sos,7501000953,Abarrotes,2026-10-04,Sos,59.6,32
+Limpiador Ariel,7501000954,Limpieza,2026-09-01,Ariel,55.2,84
+Queso Alpura,7501000955,Lácteos,2027-10-19,Alpura,49.35,286
+Shampoo Dove,7501000956,Higiene,2027-01-04,Dove,34.29,55
+Queso Yoplait,7501000957,Lácteos,2027-12-09,Yoplait,24.3,77
+Jabón Dove,7501000958,Higiene,2028-10-28,Dove,30.56,11
+Mantequilla Lala,7501000959,Lácteos,2028-12-02,Lala,42.12,150
+Refresco Bonafont,7501000960,Bebidas,2028-11-17,Bonafont,102.67,92
+Jugo Pepsi,7501000961,Bebidas,2026-10-28,Pepsi,95.16,73
+Agua Mineral Coca-Cola,7501000962,Bebidas,2027-07-20,Coca-Cola,34.27,112
+Palomitas Ruffles,7501000963,Snacks,2028-01-29,Ruffles,52.58,39
+Cloro Fabuloso,7501000964,Limpieza,2026-05-19,Fabuloso,109.02,251
+Leche Yoplait,7501000965,Lácteos,2027-02-26,Yoplait,19.72,205
+Mantequilla Lala,7501000966,Lácteos,2028-11-07,Lala,114.66,230
+Palomitas Ruffles,7501000967,Snacks,2026-04-29,Ruffles,44.01,15
+Cloro Cloralex,7501000968,Limpieza,2027-10-02,Cloralex,87.02,95
+Limpiador Cloralex,7501000969,Limpieza,2027-07-09,Cloralex,91.76,274
+Shampoo Regio,7501000970,Higiene,2026-06-13,Regio,26.3,114
+Frijol La Costeña,7501000971,Abarrotes,2026-07-05,La Costeña,69.64,66
+Papas Ruffles,7501000972,Snacks,2026-03-14,Ruffles,49.35,177
+Azúcar La Costeña,7501000973,Abarrotes,2026-10-16,La Costeña,12.08,166
+Agua Mineral Ciel,7501000974,Bebidas,2028-01-28,Ciel,12.77,252
+Pasta Dental Oral-B,7501000975,Higiene,2027-01-13,Oral-B,119.69,41
+Mantequilla Lala,7501000976,Lácteos,2026-03-18,Lala,28.33,287
+Papel Higiénico Oral-B,7501000977,Higiene,2026-06-12,Oral-B,27.81,100
+Palomitas Oreo,7501000978,Snacks,2027-02-11,Oreo,50.19,274
+Azúcar Zulka,7501000979,Abarrotes,2028-04-20,Zulka,52.1,99
+Queso Nochebuena,7501000980,Lácteos,2026-08-16,Nochebuena,87.5,251
+Refresco Coca-Cola,7501000981,Bebidas,2026-02-08,Coca-Cola,18.17,115
+Refresco Del Valle,7501000982,Bebidas,2026-12-28,Del Valle,96.53,45
+Jabón Dove,7501000983,Higiene,2026-07-16,Dove,48.04,267
+Limpiador Downy,7501000984,Limpieza,2027-02-17,Downy,32.58,77
+Shampoo Oral-B,7501000985,Higiene,2028-05-08,Oral-B,98.76,186
+Yogurt Alpura,7501000986,Lácteos,2027-06-07,Alpura,108.05,103
+Cacahuates Oreo,7501000987,Snacks,2027-08-09,Oreo,66.97,26
+Cloro Fabuloso,7501000988,Limpieza,2028-09-02,Fabuloso,37.78,57
+Aceite Zulka,7501000989,Abarrotes,2028-01-12,Zulka,22.15,53
+Jabón Colgate,7501000990,Higiene,2028-06-13,Colgate,115.63,29
+Aceite Capullo,7501000991,Abarrotes,2027-02-12,Capullo,12.58,225
+Cloro Ariel,7501000992,Limpieza,2027-09-07,Ariel,61.25,150
+Mantequilla Yoplait,7501000993,Lácteos,2028-08-26,Yoplait,67.97,257
+Frijol Capullo,7501000994,Abarrotes,2027-08-06,Capullo,118.01,199
+Queso Alpura,7501000995,Lácteos,2028-06-25,Alpura,61.15,282
+Pasta Dental Colgate,7501000996,Higiene,2026-01-15,Colgate,87.05,52
+Cloro Cloralex,7501000997,Limpieza,2026-03-26,Cloralex,116.9,22
+Frijol La Costeña,7501000998,Abarrotes,2028-08-25,La Costeña,116.41,70
+Yogurt Yoplait,7501000999,Lácteos,2028-08-31,Yoplait,76.28,242
+Cacahuates Oreo,7501001000,Snacks,2028-03-18,Oreo,100.99,198

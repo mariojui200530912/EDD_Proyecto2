@@ -16,6 +16,18 @@ HashTable::~HashTable() {
     delete[] tabla;
 }
 
+void HashTable::asegurarCapacidad(int elementosNuevos) {
+    int elementosTotales = numElementos + elementosNuevos;
+    float factorProyectado = (elementosTotales * 1.0f) / capacidad;
+
+    if (factorProyectado >= 0.80f) {
+        // Apuntamos a un factor de carga del 0.80
+        int capacidadIdeal = (int)(elementosTotales / 0.80f);
+        int nuevaCapacidad = siguientePrimo(capacidadIdeal);
+        rehash(nuevaCapacidad);
+    }
+}
+
 // Funcion HASH
 int HashTable::funcionHash(const std::string& barcode) {
     unsigned long long valorHash = 0;
@@ -49,12 +61,11 @@ int HashTable::siguientePrimo(int n) {
     return primo;
 }
 
-void HashTable::rehash() {
+void HashTable::rehash(int nuevaCapacidad) {
     int viejaCapacidad = capacidad;
     LinkedList** tablaVieja = tabla;
 
-    // Calculamos la nueva capacidad (El siguiente primo después del doble)
-    capacidad = siguientePrimo(viejaCapacidad * 2);
+    capacidad = nuevaCapacidad;
 
     // Creamos la nueva tabla
     tabla = new LinkedList*[capacidad];
@@ -62,30 +73,28 @@ void HashTable::rehash() {
         tabla[i] = new LinkedList();
     }
 
-    // Reiniciamos el contador
-    numElementos = 0;
-
-    // Mudamos los productos
+    int contadorReal = 0;
     for (int i = 0; i < viejaCapacidad; i++) {
-        ListNode* actual = tablaVieja[i]->getInicio();
-        while (actual != nullptr) {
-            insertar(actual->data);
-            actual = actual->next;
+        if (tablaVieja[i] != nullptr) {
+            ListNode* actual = tablaVieja[i]->getInicio();
+            while (actual != nullptr) {
+                int indice = funcionHash(actual->data.barcode);
+                tabla[indice]->insertarFinal(actual->data);
+                contadorReal++;
+                actual = actual->next;
+            }
+            delete tablaVieja[i];
         }
-        delete tablaVieja[i];
     }
+    delete[] tablaVieja;
+    numElementos = contadorReal;
 
-    delete[] tablaVieja; // Destruimos el arreglo viejo
-    std::cout << "Rehash ejecutado. Nueva capacidad de la tabla: " << capacidad << "\n";
+    std::cout << "Memoria reservada. Nueva capacidad exacta: " << capacidad << "\n";
 }
 
-bool HashTable::insertar(const Product& p) {
+bool HashTable::insertar(const Product& p, int cantidadIngresar) {
     // Validar el Factor de Carga ANTES de insertar
-    float factorDeCarga = (float)numElementos / capacidad;
-    if (factorDeCarga >= 0.8f) {
-        rehash();
-    }
-
+    asegurarCapacidad(cantidadIngresar);
     int indice = funcionHash(p.barcode);
 
     // Evitar duplicados
@@ -143,62 +152,90 @@ void HashTable::imprimirDistribucion() {
 
 void HashTable::generarReporte(const std::string& nombreArchivo) {
     std::ofstream archivo(nombreArchivo);
-    if (!archivo.is_open()) {
-        std::cout << "Error al abrir el archivo para el reporte Hash.\n";
-        return;
-    }
+    if (!archivo.is_open()) return;
 
     int totalProductos = 0;
     int celdasOcupadas = 0;
-
     for (int i = 0; i < capacidad; ++i) {
-        int tamanoLista = tabla[i]->obtenerTamano();
-        if (tamanoLista > 0) {
+        if (tabla[i]->obtenerTamano() > 0) {
             celdasOcupadas++;
-            totalProductos += tamanoLista;
+            totalProductos += tabla[i]->obtenerTamano();
         }
     }
 
     int colisiones = totalProductos - celdasOcupadas;
-    float factorCarga = (float)totalProductos / capacidad;
+    float factorCarga = (capacidad > 0) ? (float)totalProductos / capacidad : 0;
 
     archivo << "digraph HashTable {\n";
-    archivo << "  rankdir=LR;\n"; // De izquierda a derecha
-    archivo << "  node [shape=record, fontname=\"Arial\"];\n\n";
+    archivo << "  rankdir=LR;\n";
+    archivo << "  node [fontname=\"Arial\"];\n\n";
 
-    archivo << "  stats [shape=Mrecord, fillcolor=\"#E3F2FD\", style=filled, label=\"ESTADÍSTICAS TABLA HASH\\n";
-    archivo << "Capacidad Total: " << capacidad << "\\n";
-    archivo << "Productos Almacenados: " << totalProductos << "\\n";
-    archivo << "Colisiones Totales: " << colisiones << "\\n";
-    archivo << "Factor de Carga: " << factorCarga << "\"];\n\n";
+    // --- BLOQUE DE ESTADÍSTICAS (ENCAPSULADO) ---
+    // Usamos un nodo único dentro de un cluster para evitar duplicados
+    archivo << "  subgraph cluster_stats {\n";
+    archivo << "    label=\"INFORMACIÓN DEL SISTEMA\";\n";
+    archivo << "    color=\"#1565C0\";\n";
+    archivo << "    fontcolor=\"#1565C0\";\n";
+    archivo << "    style=\"dashed,rounded\";\n";
+    archivo << "    stats_node [shape=none, label=<<TABLE BORDER=\"0\" CELLBORDER=\"1\" CELLSPACING=\"0\" CELLPADDING=\"8\" BGCOLOR=\"#F5F5F5\">\n";
+    archivo << "      <TR><TD COLSPAN=\"2\" BGCOLOR=\"#1565C0\"><FONT COLOR=\"white\"><B>PANEL DE CONTROL - TABLA HASH</B></FONT></TD></TR>\n";
+    archivo << "      <TR><TD ALIGN=\"LEFT\">Capacidad Actual:</TD><TD ALIGN=\"RIGHT\"><B>" << capacidad << "</B></TD></TR>\n";
+    archivo << "      <TR><TD ALIGN=\"LEFT\">Total Productos:</TD><TD ALIGN=\"RIGHT\"><B>" << totalProductos << "</B></TD></TR>\n";
+    archivo << "      <TR><TD ALIGN=\"LEFT\">Colisiones:</TD><TD ALIGN=\"RIGHT\"><FONT COLOR=\"#C62828\">" << colisiones << "</FONT></TD></TR>\n";
+    archivo << "      <TR><TD ALIGN=\"LEFT\">Factor de Carga:</TD><TD ALIGN=\"RIGHT\">" << factorCarga << "</TD></TR>\n";
+    archivo << "    </TABLE>>];\n";
+    archivo << "  }\n\n";
 
+    // Estilo para los buckets e índices
+    archivo << "  node [shape=record, style=\"filled,rounded\"];\n";
+
+    // --- ALINEACIÓN DE ÍNDICES ---
+    archivo << "  subgraph cluster_indices {\n";
+    archivo << "    style=invis;\n";
     for (int i = 0; i < capacidad; ++i) {
         if (tabla[i]->obtenerTamano() > 0) {
+            archivo << "    bucket_" << i << " [shape=box, fillcolor=\"#FFCDD2\", color=\"#C62828\", label=\"Índice " << i << "\"];\n";
+        }
+    }
+    archivo << "  }\n";
 
-            archivo << "  bucket_" << i << " [shape=box, style=filled, fillcolor=\"#FFCDD2\", label=\"Índice " << i << "\"];\n";
-
+    // --- DIBUJADO DE PRODUCTOS ---
+    for (int i = 0; i < capacidad; ++i) {
+        if (tabla[i]->obtenerTamano() > 0) {
             ListNode* actual = tabla[i]->getInicio();
-            int idxNodo = 0;
+            int idx = 0;
+            while (actual) {
+                std::string nom = actual->data.name;
+                // Limpieza de seguridad
+                for (char& c : nom) {
+                    if (c == '"' || c == '|' || c == '{' || c == '}' || c == '<' || c == '>') c = ' ';
+                }
 
-            while (actual != nullptr) {
-                // Dibujar el nodo del producto
-                archivo << "  node_" << i << "_" << idxNodo
-                        << " [label=\"{ " << actual->data.barcode << " | " << actual->data.name << " }\"];\n";
+                archivo << "  node_" << i << "_" << idx << " [fillcolor=\"#E8F5E9\", color=\"#2E7D32\", label=\"{ " << actual->data.barcode << " | " << nom << " }\"];\n";
 
-                // Conectar el índice con el primer nodo, o los nodos entre sí
-                if (idxNodo == 0) {
-                    archivo << "  bucket_" << i << " -> node_" << i << "_" << idxNodo << " [color=\"#D32F2F\"];\n";
+                if (idx == 0) {
+                    archivo << "  bucket_" << i << " -> node_" << i << "_" << idx << " [color=\"#D32F2F\"];\n";
                 } else {
-                    archivo << "  node_" << i << "_" << (idxNodo - 1) << " -> node_" << i << "_" << idxNodo << ";\n";
+                    archivo << "  node_" << i << "_" << (idx - 1) << " -> node_" << i << "_" << idx << " [color=\"#4CAF50\"];\n";
                 }
 
                 actual = actual->next;
-                idxNodo++;
+                idx++;
+            }
+        }
+    }
+
+    // Forzamos que las estadísticas aparezcan arriba de los índices
+    if (celdasOcupadas > 0) {
+        // Buscamos el primer índice que exista para conectarlo invisiblemente
+        for (int i = 0; i < capacidad; ++i) {
+            if (tabla[i]->obtenerTamano() > 0) {
+                archivo << "  stats_node -> bucket_" << i << " [style=invis];\n";
+                break;
             }
         }
     }
 
     archivo << "}\n";
     archivo.close();
-    std::cout << "Reporte Hash generado exitosamente en: " << nombreArchivo << "\n";
 }

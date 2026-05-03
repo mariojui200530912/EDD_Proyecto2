@@ -15,13 +15,14 @@ private:
 
     bool esPrimo(int n);
     int siguientePrimo(int n);
-    void rehash();
+    void rehash(int nuevaCapacidad);
 
 public:
-    HashTable(int tamano = 97);
+    HashTable(int tamano = 13);
     ~HashTable();
+    void asegurarCapacidad(int elementosNuevos);
     int funcionHash(const std::string& barcode);
-    bool insertar(const Product& producto);
+    bool insertar(const Product& producto, int cantidadIngresar = 1);
     Product* buscar(const std::string& barcode);
     bool eliminar(const std::string& barcode);
     int getCapacidad() const { return capacidad; }

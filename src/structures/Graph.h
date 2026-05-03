@@ -51,6 +51,8 @@ public:
     VertexNode* buscarVertice(int sucursal_id);
     bool modificarSucursal(int id, const std::string& nombre, const std::string& ubicacion, int t_ingreso, int t_traspaso, int t_despacho);
     bool eliminarSucursal(int id);
+    bool modificarConexion(int origen_id, int destino_id, int nuevo_tiempo, double nuevo_costo, bool bidireccional = true);
+    bool eliminarConexion(int origen_id, int destino_id, bool bidireccional = true);
     bool obtenerRutaDijkstra(int idOrigen, int idDestino, bool optimizarTiempo, int rutaSalida[], int& tamanoRuta);
     bool estaVacio() const { return numVertices == 0; }
     void generarReporteSimulacion(const std::string& nombreArchivo, int nodoActivo, int ruta[], int tamRuta);

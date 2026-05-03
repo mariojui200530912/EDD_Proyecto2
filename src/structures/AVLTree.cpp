@@ -75,20 +75,20 @@ AVLNode* AVLTree::insertarRecursivo(AVLNode* node, const Product& producto) {
 
     // Nodo desbalanceado
     // Caso Izquierda-Izquierda (LL)
-    if (balance > 1 && producto.name < node->left->data.name) {
+    if (balance > 1 && obtenerFactorEquilibrio(node->left) >= 0) {
         return rotacionDerecha(node);
     }
-    // Caso Derecha-Derecha (RR)
-    if (balance < -1 && producto.name > node->right->data.name) {
-        return rotacionIzquierda(node);
-    }
     // Caso Izquierda-Derecha (LR)
-    if (balance > 1 && producto.name > node->left->data.name) {
+    if (balance > 1 && obtenerFactorEquilibrio(node->left) < 0) {
         node->left = rotacionIzquierda(node->left);
         return rotacionDerecha(node);
     }
+    // Caso Derecha-Derecha (RR)
+    if (balance < -1 && obtenerFactorEquilibrio(node->right) <= 0) {
+        return rotacionIzquierda(node);
+    }
     // Caso Derecha-Izquierda (RL)
-    if (balance < -1 && producto.name < node->right->data.name) {
+    if (balance < -1 && obtenerFactorEquilibrio(node->right) > 0) {
         node->right = rotacionDerecha(node->right);
         return rotacionIzquierda(node);
     }
@@ -229,8 +229,14 @@ void AVLTree::generarReporte(const std::string& nombreArchivo) {
     }
 
     archivo << "digraph AVLTree {\n";
-    archivo << "  node [shape=record, style=filled, fillcolor=\"#E8F5E9\", fontname=\"Arial\"];\n";
-    archivo << "  edge [color=\"#2E7D32\"];\n\n";
+    archivo << "  rankdir=TB;\n"; // De arriba hacia abajo
+
+    // Separación para que el árbol se expanda a lo ancho y no se encimen los nodos
+    archivo << "  nodesep=0.5;\n";
+    archivo << "  ranksep=0.8;\n";
+
+    // Forma de Elipse, fondo Verde Pastel y borde más grueso
+    archivo << "  node [shape=ellipse, style=filled, fillcolor=\"#E8F5E9\", color=\"#2E7D32\", penwidth=1.5, fontname=\"Arial\"];\n";
 
     if (root != nullptr) {
         generarReporteRecursivo(root, archivo);
@@ -246,18 +252,44 @@ void AVLTree::generarReporte(const std::string& nombreArchivo) {
 void AVLTree::generarReporteRecursivo(AVLNode* node, std::ofstream& archivo) {
     if (node == nullptr) return;
 
+    // Obtenemos el Factor de Equilibrio
     int bf = obtenerFactorEquilibrio(node);
 
-    archivo << "  node" << node << " [label=\"<f0> |<f1> " << node->data.name
-            << "\\nBF: " << bf << " |<f2> \"];\n";
-
-    if (node->left != nullptr) {
-        archivo << "  node" << node << ":f0 -> node" << node->left << ":f1;\n";
-        generarReporteRecursivo(node->left, archivo);
+    // Escudo: Limpiamos el nombre para que Graphviz no colapse con comillas o signos raros
+    std::string nombreLimpio = node->data.name;
+    for (char& c : nombreLimpio) {
+        if (c == '"' || c == '{' || c == '}' || c == '|' || c == '<' || c == '>') c = '_';
     }
 
-    if (node->right != nullptr) {
-        archivo << "  node" << node << ":f2 -> node" << node->right << ":f1;\n";
-        generarReporteRecursivo(node->right, archivo);
+    // Dibujamos el nodo en formato Elipse con un salto de línea (\n) para el BF
+    archivo << "  node" << node << " [label=\"" << nombreLimpio << "\\nBF: " << bf << "\"];\n";
+
+    // Si tiene al menos un hijo, aplicamos el "Truco de los Nodos Invisibles"
+    // para forzar la geometría perfecta de un árbol binario.
+    if (node->left != nullptr || node->right != nullptr) {
+
+        // 1. Hijo Izquierdo
+        if (node->left != nullptr) {
+            archivo << "  node" << node << " -> node" << node->left << " [color=\"#1565C0\", penwidth=1.2];\n"; // Flecha Azul
+            generarReporteRecursivo(node->left, archivo);
+        } else {
+            // Relleno invisible
+            archivo << "  invis_L" << node << " [style=invis, width=0.1, label=\"\"];\n";
+            archivo << "  node" << node << " -> invis_L" << node << " [style=invis];\n";
+        }
+
+        // 2. Cuña Central Invisible (Obliga a los hijos a separarse)
+        archivo << "  invis_M" << node << " [style=invis, width=0.1, label=\"\"];\n";
+        archivo << "  node" << node << " -> invis_M" << node << " [style=invis, weight=100];\n"; // Weight alto lo mantiene recto
+
+        // 3. Hijo Derecho
+        if (node->right != nullptr) {
+            archivo << "  node" << node << " -> node" << node->right << " [color=\"#D32F2F\", penwidth=1.2];\n"; // Flecha Roja
+            generarReporteRecursivo(node->right, archivo);
+        } else {
+            // Relleno invisible
+            archivo << "  invis_R" << node << " [style=invis, width=0.1, label=\"\"];\n";
+            archivo << "  node" << node << " -> invis_R" << node << " [style=invis];\n";
+        }
     }
 }

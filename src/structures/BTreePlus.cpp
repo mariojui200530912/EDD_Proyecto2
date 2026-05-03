@@ -62,6 +62,28 @@ LinkedList* BPlusTree::buscarCategoria(const std::string& categoria) {
     return nullptr; // No existe la categoría
 }
 
+void BPlusTree::obtenerTodaLaLista(LinkedList& resultados) {
+    if (root == nullptr) return;
+
+    BPlusNode* actual = root;
+    while (!actual->leaf) {
+        actual = actual->C[0];
+    }
+
+    while (actual != nullptr) {
+        for (int i = 0; i < actual->n; i++) {
+            if (actual->keys[i].list != nullptr && !actual->keys[i].list->estaVacia()) {
+                ListNode* prod = actual->keys[i].list->getInicio();
+                while (prod != nullptr) {
+                    resultados.insertarFinal(prod->data);
+                    prod = prod->next;
+                }
+            }
+        }
+        actual = actual->next;
+    }
+}
+
 void BPlusTree::insertar(const Product& k) {
     if (root == nullptr) {
         root = new BPlusNode(d, true);
@@ -192,6 +214,8 @@ bool BPlusTree::eliminarProducto(const Product& k) {
                     } else {
                         root = root->C[0];
                     }
+                    temp->leaf = true;
+                    temp->n = 0;
                     delete temp;
                 }
             }
@@ -280,6 +304,8 @@ void BPlusTree::fusionarHojas(BPlusNode* padre, int idx) {
     for (int i = idx + 2; i <= padre->n; ++i) padre->C[i - 1] = padre->C[i];
     padre->n--;
 
+    der->leaf = true;
+    der->n = 0;
     delete der;
 }
 
@@ -297,6 +323,8 @@ void BPlusTree::fusionarInternos(BPlusNode* padre, int idx) {
     for (int i = idx + 2; i <= padre->n; ++i) padre->C[i - 1] = padre->C[i];
     padre->n--;
 
+    der->leaf = true;
+    der->n = 0;
     delete der;
 }
 
@@ -309,78 +337,86 @@ struct ColaNodosBPlus {
 
 void BPlusTree::generarReporte(const std::string& nombreArchivo) {
     std::ofstream archivo(nombreArchivo);
-    if (!archivo.is_open()) {
-        std::cout << "Error al abrir el archivo para el reporte del Árbol B+.\n";
-        return;
-    }
+    if (!archivo.is_open()) return;
 
     archivo << "digraph BPlusTree {\n";
-    archivo << "  node [shape=record, fontname=\"Arial\", style=filled, fillcolor=\"#E3F2FD\"];\n"; // Azul pastel
-    archivo << "  edge [color=\"#1565C0\"];\n\n";
+    archivo << "  rankdir=TB;\n";
+    archivo << "  node [shape=plain, fontname=\"Arial\"];\n";
+    archivo << "  edge [fontname=\"Arial\", fontsize=10];\n\n";
 
     if (root == nullptr) {
-        archivo << "  vacio [label=\"Árbol B+ Vacío\"];\n";
-        archivo << "}\n";
+        archivo << "  vacio [label=\"Árbol B+ Vacío\", shape=ellipse];\n}\n";
         archivo.close();
         return;
     }
 
-    // Inicializamos Cola manual (BFS)
     ColaNodosBPlus* frente = new ColaNodosBPlus(root);
     ColaNodosBPlus* final = frente;
 
-    // Recorrido Nivel por Nivel
     while (frente != nullptr) {
-        // Desencolar
         BPlusNode* actual = frente->nodoArbol;
-
         ColaNodosBPlus* temp = frente;
         frente = frente->siguiente;
         if (frente == nullptr) final = nullptr;
         delete temp;
 
-        archivo << "  node" << actual << " [label=\"";
+        archivo << "  node" << actual << " [label=<\n";
+        archivo << "    <TABLE BORDER=\"0\" CELLBORDER=\"1\" CELLSPACING=\"0\" CELLPADDING=\"4\" BGCOLOR=\"#E3F2FD\">\n";
+        archivo << "      <TR>\n";
 
         if (actual->leaf) {
-            // NODO HOJA: Mostramos solo categorías y un puerto <next>
+            // --- NODO HOJA ---
             for (int i = 0; i < actual->n; i++) {
-                archivo << " " << actual->keys[i].category << " |";
-            }
-            archivo << "<next> \"];\n"; // El puerto para la lista enlazada
+                std::string cat = actual->keys[i].category;
+                for (char &c : cat) if (c == '<' || c == '>' || c == '&') c = ' ';
 
-            // DIBUJAR LA FLECHA DE LA LISTA ENLAZADA
+                archivo << "        <TD ALIGN=\"CENTER\" BGCOLOR=\"#BBDEFB\"><B>" << cat << "</B><BR/>";
+
+                if (actual->keys[i].list && !actual->keys[i].list->estaVacia()) {
+                    ListNode* prod = actual->keys[i].list->getInicio();
+                    while (prod) {
+                        std::string nom = prod->data.name;
+                        for (char &c : nom) if (c == '<' || c == '>' || c == '&') c = ' ';
+                        archivo << "<FONT POINT-SIZE=\"10\">- " << nom << "</FONT><BR/>";
+                        prod = prod->next;
+                    }
+                }
+                archivo << "</TD>\n";
+            }
+            archivo << "        <TD PORT=\"next\" BGCOLOR=\"#FFCDD2\"><I>Next</I></TD>\n";
+        } else {
+            // --- NODO INTERNO ---
+            for (int i = 0; i <= actual->n; i++) {
+                archivo << "        <TD PORT=\"c" << i << "\" BGCOLOR=\"#E3F2FD\"> </TD>\n";
+                if (i < actual->n) {
+                    archivo << "        <TD BGCOLOR=\"#BBDEFB\"><B>" << actual->keys[i].category << "</B></TD>\n";
+                }
+            }
+        }
+
+        archivo << "      </TR>\n";
+        archivo << "    </TABLE>>];\n\n";
+
+        // --- GENERAR CONEXIONES ---
+        if (actual->leaf) {
             if (actual->next != nullptr) {
-                // constraint=false es vital para que Graphviz dibuje esto horizontalmente
-                archivo << "  node" << actual << ":next -> node" << actual->next
-                        << " [color=\"#D32F2F\", style=\"dashed\", constraint=false, label=\" next\"];\n";
+
+
+
+
+                archivo << "  node" << actual << ":next -> node" << actual->next << " [color=red, constraint=false, tailport=e, headport=w];\n";
             }
         } else {
-            // NODO INTERNO: Puertos <c_i> para los hijos y categorías como separadores
-            for (int i = 0; i < actual->n; i++) {
-                archivo << "<c" << i << "> | " << actual->keys[i].category << " | ";
-            }
-            archivo << "<c" << actual->n << ">\"];\n";
-
-            // Encolar y conectar hijos
             for (int i = 0; i <= actual->n; i++) {
                 if (actual->C[i] != nullptr) {
-                    // Conectar puerto <c_i> con el nodo hijo correspondiente
                     archivo << "  node" << actual << ":c" << i << " -> node" << actual->C[i] << ";\n";
-
-                    // Encolar hijo
-                    ColaNodosBPlus* nuevoNodoCola = new ColaNodosBPlus(actual->C[i]);
-                    if (final == nullptr) {
-                        frente = final = nuevoNodoCola;
-                    } else {
-                        final->siguiente = nuevoNodoCola;
-                        final = nuevoNodoCola;
-                    }
+                    ColaNodosBPlus* nuevo = new ColaNodosBPlus(actual->C[i]);
+                    if (final == nullptr) frente = final = nuevo;
+                    else { final->siguiente = nuevo; final = nuevo; }
                 }
             }
         }
     }
-
     archivo << "}\n";
     archivo.close();
-    std::cout << "Reporte Árbol B+ generado exitosamente en: " << nombreArchivo << "\n";
 }

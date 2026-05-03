@@ -128,6 +128,67 @@ bool Graph::eliminarSucursal(int id) {
     return true;
 }
 
+// -- MODIFICAR CONEXION --
+
+bool Graph::modificarConexion(int origen_id, int destino_id, int nuevo_tiempo, double nuevo_costo, bool bidireccional) {
+    int idxOrigen = obtenerIndice(origen_id);
+    if (idxOrigen == -1) return false;
+
+    bool modificada = false;
+    EdgeNode* actual = vertices[idxOrigen].edges;
+
+    while (actual != nullptr) {
+        if (actual->destino_id == destino_id) {
+            actual->tiempo = nuevo_tiempo;
+            actual->costo = nuevo_costo;
+            modificada = true;
+            break;
+        }
+        actual = actual->next;
+    }
+
+    if (bidireccional) {
+        modificarConexion(destino_id, origen_id, nuevo_tiempo, nuevo_costo, false);
+    }
+
+    return modificada;
+}
+
+// --- ELIMINAR CONEXIÓN ---
+bool Graph::eliminarConexion(int origen_id, int destino_id, bool bidireccional) {
+    int idxOrigen = obtenerIndice(origen_id);
+    if (idxOrigen == -1) return false;
+
+    bool eliminada = false;
+    EdgeNode* actual = vertices[idxOrigen].edges;
+    EdgeNode* anterior = nullptr;
+
+    while (actual != nullptr) {
+        if (actual->destino_id == destino_id) {
+            if (anterior == nullptr) {
+                vertices[idxOrigen].edges = actual->next;
+            } else {
+                anterior->next = actual->next;
+            }
+
+            EdgeNode* aBorrar = actual;
+            actual = actual->next;
+            delete aBorrar;
+
+            eliminada = true;
+            break;
+        } else {
+            anterior = actual;
+            actual = actual->next;
+        }
+    }
+
+    if (bidireccional) {
+        eliminarConexion(destino_id, origen_id, false);
+    }
+    return eliminada;
+}
+
 void Graph::imprimirRutaDijkstra(int idxOrigen, int idxDestino, int previos[], double distancias[], bool porTiempo) {
     // Como los previos van desde el destino hacia el origen, usamos un arreglo temporal para voltearlos
     int ruta[MAX_SUCURSALES];

@@ -2,6 +2,7 @@
 #define PROYECTO2_LINKEDLIST_H
 #include "../models/Product.h"
 #include <iostream>
+#include <cstdlib>
 
 struct ListNode
 {
@@ -31,6 +32,7 @@ public:
     ListNode* getInicio() const { return head; }
     int obtenerTamano() const;
     void ordenarPorNombreBurbuja();
+    Product obtenerProductoAleatorio();
     void imprimirLista() const;
 };
 

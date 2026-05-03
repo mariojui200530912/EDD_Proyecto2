@@ -65,57 +65,79 @@
                             </widget>
                         </widget>
 
-                        <widget class="QWidget" name="tabGestion"><attribute name="title"><string>2. Gestión y Rendimiento</string></attribute>
+                        <widget class="QWidget" name="tabGestion">
+                            <attribute name="title"><string>2. Gestión y Rendimiento</string></attribute>
 
-                            <widget class="QGroupBox" name="grpContexto"><property name="geometry"><rect><x>20</x><y>10</y><width>960</width><height>60</height></rect></property><property name="title"><string>Contexto de Trabajo</string></property>
+                            <widget class="QGroupBox" name="grpContexto">
+                                <property name="geometry"><rect><x>20</x><y>10</y><width>960</width><height>60</height></rect></property>
+                                <property name="title"><string>Contexto de Trabajo</string></property>
                                 <widget class="QLabel" name="lblContexto"><property name="geometry"><rect><x>20</x><y>25</y><width>150</width><height>20</height></rect></property><property name="text"><string>ID Sucursal a Gestionar:</string></property></widget>
                                 <widget class="QLineEdit" name="txtContextoSucursal"><property name="geometry"><rect><x>180</x><y>20</y><width>100</width><height>30</height></rect></property></widget>
                             </widget>
 
-                            <widget class="QGroupBox" name="grpCRUDProd"><property name="geometry"><rect><x>20</x><y>80</y><width>320</width><height>440</height></rect></property><property name="title"><string>Operaciones Base (CRUD)</string></property>
-                                <widget class="QLineEdit" name="txtManualNombre"><property name="geometry"><rect><x>20</x><y>30</y><width>280</width><height>30</height></rect></property><property name="placeholderText"><string>Nombre del Producto</string></property></widget>
-                                <widget class="QLineEdit" name="txtManualCodigo"><property name="geometry"><rect><x>20</x><y>70</y><width>280</width><height>30</height></rect></property><property name="placeholderText"><string>Código de Barras (Hash)</string></property></widget>
-                                <widget class="QLineEdit" name="txtManualCategoria"><property name="geometry"><rect><x>20</x><y>110</y><width>280</width><height>30</height></rect></property><property name="placeholderText"><string>Categoría (B+)</string></property></widget>
-                                <widget class="QLineEdit" name="txtManualFecha"><property name="geometry"><rect><x>20</x><y>150</y><width>280</width><height>30</height></rect></property><property name="placeholderText"><string>Fecha YYYY-MM-DD (B)</string></property></widget>
-                                <widget class="QLineEdit" name="txtManualMarca"><property name="geometry"><rect><x>20</x><y>190</y><width>280</width><height>30</height></rect></property><property name="placeholderText"><string>Marca</string></property></widget>
-                                <widget class="QLineEdit" name="txtManualPrecio"><property name="geometry"><rect><x>20</x><y>230</y><width>280</width><height>30</height></rect></property><property name="placeholderText"><string>Precio</string></property></widget>
-                                <widget class="QLineEdit" name="txtManualStock"><property name="geometry"><rect><x>20</x><y>270</y><width>280</width><height>30</height></rect></property><property name="placeholderText"><string>Stock</string></property></widget>
-                                <widget class="QPushButton" name="btnAgregarManual"><property name="geometry"><rect><x>20</x><y>310</y><width>280</width><height>30</height></rect></property><property name="text"><string>Insertar en la Sucursal(+ Tiempos)</string></property></widget>
+                            <!-- COLUMNA IZQUIERDA -->
+                            <widget class="QGroupBox" name="grpCRUDProd">
+                                <property name="geometry"><rect><x>20</x><y>80</y><width>300</width><height>440</height></rect></property>
+                                <property name="title"><string>Operaciones Base (CRUD)</string></property>
+                                <widget class="QLineEdit" name="txtManualNombre"><property name="geometry"><rect><x>20</x><y>30</y><width>260</width><height>30</height></rect></property><property name="placeholderText"><string>Nombre del Producto</string></property></widget>
+                                <widget class="QLineEdit" name="txtManualCodigo"><property name="geometry"><rect><x>20</x><y>70</y><width>260</width><height>30</height></rect></property><property name="placeholderText"><string>Código de Barras (Hash)</string></property></widget>
+                                <widget class="QLineEdit" name="txtManualCategoria"><property name="geometry"><rect><x>20</x><y>110</y><width>260</width><height>30</height></rect></property><property name="placeholderText"><string>Categoría (B+)</string></property></widget>
+                                <widget class="QLineEdit" name="txtManualFecha"><property name="geometry"><rect><x>20</x><y>150</y><width>260</width><height>30</height></rect></property><property name="placeholderText"><string>Fecha YYYY-MM-DD (B)</string></property></widget>
+                                <widget class="QLineEdit" name="txtManualMarca"><property name="geometry"><rect><x>20</x><y>190</y><width>260</width><height>30</height></rect></property><property name="placeholderText"><string>Marca</string></property></widget>
+                                <widget class="QLineEdit" name="txtManualPrecio"><property name="geometry"><rect><x>20</x><y>230</y><width>260</width><height>30</height></rect></property><property name="placeholderText"><string>Precio</string></property></widget>
+                                <widget class="QLineEdit" name="txtManualStock"><property name="geometry"><rect><x>20</x><y>270</y><width>260</width><height>30</height></rect></property><property name="placeholderText"><string>Stock</string></property></widget>
+                                <widget class="QPushButton" name="btnAgregarManual"><property name="geometry"><rect><x>20</x><y>310</y><width>260</width><height>30</height></rect></property><property name="text"><string>Insertar en la Sucursal (+ Métricas)</string></property></widget>
 
-                                <widget class="Line" name="lineSep"><property name="geometry"><rect><x>20</x><y>350</y><width>280</width><height>3</height></rect></property><property name="orientation"><enum>Qt::Horizontal</enum></property></widget>
-                                <widget class="QLineEdit" name="txtEliminarCodigo"><property name="geometry"><rect><x>20</x><y>360</y><width>180</width><height>30</height></rect></property><property name="placeholderText"><string>Código a eliminar...</string></property></widget>
-                                <widget class="QPushButton" name="btnEliminar"><property name="geometry"><rect><x>210</x><y>360</y><width>90</width><height>30</height></rect></property><property name="text"><string>Eliminar</string></property></widget>
-
-                                <widget class="QPushButton" name="btnDeshacer"><property name="geometry"><rect><x>20</x><y>400</y><width>280</width><height>30</height></rect></property><property name="text"><string>⏪ Deshacer Último Ingreso (Rollback)</string></property></widget>
+                                <widget class="Line" name="lineSep"><property name="geometry"><rect><x>20</x><y>350</y><width>260</width><height>3</height></rect></property><property name="orientation"><enum>Qt::Horizontal</enum></property></widget>
+                                <widget class="QLineEdit" name="txtEliminarCodigo"><property name="geometry"><rect><x>20</x><y>360</y><width>150</width><height>30</height></rect></property><property name="placeholderText"><string>Código a eliminar...</string></property></widget>
+                                <widget class="QPushButton" name="btnEliminar"><property name="geometry"><rect><x>180</x><y>360</y><width>100</width><height>30</height></rect></property><property name="text"><string>Eliminar</string></property></widget>
+                                <widget class="QPushButton" name="btnDeshacer"><property name="geometry"><rect><x>20</x><y>400</y><width>260</width><height>30</height></rect></property><property name="text"><string>⏪ Deshacer Último Ingreso (Rollback)</string></property></widget>
                             </widget>
 
-                            <widget class="QGroupBox" name="grpBusquedas"><property name="geometry"><rect><x>360</x><y>80</y><width>620</width><height>260</height></rect></property><property name="title"><string>Búsquedas y Recorridos Especializados</string></property>
-                                <widget class="QLineEdit" name="txtBuscarAVL"><property name="geometry"><rect><x>20</x><y>30</y><width>200</width><height>30</height></rect></property><property name="placeholderText"><string>Nombre del Producto...</string></property></widget>
-                                <widget class="QPushButton" name="btnBuscarAVL"><property name="geometry"><rect><x>230</x><y>30</y><width>120</width><height>30</height></rect></property><property name="text"><string>Buscar en AVL</string></property></widget>
+                            <!-- BAJÓ A Y=530 -->
+                            <widget class="QGroupBox" name="grpBusquedasCtrls">
+                                <property name="geometry"><rect><x>20</x><y>530</y><width>300</width><height>190</height></rect></property>
+                                <property name="title"><string>Controles de Búsqueda</string></property>
+                                <widget class="QLineEdit" name="txtBuscarAVL"><property name="geometry"><rect><x>20</x><y>30</y><width>140</width><height>30</height></rect></property><property name="placeholderText"><string>Nombre...</string></property></widget>
+                                <widget class="QPushButton" name="btnBuscarAVL"><property name="geometry"><rect><x>170</x><y>30</y><width>110</width><height>30</height></rect></property><property name="text"><string>Buscar (AVL)</string></property></widget>
 
-                                <widget class="QLineEdit" name="txtBuscarHash"><property name="geometry"><rect><x>20</x><y>70</y><width>200</width><height>30</height></rect></property><property name="placeholderText"><string>Código de Barras...</string></property></widget>
-                                <widget class="QPushButton" name="btnBuscarHash"><property name="geometry"><rect><x>230</x><y>70</y><width>120</width><height>30</height></rect></property><property name="text"><string>Buscar en Hash</string></property></widget>
+                                <widget class="QLineEdit" name="txtBuscarHash"><property name="geometry"><rect><x>20</x><y>70</y><width>140</width><height>30</height></rect></property><property name="placeholderText"><string>Código...</string></property></widget>
+                                <widget class="QPushButton" name="btnBuscarHash"><property name="geometry"><rect><x>170</x><y>70</y><width>110</width><height>30</height></rect></property><property name="text"><string>Buscar (Hash)</string></property></widget>
 
-                                <widget class="QLineEdit" name="txtBuscarBPlus"><property name="geometry"><rect><x>20</x><y>110</y><width>200</width><height>30</height></rect></property><property name="placeholderText"><string>Categoría...</string></property></widget>
-                                <widget class="QPushButton" name="btnBuscarBPlus"><property name="geometry"><rect><x>230</x><y>110</y><width>120</width><height>30</height></rect></property><property name="text"><string>Buscar en B+ (Hojas)</string></property></widget>
+                                <widget class="QLineEdit" name="txtBuscarBPlus"><property name="geometry"><rect><x>20</x><y>110</y><width>140</width><height>30</height></rect></property><property name="placeholderText"><string>Categoría...</string></property></widget>
+                                <widget class="QPushButton" name="btnBuscarBPlus"><property name="geometry"><rect><x>170</x><y>110</y><width>110</width><height>30</height></rect></property><property name="text"><string>Buscar (B+)</string></property></widget>
 
-                                <widget class="QLineEdit" name="txtBuscarBInicio"><property name="geometry"><rect><x>20</x><y>150</y><width>95</width><height>30</height></rect></property><property name="placeholderText"><string>Inicio (Fecha)</string></property></widget>
-                                <widget class="QLineEdit" name="txtBuscarBFin"><property name="geometry"><rect><x>125</x><y>150</y><width>95</width><height>30</height></rect></property><property name="placeholderText"><string>Fin (Fecha)</string></property></widget>
-                                <widget class="QPushButton" name="btnBuscarB"><property name="geometry"><rect><x>230</x><y>150</y><width>120</width><height>30</height></rect></property><property name="text"><string>Rango en B-Tree</string></property></widget>
-
-                                <widget class="QListWidget" name="listaResultadosBusqueda"><property name="geometry"><rect><x>370</x><y>30</y><width>230</width><height>210</height></rect></property></widget>
+                                <widget class="QLineEdit" name="txtBuscarBInicio"><property name="geometry"><rect><x>20</x><y>150</y><width>65</width><height>30</height></rect></property><property name="placeholderText"><string>Inicio</string></property></widget>
+                                <widget class="QLineEdit" name="txtBuscarBFin"><property name="geometry"><rect><x>95</x><y>150</y><width>65</width><height>30</height></rect></property><property name="placeholderText"><string>Fin</string></property></widget>
+                                <widget class="QPushButton" name="btnBuscarB"><property name="geometry"><rect><x>170</x><y>150</y><width>110</width><height>30</height></rect></property><property name="text"><string>Rango (B-Tree)</string></property></widget>
                             </widget>
 
+                            <!-- COLUMNA DERECHA -->
+                            <!-- CRECIÓ A H=440 para emparejar con el lado izquierdo -->
+                            <widget class="QGroupBox" name="grpConsolaDatos">
+                                <property name="geometry"><rect><x>340</x><y>80</y><width>640</width><height>440</height></rect></property>
+                                <property name="title"><string>Datos y Resultados de Operaciones</string></property>
+                                <widget class="QListWidget" name="listaResultadosBusqueda">
+                                    <property name="geometry"><rect><x>10</x><y>30</y><width>620</width><height>400</height></rect></property>
+                                    <property name="styleSheet"><string>font-size: 14px;</string></property>
+                                </widget>
+                            </widget>
+
+                            <!-- BAJÓ A Y=530 -->
                             <widget class="QGroupBox" name="grpRendimiento">
-                                <property name="geometry"><rect><x>360</x><y>350</y><width>620</width><height>140</height></rect></property>
-                                <property name="title"><string>Laboratorio de Rendimiento (Métricas)</string></property>
+                                <property name="geometry"><rect><x>340</x><y>530</y><width>640</width><height>190</height></rect></property>
+                                <property name="title"><string>Laboratorio de Rendimiento Analítico</string></property>
 
-                                <widget class="QPushButton" name="btnListarAVL"><property name="geometry"><rect><x>20</x><y>30</y><width>180</width><height>30</height></rect></property><property name="text"><string>Listar In-Order (AVL)</string></property></widget>
-                                <widget class="QPushButton" name="btnCompararTiempos"><property name="geometry"><rect><x>210</x><y>30</y><width>190</width><height>30</height></rect></property><property name="text"><string>Comparar Búsquedas</string></property></widget>
-                                <widget class="QPushButton" name="btnCompararOrdenamiento"><property name="geometry"><rect><x>410</x><y>30</y><width>190</width><height>30</height></rect></property><property name="text"><string>Comparar Ordenamiento</string></property></widget>
-                                <widget class="QPushButton" name="btnVerHistorial"><property name="geometry"><rect><x>20</x><y>70</y><width>180</width><height>30</height></rect></property><property name="text"><string>Ver Historial (Pila)</string></property></widget>
+                                <widget class="QPushButton" name="btnListarAVL"><property name="geometry"><rect><x>10</x><y>30</y><width>170</width><height>30</height></rect></property><property name="text"><string>Listar In-Order (AVL)</string></property></widget>
+                                <widget class="QPushButton" name="btnCompararTiempos"><property name="geometry"><rect><x>10</x><y>70</y><width>170</width><height>30</height></rect></property><property name="text"><string>Comparar Búsquedas</string></property></widget>
+                                <widget class="QPushButton" name="btnCompararOrdenamiento"><property name="geometry"><rect><x>10</x><y>110</y><width>170</width><height>30</height></rect></property><property name="text"><string>Comparar Ordenamiento</string></property></widget>
+                                <widget class="QPushButton" name="btnVerHistorial"><property name="geometry"><rect><x>10</x><y>150</y><width>170</width><height>30</height></rect></property><property name="text"><string>Ver Historial (Pila)</string></property></widget>
 
-                                <widget class="QLabel" name="lblTiemposComparativa"><property name="geometry"><rect><x>210</x><y>70</y><width>390</width><height>60</height></rect></property><property name="text"><string>Las métricas en microsegundos aparecerán aquí...</string></property></widget>
+                                <widget class="QLabel" name="lblTiemposComparativa">
+                                    <property name="geometry"><rect><x>190</x><y>30</y><width>440</width><height>150</height></rect></property>
+                                    <property name="text"><string>Realiza una inserción, eliminación o búsqueda para generar las métricas...</string></property>
+                                    <property name="alignment"><set>Qt::AlignCenter</set></property>
+                                </widget>
                             </widget>
                         </widget>
 

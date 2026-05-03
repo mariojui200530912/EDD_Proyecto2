@@ -178,6 +178,26 @@ void LinkedList::ordenarPorNombreBurbuja() {
     } while (intercambiado);
 }
 
+Product LinkedList::obtenerProductoAleatorio() {
+    if (estaVacia()) {
+        return Product(); // Retorna un producto vacío por seguridad
+    }
+
+    ListNode* actual = getInicio();
+
+    // Generar un índice aleatorio entre 0 y (contador - 1)
+    int indiceAleatorio = std::rand() % size;
+
+    // Recorrer hasta el índice elegido
+    actual = getInicio();
+    for (int i = 0; i < indiceAleatorio; i++) {
+        actual = actual->next;
+    }
+
+    // Retornar el producto aleatorio
+    return actual->data;
+}
+
 void LinkedList::imprimirLista() const
 {
     ListNode* current = head;

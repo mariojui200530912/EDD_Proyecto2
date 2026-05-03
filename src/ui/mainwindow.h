@@ -62,6 +62,8 @@ private:
 protected:
     // Para habilitar el zoom con la rueda del ratón
     bool eventFilter(QObject *obj, QEvent *event) override;
+    void actualizarDashboardMetricas(const QString& tituloPanel, double tHash, double tAVL, double tBTree, double tBPlus,
+                                     double tLista, const QString& colorPrincipal);
 };
 
 #endif //PROYECTO2_MAINWINDOW_H

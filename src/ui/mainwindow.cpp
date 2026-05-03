@@ -10,6 +10,7 @@
     #include <QFileDialog>
     #include <QMessageBox>
     #include <cstdlib>
+    #include <ctime>
     #include <QWheelEvent>
     #include <QTableWidget>
     #include <QHeaderView>
@@ -339,38 +340,55 @@
         p.price = ui->txtManualPrecio->text().toDouble();
         p.stock = ui->txtManualStock->text().toInt();
 
-        auto inicioReloj = std::chrono::high_resolution_clock::now();
-
-        if (nodo->sucursal.inventarioHash.insertar(p)) {
-            nodo->sucursal.inventarioAVL.insertar(p);
-            nodo->sucursal.inventarioB.insertar(p);
-            nodo->sucursal.inventarioBPlus.insertar(p);
-            nodo->sucursal.inventarioLista.insertarFinal(p);
-
-            nodo->sucursal.pilaRollback.apilar(p);
-
-            auto finReloj = std::chrono::high_resolution_clock::now();
-            auto duracion = std::chrono::duration_cast<std::chrono::microseconds>(finReloj - inicioReloj).count();
-
-            QMessageBox::information(this, "Éxito", "Producto agregado correctamente en " + QString::number(duracion) + " µs");
-
-            ui->txtManualCodigo->clear();
-            ui->txtManualNombre->clear();
-        } else {
-            QMessageBox::warning(this, "Duplicado", "Este código de barras ya existe en el inventario de esta sucursal.");
+        if (nodo->sucursal.inventarioHash.buscar(p.barcode) != nullptr) {
+            QMessageBox::warning(this, "Duplicado", "Este código de barras ya existe.");
+            return;
         }
+
+        // --- CRONOMETRAJE INDIVIDUAL ---
+        auto t1 = std::chrono::high_resolution_clock::now(); nodo->sucursal.inventarioHash.insertar(p); auto t2 = std::chrono::high_resolution_clock::now();
+        long tHash = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
+
+        t1 = std::chrono::high_resolution_clock::now(); nodo->sucursal.inventarioAVL.insertar(p); t2 = std::chrono::high_resolution_clock::now();
+        long tAVL = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
+
+        t1 = std::chrono::high_resolution_clock::now(); nodo->sucursal.inventarioB.insertar(p); t2 = std::chrono::high_resolution_clock::now();
+        long tBTree = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
+
+        t1 = std::chrono::high_resolution_clock::now(); nodo->sucursal.inventarioBPlus.insertar(p); t2 = std::chrono::high_resolution_clock::now();
+        long tBPlus = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
+
+        t1 = std::chrono::high_resolution_clock::now(); nodo->sucursal.inventarioLista.insertarFinal(p); t2 = std::chrono::high_resolution_clock::now();
+        long tLista = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
+
+        nodo->sucursal.pilaRollback.apilar(p);
+
+        // RESULTADO DE DATOS
+        ui->listaResultadosBusqueda->clear();
+        QString itemTexto = QString("✅ PRODUCTO INGRESADO\n📦 %1\n      🔖 Código: %2  |  💰 Q %3  |  📊 Stock: %4")
+                                .arg(QString::fromStdString(p.name)).arg(QString::fromStdString(p.barcode))
+                                .arg(QString::number(p.price, 'f', 2)).arg(p.stock);
+        QListWidgetItem* listItem = new QListWidgetItem(itemTexto);
+        listItem->setForeground(QBrush(QColor("#4CAF50")));
+        ui->listaResultadosBusqueda->addItem(listItem);
+
+        // RESULTADO DE MÉTRICAS
+        actualizarDashboardMetricas(QString("⏱ Tiempos de Inserción: %1").arg(QString::fromStdString(p.name)),
+                                    tHash, tAVL, tBTree, tBPlus, tLista, "#00E676");
+
+        // Limpieza
+        ui->txtManualCodigo->clear(); ui->txtManualNombre->clear();
     }
 
     // --- ELIMINAR  ---
-    void MainWindow::on_btnEliminar_clicked() {
-        // Obtenemos la sucursal del Contexto
+    void MainWindow::on_btnEliminar_clicked()
+    {
         VertexNode* nodo = obtenerSucursalContexto();
         if (!nodo) return;
 
         std::string codigo = ui->txtEliminarCodigo->text().toStdString();
         if (codigo.empty()) return;
 
-        // Buscamos primero para hacer backup profundo de los datos
         Product* p = nodo->sucursal.inventarioHash.buscar(codigo);
         if (p == nullptr) {
             QMessageBox::critical(this, "Error", "El producto no existe en esta sucursal.");
@@ -378,31 +396,36 @@
         }
         Product productoBackup = *p;
 
-        // Cronometramos la eliminación en los 4 árboles
-        auto inicioReloj = std::chrono::high_resolution_clock::now();
+        // --- CRONOMETRAJE INDIVIDUAL DE ELIMINACION ---
+        auto t1 = std::chrono::high_resolution_clock::now(); bool h = nodo->sucursal.inventarioHash.eliminar(productoBackup.barcode); auto t2 = std::chrono::high_resolution_clock::now();
+        long tHash = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
 
-        bool h = nodo->sucursal.inventarioHash.eliminar(productoBackup.barcode);
-        bool a = nodo->sucursal.inventarioAVL.eliminar(productoBackup.name);
-        bool b = nodo->sucursal.inventarioB.eliminarProducto(productoBackup);
-        bool bp = nodo->sucursal.inventarioBPlus.eliminarProducto(productoBackup);
-        bool l = nodo->sucursal.inventarioLista.eliminarPorCodigo(productoBackup.barcode);
+        t1 = std::chrono::high_resolution_clock::now(); nodo->sucursal.inventarioAVL.eliminar(productoBackup.name); t2 = std::chrono::high_resolution_clock::now();
+        long tAVL = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
 
-        auto finReloj = std::chrono::high_resolution_clock::now();
-        auto duracion = std::chrono::duration_cast<std::chrono::microseconds>(finReloj - inicioReloj).count();
+        t1 = std::chrono::high_resolution_clock::now(); nodo->sucursal.inventarioB.eliminarProducto(productoBackup); t2 = std::chrono::high_resolution_clock::now();
+        long tBTree = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
+
+        t1 = std::chrono::high_resolution_clock::now(); nodo->sucursal.inventarioBPlus.eliminarProducto(productoBackup); t2 = std::chrono::high_resolution_clock::now();
+        long tBPlus = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
+
+        t1 = std::chrono::high_resolution_clock::now(); nodo->sucursal.inventarioLista.eliminarPorCodigo(productoBackup.barcode); t2 = std::chrono::high_resolution_clock::now();
+        long tLista = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
 
         if (h) {
-            QString mensaje = QString::fromStdString(productoBackup.name) +
-                              " eliminado exitosamente en " + QString::number(duracion) + " µs.\n\n" +
-                              "Desglose de la cascada:\n" +
-                              "- Hash: OK\n" +
-                              "- AVL: " + (a ? "OK" : "Falló") + "\n" +
-                              "- B-Tree: " + (b ? "OK" : "Falló") + "\n" +
-                              "- B+ Tree: " + (bp ? "OK" : "Falló") + "\n" +
-                              "- Lista General: " + (l ? "OK" : "Falló");
+            // 1. RESULTADO DE DATOS (Arriba)
+            ui->listaResultadosBusqueda->clear();
+            QString itemTexto = QString("🗑 PRODUCTO ELIMINADO\n📦 %1\n      🔖 Código: %2")
+                                    .arg(QString::fromStdString(productoBackup.name))
+                                    .arg(QString::fromStdString(productoBackup.barcode));
+            QListWidgetItem* listItem = new QListWidgetItem(itemTexto);
+            listItem->setForeground(QBrush(QColor("#F44336")));
+            ui->listaResultadosBusqueda->addItem(listItem);
 
-            QMessageBox::information(this, "Operación Exitosa", mensaje);
+            // 2. RESULTADO DE MÉTRICAS (Abajo)
+            actualizarDashboardMetricas(QString("🗑 Tiempos de Eliminación: %1").arg(QString::fromStdString(productoBackup.name)),
+                                        tHash, tAVL, tBTree, tBPlus, tLista, "#F44336");
 
-            // Limpiamos el campo de texto
             ui->txtEliminarCodigo->clear();
         }
     }
@@ -420,17 +443,21 @@
         auto inicio = std::chrono::high_resolution_clock::now();
         Product* p = nodo->sucursal.inventarioAVL.buscar(nombre);
         auto fin = std::chrono::high_resolution_clock::now();
-        auto duracion = std::chrono::duration_cast<std::chrono::microseconds>(fin - inicio).count();
+        long duracion = std::chrono::duration_cast<std::chrono::microseconds>(fin - inicio).count();
 
         if (p != nullptr) {
-            ui->listaResultadosBusqueda->addItem(QString::fromStdString("✅ Encontrado (" + std::to_string(duracion) + " µs)"));
-            ui->listaResultadosBusqueda->addItem(QString::fromStdString("Nombre: " + p->name));
-            ui->listaResultadosBusqueda->addItem(QString::fromStdString("Código: " + p->barcode));
-            ui->listaResultadosBusqueda->addItem(QString::fromStdString("Precio: Q" + std::to_string(p->price)));
-            ui->listaResultadosBusqueda->addItem(QString::fromStdString("Stock: " + std::to_string(p->stock)));
-            ui->listaResultadosBusqueda->addItem(QString::fromStdString("Estado: " + p->estado));
+            QString itemTexto = QString("✅ PRODUCTO ENCONTRADO (AVL)\n📦 %1\n      🔖 Código: %2  |  💰 Q %3")
+                                    .arg(QString::fromStdString(p->name)).arg(QString::fromStdString(p->barcode))
+                                    .arg(QString::number(p->price, 'f', 2));
+            QListWidgetItem* listItem = new QListWidgetItem(itemTexto);
+            listItem->setForeground(QBrush(QColor("#2196F3")));
+            ui->listaResultadosBusqueda->addItem(listItem);
+
+            actualizarDashboardMetricas(QString("🔍 Búsqueda AVL: %1").arg(QString::fromStdString(p->name)),
+                                        -1, duracion, -1, -1, -1, "#2196F3");
         } else {
             ui->listaResultadosBusqueda->addItem("❌ Producto no encontrado.");
+            actualizarDashboardMetricas("🔍 Búsqueda AVL (Fallida)", -1, duracion, -1, -1, -1, "#F44336");
         }
     }
 
@@ -447,17 +474,21 @@
         auto inicio = std::chrono::high_resolution_clock::now();
         Product* p = nodo->sucursal.inventarioHash.buscar(codigo);
         auto fin = std::chrono::high_resolution_clock::now();
-        auto duracion = std::chrono::duration_cast<std::chrono::microseconds>(fin - inicio).count();
+        long duracion = std::chrono::duration_cast<std::chrono::microseconds>(fin - inicio).count();
 
         if (p != nullptr) {
-            ui->listaResultadosBusqueda->addItem(QString::fromStdString("✅ Encontrado (" + std::to_string(duracion) + " µs)"));
-            ui->listaResultadosBusqueda->addItem(QString::fromStdString("Nombre: " + p->name));
-            ui->listaResultadosBusqueda->addItem(QString::fromStdString("Código: " + p->barcode));
-            ui->listaResultadosBusqueda->addItem(QString::fromStdString("Precio: Q" + std::to_string(p->price)));
-            ui->listaResultadosBusqueda->addItem(QString::fromStdString("Stock: " + std::to_string(p->stock)));
-            ui->listaResultadosBusqueda->addItem(QString::fromStdString("Estado: " + p->estado));
+            QString itemTexto = QString("✅ PRODUCTO ENCONTRADO (Hash)\n📦 %1\n      🔖 Código: %2  |  💰 Q %3")
+                                    .arg(QString::fromStdString(p->name)).arg(QString::fromStdString(p->barcode))
+                                    .arg(QString::number(p->price, 'f', 2));
+            QListWidgetItem* listItem = new QListWidgetItem(itemTexto);
+            listItem->setForeground(QBrush(QColor("#4CAF50")));
+            ui->listaResultadosBusqueda->addItem(listItem);
+
+            actualizarDashboardMetricas(QString("🔍 Búsqueda Hash: %1").arg(QString::fromStdString(p->barcode)),
+                                        duracion, -1, -1, -1, -1, "#4CAF50");
         } else {
             ui->listaResultadosBusqueda->addItem("❌ Producto no encontrado.");
+            actualizarDashboardMetricas("🔍 Búsqueda Hash (Fallida)", duracion, -1, -1, -1, -1, "#F44336");
         }
     }
 
@@ -474,18 +505,30 @@
         auto inicio = std::chrono::high_resolution_clock::now();
         LinkedList* listaCat = nodo->sucursal.inventarioBPlus.buscarCategoria(categoria);
         auto fin = std::chrono::high_resolution_clock::now();
-        auto duracion = std::chrono::duration_cast<std::chrono::microseconds>(fin - inicio).count();
+        long duracion = std::chrono::duration_cast<std::chrono::microseconds>(fin - inicio).count();
 
         if (listaCat != nullptr && !listaCat->estaVacia()) {
-            ui->listaResultadosBusqueda->addItem(QString::fromStdString("✅ Categoría: " + categoria + " (" + std::to_string(duracion) + " µs)"));
+            QListWidgetItem* titulo = new QListWidgetItem(QString("✅ Categoría Encontrada: %1").arg(QString::fromStdString(categoria)));
+            titulo->setForeground(QBrush(QColor("#9C27B0"))); // Morado para B+
+            titulo->setFont(QFont("Segoe UI", 10, QFont::Bold));
+            ui->listaResultadosBusqueda->addItem(titulo);
+            ui->listaResultadosBusqueda->addItem("-------------------------------------------------");
 
             ListNode* actual = listaCat->getInicio();
             while (actual != nullptr) {
-                ui->listaResultadosBusqueda->addItem(QString::fromStdString("- " + actual->data.name + " (" + actual->data.barcode + ")"));
+                QString itemTexto = QString("📦 %1\n      🔖 Código: %2")
+                                        .arg(QString::fromStdString(actual->data.name))
+                                        .arg(QString::fromStdString(actual->data.barcode));
+                ui->listaResultadosBusqueda->addItem(new QListWidgetItem(itemTexto));
                 actual = actual->next;
             }
+
+            // Actualizamos Dashboard
+            actualizarDashboardMetricas(QString("🔍 Búsqueda B+ (Categoría): %1").arg(QString::fromStdString(categoria)),
+                                        -1, -1, -1, duracion, -1, "#9C27B0");
         } else {
             ui->listaResultadosBusqueda->addItem("❌ No hay productos en esta categoría.");
+            actualizarDashboardMetricas("🔍 Búsqueda B+ (Fallida)", -1, -1, -1, duracion, -1, "#F44336");
         }
     }
 
@@ -500,60 +543,106 @@
         if (fechaIn.empty() || fechaFin.empty()) return;
 
         ui->listaResultadosBusqueda->clear();
-
-        // Usamos tu LinkedList personalizada
         LinkedList resultados;
 
         auto inicio = std::chrono::high_resolution_clock::now();
         nodo->sucursal.inventarioB.buscarPorRangoFechas(fechaIn, fechaFin, resultados);
         auto fin = std::chrono::high_resolution_clock::now();
-        auto duracion = std::chrono::duration_cast<std::chrono::microseconds>(fin - inicio).count();
+        long duracion = std::chrono::duration_cast<std::chrono::microseconds>(fin - inicio).count();
 
         if (!resultados.estaVacia()) {
-            ui->listaResultadosBusqueda->addItem(QString::fromStdString("✅ Rango encontrado (" + std::to_string(duracion) + " µs)"));
+            QListWidgetItem* titulo = new QListWidgetItem(QString("✅ Rango Encontrado: [%1 a %2]").arg(QString::fromStdString(fechaIn)).arg(QString::fromStdString(fechaFin)));
+            titulo->setForeground(QBrush(QColor("#FF9800"))); // Naranja para B-Tree
+            titulo->setFont(QFont("Segoe UI", 10, QFont::Bold));
+            ui->listaResultadosBusqueda->addItem(titulo);
+            ui->listaResultadosBusqueda->addItem("-------------------------------------------------");
 
             ListNode* actual = resultados.getInicio();
             while (actual != nullptr) {
-                ui->listaResultadosBusqueda->addItem(QString::fromStdString("- [" + actual->data.expiry_date + "] " + actual->data.name));
+                QString itemTexto = QString("📅 [%1]\n      📦 %2")
+                                        .arg(QString::fromStdString(actual->data.expiry_date))
+                                        .arg(QString::fromStdString(actual->data.name));
+                ui->listaResultadosBusqueda->addItem(new QListWidgetItem(itemTexto));
                 actual = actual->next;
             }
+
+            actualizarDashboardMetricas(QString("🔍 Búsqueda B-Tree (Rango)"), -1, -1, duracion, -1, -1, "#FF9800");
         } else {
             ui->listaResultadosBusqueda->addItem("❌ Sin productos por vencer en ese rango.");
+            actualizarDashboardMetricas("🔍 Búsqueda B-Tree (Fallida)", -1, -1, duracion, -1, -1, "#F44336");
         }
     }
 
+    // COMPARAR TIEMPOS
     void MainWindow::on_btnCompararTiempos_clicked() {
         VertexNode* nodo = obtenerSucursalContexto();
         if (!nodo) return;
 
-        std::string codigoTest = ui->txtBuscarHash->text().toStdString();
-        if (codigoTest.empty()) {
-            QMessageBox::information(this, "Prueba de Rendimiento", "Ingresa un Código de Barras válido en la casilla de 'Buscar en Hash' para iniciar la prueba.");
+        if (nodo->sucursal.inventarioLista.estaVacia()) {
+            QMessageBox::warning(this, "Aviso", "El inventario está vacío.");
             return;
         }
 
-        // Tiempo Hash O(1)
-        auto t1 = std::chrono::high_resolution_clock::now();
-        nodo->sucursal.inventarioHash.buscar(codigoTest);
-        auto t2 = std::chrono::high_resolution_clock::now();
-        auto tiempoHash = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
+        Product productoTest = nodo->sucursal.inventarioLista.obtenerProductoAleatorio();
+        std::string codigoTest = productoTest.barcode;
+        std::string nombreTest = productoTest.name;
 
-        // Tiempo AVL O(log n) - Forzamos el peor caso buscando un nombre que no existe
-        auto t3 = std::chrono::high_resolution_clock::now();
-        nodo->sucursal.inventarioAVL.buscar("ZZZ_WORST_CASE");
-        auto t4 = std::chrono::high_resolution_clock::now();
-        auto tiempoAVL = std::chrono::duration_cast<std::chrono::microseconds>(t4 - t3).count();
+        // --- CASO EXITOSO ---
+        auto t1 = std::chrono::high_resolution_clock::now(); nodo->sucursal.inventarioHash.buscar(codigoTest); auto t2 = std::chrono::high_resolution_clock::now();
+        double tHashExt = std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count() / 1000.0;
 
-        // Tiempo Lista O(n) - Búsqueda real en la LinkedList principal
-        auto t5 = std::chrono::high_resolution_clock::now();
-        nodo->sucursal.inventarioLista.buscarPorCodigo(codigoTest);
-        auto t6 = std::chrono::high_resolution_clock::now();
-        auto tiempoLista = std::chrono::duration_cast<std::chrono::microseconds>(t6 - t5).count();
+        t1 = std::chrono::high_resolution_clock::now(); nodo->sucursal.inventarioAVL.buscar(nombreTest); t2 = std::chrono::high_resolution_clock::now();
+        double tAVLExt = std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count() / 1000.0;
 
-        // Mostrar Resultados
-        QString resultado = QString("Hash O(1): %1 µs  |  AVL O(log n): %2 µs  |  Lista O(n): %3 µs")
-                                .arg(tiempoHash).arg(tiempoAVL).arg(tiempoLista);
-        ui->lblTiemposComparativa->setText(resultado);
+        t1 = std::chrono::high_resolution_clock::now(); nodo->sucursal.inventarioLista.buscarPorCodigo(codigoTest); t2 = std::chrono::high_resolution_clock::now();
+        double tListaExt = std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count() / 1000.0;
+
+        // --- PEOR CASO (BUSQUEDA FALLIDA) ---
+        std::string codigoFalso = "XXX-NO-EXISTE";
+        std::string nombreFalso = "ZZZ-PRODUCTO-FANTASMA";
+
+        t1 = std::chrono::high_resolution_clock::now(); nodo->sucursal.inventarioHash.buscar(codigoFalso); t2 = std::chrono::high_resolution_clock::now();
+        double tHashFallo = std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count() / 1000.0;
+
+        t1 = std::chrono::high_resolution_clock::now(); nodo->sucursal.inventarioAVL.buscar(nombreFalso); t2 = std::chrono::high_resolution_clock::now();
+        double tAVLFallo = std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count() / 1000.0;
+
+        t1 = std::chrono::high_resolution_clock::now(); nodo->sucursal.inventarioLista.buscarPorCodigo(codigoFalso); t2 = std::chrono::high_resolution_clock::now();
+        double tListaFallo = std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count() / 1000.0;
+
+        // RESULTADO EN LISTA
+        ui->listaResultadosBusqueda->clear();
+        QListWidgetItem* titulo = new QListWidgetItem("📊 BENCHMARK DE BÚSQUEDA EN VIVO EJECUTADO");
+        titulo->setFont(QFont("Consolas", 10, QFont::Bold));
+        titulo->setForeground(QBrush(QColor("#00E5FF")));
+        ui->listaResultadosBusqueda->addItem(titulo);
+        ui->listaResultadosBusqueda->addItem("Se realizaron dos escenarios de prueba (Existente y Fallida).");
+        ui->listaResultadosBusqueda->addItem("Los resultados se han consolidado en el panel inferior.");
+
+        // DASHBOARD HTML CON DECIMALES ('f', 3)
+        QString metricasHTML = QString(
+            "<h4 style='margin-top: 0px; margin-bottom: 5px; color: #00E5FF;'>📊 Rendimiento: Búsqueda Exitosa vs Peor Caso</h4>"
+            "<table style='width: 100%; color: #E0E0E0; font-size: 12px; text-align: center;' border='0'>"
+            "<tr>"
+            "  <th>Escenario</th>"
+            "  <th style='color: #4CAF50;'>Hash O(1)</th>"
+            "  <th style='color: #2196F3;'>AVL O(log n)</th>"
+            "  <th style='color: #F44336;'>Lista O(n)</th>"
+            "</tr>"
+            "<tr>"
+            "  <td style='text-align: left;'>1. Exitosa Aleatoria</td>"
+            "  <td>%1 µs</td><td>%2 µs</td><td>%3 µs</td>"
+            "</tr>"
+            "<tr>"
+            "  <td style='text-align: left;'>2. Fallida (No Existe)</td>"
+            "  <td>%4 µs</td><td>%5 µs</td><td>%6 µs</td>"
+            "</tr>"
+            "</table>"
+        ).arg(tHashExt, 0, 'f', 3).arg(tAVLExt, 0, 'f', 3).arg(tListaExt, 0, 'f', 3)
+         .arg(tHashFallo, 0, 'f', 3).arg(tAVLFallo, 0, 'f', 3).arg(tListaFallo, 0, 'f', 3);
+
+        ui->lblTiemposComparativa->setStyleSheet("background-color: #212121; padding: 10px; border-radius: 8px; border: 1px solid #424242;");
+        ui->lblTiemposComparativa->setText(metricasHTML);
     }
 
     void MainWindow::on_btnCompararOrdenamiento_clicked() {
@@ -562,54 +651,67 @@
 
         // AVL O(n) para listar
         LinkedList resAVL;
-        auto t1 = std::chrono::high_resolution_clock::now();
-        nodo->sucursal.inventarioAVL.listarAlfabeticamente(resAVL);
-        auto t2 = std::chrono::high_resolution_clock::now();
-        auto tiempoAVL = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
+        auto t1 = std::chrono::high_resolution_clock::now(); nodo->sucursal.inventarioAVL.listarAlfabeticamente(resAVL); auto t2 = std::chrono::high_resolution_clock::now();
+        long tiempoAVL = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
 
-        // Lista O(n^2) -> Clono la lista y aplico burbuja
+        // Lista O(n^2) Burbuja
         LinkedList listaClon;
         ListNode* it = nodo->sucursal.inventarioLista.getInicio();
         while(it != nullptr) { listaClon.insertarFinal(it->data); it = it->next; }
 
-        auto t3 = std::chrono::high_resolution_clock::now();
-        listaClon.ordenarPorNombreBurbuja();
-        auto t4 = std::chrono::high_resolution_clock::now();
-        auto tiempoBurbuja = std::chrono::duration_cast<std::chrono::microseconds>(t4 - t3).count();
-
-        QString resultado = QString("📊 ORDENAMIENTO (Alfabetico):\nAVL (In-Order) O(n): %1 µs\nLista (Burbuja) O(n²): %2 µs")
-                                .arg(tiempoAVL).arg(tiempoBurbuja);
-        ui->lblTiemposComparativa->setText(resultado);
+        t1 = std::chrono::high_resolution_clock::now(); listaClon.ordenarPorNombreBurbuja(); t2 = std::chrono::high_resolution_clock::now();
+        long tiempoBurbuja = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
 
         ui->listaResultadosBusqueda->clear();
-        ui->listaResultadosBusqueda->addItem(QString("✅ Ordenamiento Burbuja (%1 µs):").arg(tiempoBurbuja));
+        QListWidgetItem* header = new QListWidgetItem("✅ Datos Ordenados (Demostración)");
+        header->setFont(QFont("Segoe UI", 10, QFont::Bold));
+        header->setForeground(QBrush(QColor("#FF9800")));
+        ui->listaResultadosBusqueda->addItem(header);
+        ui->listaResultadosBusqueda->addItem("-------------------------------------------------");
+
         ListNode* actual = listaClon.getInicio();
         while (actual != nullptr) {
-            ui->listaResultadosBusqueda->addItem(QString::fromStdString("- " + actual->data.name));
+            ui->listaResultadosBusqueda->addItem(QString::fromStdString("📦 " + actual->data.name));
             actual = actual->next;
         }
+
+        QString resultado = QString(
+            "<h4 style='margin-top: 0px; margin-bottom: 5px; color: #FFFFFF;'>📈 Tiempos de Ordenamiento (Alfabético)</h4>"
+            "<span style='color: #4CAF50; font-size: 14px;'><b>AVL (In-Order) O(n):</b> %1 µs</span><br><br>"
+            "<span style='color: #F44336; font-size: 14px;'><b>Lista (Burbuja) O(n²):</b> %2 µs</span>"
+        ).arg(tiempoAVL).arg(tiempoBurbuja);
+
+        ui->lblTiemposComparativa->setStyleSheet("background-color: #212121; padding: 10px; border-radius: 8px; border: 1px solid #424242;");
+        ui->lblTiemposComparativa->setText(resultado);
     }
 
+    // VER HISTORIAL
     void MainWindow::on_btnVerHistorial_clicked() {
         VertexNode* nodo = obtenerSucursalContexto();
         if (!nodo) return;
 
         ui->listaResultadosBusqueda->clear();
-        ui->listaResultadosBusqueda->addItem("🕒 HISTORIAL DE CAMBIOS (Pila):");
+
+        QListWidgetItem* titulo = new QListWidgetItem("🕒 HISTORIAL DE CAMBIOS (Pila LIFO):");
+        titulo->setFont(QFont("Segoe UI", 10, QFont::Bold));
+        titulo->setForeground(QBrush(QColor("#E0E0E0")));
+        ui->listaResultadosBusqueda->addItem(titulo);
+        ui->listaResultadosBusqueda->addItem("-------------------------------------------------");
 
         LinkedList temporal;
         nodo->sucursal.pilaRollback.obtenerContenido(temporal);
 
         if (temporal.estaVacia()) {
-            ui->listaResultadosBusqueda->addItem("No hay movimientos recientes.");
-            return;
+            ui->listaResultadosBusqueda->addItem("No hay movimientos recientes en esta sucursal.");
+        } else {
+            ListNode* actual = temporal.getInicio();
+            while (actual != nullptr) {
+                ui->listaResultadosBusqueda->addItem(QString::fromStdString("⏪ Ingreso: " + actual->data.name + " (" + actual->data.barcode + ")"));
+                actual = actual->next;
+            }
         }
 
-        ListNode* actual = temporal.getInicio();
-        while (actual != nullptr) {
-            ui->listaResultadosBusqueda->addItem(QString::fromStdString("-> Ingreso: " + actual->data.name + " (" + actual->data.barcode + ")"));
-            actual = actual->next;
-        }
+        actualizarDashboardMetricas("🕒 Consulta de Historial", -1, -1, -1, -1, -1, "#E0E0E0");
     }
 
     // --- LISTAR IN-ORDER (AVL) ---
@@ -618,24 +720,34 @@
         if (!nodo) return;
 
         ui->listaResultadosBusqueda->clear();
-
         LinkedList resultados;
 
         auto inicio = std::chrono::high_resolution_clock::now();
         nodo->sucursal.inventarioAVL.listarAlfabeticamente(resultados);
         auto fin = std::chrono::high_resolution_clock::now();
-        auto duracion = std::chrono::duration_cast<std::chrono::microseconds>(fin - inicio).count();
+        long duracion = std::chrono::duration_cast<std::chrono::microseconds>(fin - inicio).count();
 
         if (!resultados.estaVacia()) {
-            ui->listaResultadosBusqueda->addItem(QString::fromStdString("✅ Catálogo Alfabético (" + std::to_string(duracion) + " µs)"));
+            QListWidgetItem* header = new QListWidgetItem("✅ Catálogo Alfabético Completo");
+            header->setFont(QFont("Segoe UI", 10, QFont::Bold));
+            header->setForeground(QBrush(QColor("#2196F3"))); // Azul para AVL
+            ui->listaResultadosBusqueda->addItem(header);
+            ui->listaResultadosBusqueda->addItem("-------------------------------------------------");
 
             ListNode* actual = resultados.getInicio();
             while (actual != nullptr) {
-                ui->listaResultadosBusqueda->addItem(QString::fromStdString("- " + actual->data.name + " (Q" + std::to_string(actual->data.price) + ")"));
+                QString precioFormat = QString::number(actual->data.price, 'f', 2);
+                QString itemTexto = QString("📦 %1\n      💰 Q %2  |  📊 Stock: %3")
+                                        .arg(QString::fromStdString(actual->data.name))
+                                        .arg(precioFormat)
+                                        .arg(actual->data.stock);
+                ui->listaResultadosBusqueda->addItem(new QListWidgetItem(itemTexto));
                 actual = actual->next;
             }
+
+            actualizarDashboardMetricas("📈 Recorrido In-Order (AVL)", -1, duracion, -1, -1, -1, "#2196F3");
         } else {
-            ui->listaResultadosBusqueda->addItem("El catálogo está vacío.");
+            ui->listaResultadosBusqueda->addItem("⚠️ El catálogo está vacío.");
         }
     }
 
@@ -950,19 +1062,21 @@
         // Obtener los datos del usuario
         std::string estructuraSeleccionada = ui->cbEstructura->currentText().toStdString();
         QString idText = ui->txtReporteSucursalId->text();
+        VertexNode* nodoSucursal = nullptr;
 
-        if (idText.isEmpty()) {
-            QMessageBox::warning(this, "Aviso", "Por favor ingresa un ID de Sucursal.");
-            return;
-        }
+        if (estructuraSeleccionada != "Mapa de Red") {
+            if (idText.isEmpty()) {
+                QMessageBox::warning(this, "Aviso", "Por favor ingresa un ID de Sucursal.");
+                return;
+            }
 
-        int sucursalId = idText.toInt();
+            int sucursalId = idText.toInt();
+            nodoSucursal = redNacional.buscarVertice(sucursalId);
 
-        // Buscar la sucursal en el Grafo
-        VertexNode* nodoSucursal = redNacional.buscarVertice(sucursalId);
-        if (nodoSucursal == nullptr) {
-            QMessageBox::critical(this, "Error", "La sucursal indicada no existe.");
-            return;
+            if (nodoSucursal == nullptr) {
+                QMessageBox::critical(this, "Error", "La sucursal indicada no existe.");
+                return;
+            }
         }
 
         // Nombres de archivos temporales
@@ -1073,4 +1187,36 @@
         }
         // Llamada obligatoria a la clase base
         return QMainWindow::eventFilter(obj, event);
+    }
+
+    void MainWindow::actualizarDashboardMetricas(const QString& tituloPanel,
+                                         double tHash, double tAVL, double tBTree,
+                                         double tBPlus, double tLista,
+                                         const QString& colorPrincipal) {
+
+        QString filaValores = "<tr>";
+        // El 'f', 3 asegura que siempre se vean 3 decimales (ej. 0.412 µs)
+        filaValores += (tHash >= 0) ? QString("<td>%1 µs</td>").arg(tHash, 0, 'f', 3) : "<td>N/A</td>";
+        filaValores += (tAVL >= 0) ? QString("<td>%1 µs</td>").arg(tAVL, 0, 'f', 3) : "<td>N/A</td>";
+        filaValores += (tBTree >= 0) ? QString("<td>%1 µs</td>").arg(tBTree, 0, 'f', 3) : "<td>N/A</td>";
+        filaValores += (tBPlus >= 0) ? QString("<td>%1 µs</td>").arg(tBPlus, 0, 'f', 3) : "<td>N/A</td>";
+        filaValores += (tLista >= 0) ? QString("<td>%1 µs</td>").arg(tLista, 0, 'f', 3) : "<td>N/A</td>";
+        filaValores += "</tr>";
+
+        QString metricasHTML = QString(
+            "<h4 style='margin-top: 0px; margin-bottom: 5px; color: %1;'>%2</h4>"
+            "<table style='width: 100%; color: #E0E0E0; font-size: 12px; text-align: center;' border='0'>"
+            "<tr>"
+            "  <td style='color: #4CAF50;'><b>Hash O(1)</b></td>"
+            "  <td style='color: #2196F3;'><b>AVL O(log n)</b></td>"
+            "  <td style='color: #FF9800;'><b>B-Tree O(log n)</b></td>"
+            "  <td style='color: #9C27B0;'><b>B+ Tree O(log n)</b></td>"
+            "  <td style='color: #F44336;'><b>Lista O(n)</b></td>"
+            "</tr>"
+            "%3"
+            "</table>"
+        ).arg(colorPrincipal, tituloPanel, filaValores);
+
+        ui->lblTiemposComparativa->setStyleSheet("background-color: #212121; padding: 10px; border-radius: 8px; border: 1px solid #424242;");
+        ui->lblTiemposComparativa->setText(metricasHTML);
     }
